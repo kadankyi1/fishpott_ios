@@ -12,8 +12,13 @@ struct OnboardingView: View {
     
     // MARK: - BODY
     var body: some View {
-        
-        IntroCardView()
+        TabView {
+            ForEach(0..<2){ item in
+                IntroCardView()
+            } // LOOP
+        } // TAB
+        .tabViewStyle(PageTabViewStyle())
+        .padding(.vertical, 20)
     }
 }
 
