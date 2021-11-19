@@ -11,6 +11,7 @@
 		DF5F5F8F2747AF3A00822C71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F8E2747AF3A00822C71 /* ContentView.swift */; };
 		DF5F5F912747AF3D00822C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF5F5F902747AF3D00822C71 /* Assets.xcassets */; };
 		DF5F5F942747AF3D00822C71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF5F5F932747AF3D00822C71 /* Preview Assets.xcassets */; };
+		DF5F5F9D2748035700822C71 /* IntroCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F9C2748035700822C71 /* IntroCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		DF5F5F8E2747AF3A00822C71 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DF5F5F902747AF3D00822C71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF5F5F932747AF3D00822C71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DF5F5F9C2748035700822C71 /* IntroCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +53,7 @@
 		DF5F5F8B2747AF3A00822C71 /* FishPott */ = {
 			isa = PBXGroup;
 			children = (
-				DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */,
+				DF5F5F9B274802B600822C71 /* View */,
 				DF5F5F9A2747CCA300822C71 /* App */,
 				DF5F5F902747AF3D00822C71 /* Assets.xcassets */,
 				DF5F5F922747AF3D00822C71 /* Preview Content */,
@@ -70,9 +72,18 @@
 		DF5F5F9A2747CCA300822C71 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */,
 				DF5F5F8E2747AF3A00822C71 /* ContentView.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		DF5F5F9B274802B600822C71 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DF5F5F9C2748035700822C71 /* IntroCardView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 			files = (
 				DF5F5F8F2747AF3A00822C71 /* ContentView.swift in Sources */,
 				DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */,
+				DF5F5F9D2748035700822C71 /* IntroCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
