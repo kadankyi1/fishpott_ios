@@ -21,15 +21,21 @@ struct IntroCardView: View {
                     .scaledToFit()
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 8, x: 6, y: 8)
                 // INFO : TITLE
-                
-                // INFO : HEADLINE
-                
-                // INFO : BUTTON-START
-                Text("Hello, World!")
+                Text("Answer-To-Discover")
                     .foregroundColor(Color.white)
-                    .font(.largeTitle)
+                    .font(.headline)
                     .fontWeight(.heavy)
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 2, x: 2, y: 2)
+                
+                // INFO : HEADLINE
+                Text("Discover your trading nature. Train your FishPott to suggest stocks you will like to invest in.")
+                    .foregroundColor(Color.white)
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 16)
+                
+                // INFO : BUTTON-START
+                
             } //  VSTACK
         } //  ZSTACK
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)

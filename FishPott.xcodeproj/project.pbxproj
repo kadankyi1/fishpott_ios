@@ -12,6 +12,7 @@
 		DF5F5F912747AF3D00822C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF5F5F902747AF3D00822C71 /* Assets.xcassets */; };
 		DF5F5F942747AF3D00822C71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF5F5F932747AF3D00822C71 /* Preview Assets.xcassets */; };
 		DF5F5F9D2748035700822C71 /* IntroCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F9C2748035700822C71 /* IntroCardView.swift */; };
+		DF5F5F9F2748116900822C71 /* StartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F9E2748116900822C71 /* StartButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		DF5F5F902747AF3D00822C71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF5F5F932747AF3D00822C71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DF5F5F9C2748035700822C71 /* IntroCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCardView.swift; sourceTree = "<group>"; };
+		DF5F5F9E2748116900822C71 /* StartButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				DF5F5F9C2748035700822C71 /* IntroCardView.swift */,
+				DF5F5F9E2748116900822C71 /* StartButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF5F5F8F2747AF3A00822C71 /* ContentView.swift in Sources */,
+				DF5F5F9F2748116900822C71 /* StartButtonView.swift in Sources */,
 				DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */,
 				DF5F5F9D2748035700822C71 /* IntroCardView.swift in Sources */,
 			);
