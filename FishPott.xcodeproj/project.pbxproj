@@ -13,6 +13,7 @@
 		DF5F5F942747AF3D00822C71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF5F5F932747AF3D00822C71 /* Preview Assets.xcassets */; };
 		DF5F5F9D2748035700822C71 /* IntroCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F9C2748035700822C71 /* IntroCardView.swift */; };
 		DF5F5F9F2748116900822C71 /* StartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F9E2748116900822C71 /* StartButtonView.swift */; };
+		DF5F5FA1274817CC00822C71 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FA0274817CC00822C71 /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		DF5F5F932747AF3D00822C71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DF5F5F9C2748035700822C71 /* IntroCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCardView.swift; sourceTree = "<group>"; };
 		DF5F5F9E2748116900822C71 /* StartButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButtonView.swift; sourceTree = "<group>"; };
+		DF5F5FA0274817CC00822C71 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			children = (
 				DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */,
 				DF5F5F8E2747AF3A00822C71 /* ContentView.swift */,
+				DF5F5FA0274817CC00822C71 /* OnboardingView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				DF5F5F8F2747AF3A00822C71 /* ContentView.swift in Sources */,
 				DF5F5F9F2748116900822C71 /* StartButtonView.swift in Sources */,
 				DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */,
+				DF5F5FA1274817CC00822C71 /* OnboardingView.swift in Sources */,
 				DF5F5F9D2748035700822C71 /* IntroCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
