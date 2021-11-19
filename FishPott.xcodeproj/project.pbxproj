@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */,
-				DF5F5F8E2747AF3A00822C71 /* ContentView.swift */,
+				DF5F5F9A2747CCA300822C71 /* App */,
 				DF5F5F902747AF3D00822C71 /* Assets.xcassets */,
 				DF5F5F922747AF3D00822C71 /* Preview Content */,
 			);
@@ -65,6 +65,14 @@
 				DF5F5F932747AF3D00822C71 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DF5F5F9A2747CCA300822C71 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DF5F5F8E2747AF3A00822C71 /* ContentView.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
