@@ -21,6 +21,7 @@ struct IntroCardView: View {
                 Image(intromodel.image)
                     .resizable()
                     .scaledToFit()
+                    .frame(width: 200, height: 200)
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 8, x: 6, y: 8)
                     .scaleEffect(isAnimating ? 1.0 : 0.6)
                 // INFO : TITLE
@@ -56,7 +57,7 @@ struct IntroCardView: View {
 // MARK: - PREVIEW
 struct IntroCardView_Previews: PreviewProvider {
     static var previews: some View {
-        IntroCardView(intromodel: introData[0])
+        IntroCardView(intromodel: introData[1])
             .previewLayout(.fixed(width: 320, height: 640))
     }
 }
