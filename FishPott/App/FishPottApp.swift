@@ -11,7 +11,7 @@ import SwiftUI
 struct FishPottApp: App {
     var body: some Scene {
         WindowGroup {
-            OnboardingView()
+            OnboardingView(intro: introData)
         }
     }
 }
