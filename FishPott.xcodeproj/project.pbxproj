@@ -18,6 +18,7 @@
 		DF5F5FA42748ED2B00822C71 /* IntroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FA32748ED2B00822C71 /* IntroModel.swift */; };
 		DF5F5FA72748F45A00822C71 /* IntroData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FA62748F45A00822C71 /* IntroData.swift */; };
 		DF5F5FA9274917A400822C71 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FA8274917A400822C71 /* LoginView.swift */; };
+		DF5F5FAB274A169800822C71 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FAA274A169800822C71 /* SignupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		DF5F5FA32748ED2B00822C71 /* IntroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroModel.swift; sourceTree = "<group>"; };
 		DF5F5FA62748F45A00822C71 /* IntroData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroData.swift; sourceTree = "<group>"; };
 		DF5F5FA8274917A400822C71 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DF5F5FAA274A169800822C71 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +57,6 @@
 				95B79C23ACA8455358803D4B /* Pods-FishPott.debug.xcconfig */,
 				DE70B70C8FFF26BFCEAC3953 /* Pods-FishPott.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -113,6 +114,7 @@
 				DF5F5F8E2747AF3A00822C71 /* ContentView.swift */,
 				DF5F5FA0274817CC00822C71 /* OnboardingView.swift */,
 				DF5F5FA8274917A400822C71 /* LoginView.swift */,
+				DF5F5FAA274A169800822C71 /* SignupView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -256,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF5F5FAB274A169800822C71 /* SignupView.swift in Sources */,
 				DF5F5F8F2747AF3A00822C71 /* ContentView.swift in Sources */,
 				DF5F5F9F2748116900822C71 /* StartButtonView.swift in Sources */,
 				DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */,

@@ -1,8 +1,8 @@
 //
-//  ContentView.swift
-//  GloryHub
+//  LoginView.swift
+//  FishPott
 //
-//  Created by Shugaban Media on 01/02/2021.
+//  Created by Dankyi Anno Kwaku on 11/20/21.
 //
 
 import SwiftUI
@@ -21,7 +21,7 @@ struct LoginView: View {
         
     var body: some View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 5) {
-            Image("CAW-app-Login-2")
+            Image("startinfo1")
                     .resizable()
                 .scaleEffect(x: 1, y: 0.95, anchor: .top)
             
