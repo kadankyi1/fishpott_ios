@@ -20,10 +20,13 @@ struct LoginView: View {
         
         
     var body: some View {
-        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 5) {
-            Image("startinfo1")
+        VStack(spacing : 50) {
+            Image("roundlogo")
                     .resizable()
-                .scaleEffect(x: 1, y: 0.95, anchor: .top)
+                    .scaledToFit()
+                    .frame(width: 75, height: 75)
+                    .padding(.vertical, 20)
+                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 8, x: 6, y: 8)
             
             if manager.requestMade {
                 if !manager.authenticated {
@@ -45,79 +48,65 @@ struct LoginView: View {
                         print("currentStage: \(self.currentStage)")
                     })
                 }
-            }
+            } // MARK: - if manager.requestMade
  
             
-            TextField("Phone Number", text: $username).textFieldStyle(RoundedBorderTextFieldStyle.init())
-                .scaleEffect(x: 1, y: 1, anchor: .center)
-                .padding(.horizontal, 50)
-                .padding(.bottom, 10)
-                //.position(x: 1, y: 1)
-            
-            
-            SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle.init())
-                .scaleEffect(x: 1, y: 1, anchor: .top)
-                .padding(.horizontal, 50)
-                .padding(.bottom, 10)
-            
-            if manager.showLoginButton {
-                Button(action: {
-                    print("\(self.username) and \(self.password)")
-                    if networking == false {
-                        networking = true;
-                        manager.checkDetails(user_phone_number: self.username, password: self.password)
-                    }
-                    
-                }) {
-                    HStack (spacing: 8) {
-                        Text("LOGIN")
-                            .foregroundColor(Color("ColorAccentOppBlack"))
-                    }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 10)
-                    .foregroundColor(Color("ColorYellowButton"))
-                } //: BUTTON
-                .accentColor(Color("ColorYellowButton"))
-                .background(Color("ColorYellowButton"))
-                .cornerRadius(20)
-                .padding(.bottom, 50)
+            VStack(spacing: 5) {
+                TextField("Phone Number", text: $username).textFieldStyle(RoundedBorderTextFieldStyle.init())
+                    .scaleEffect(x: 1, y: 1, anchor: .center)
+                    .padding(.horizontal, 50)
+                    .padding(.bottom, 10)
+                    //.position(x: 1, y: 1)
                 
-            } else {
-                ProgressView()
-            }
+                
+                SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle.init())
+                    .scaleEffect(x: 1, y: 1, anchor: .top)
+                    .padding(.horizontal, 50)
+                    .padding(.bottom, 10)
+                
+                if manager.showLoginButton {
+                    Button(action: {
+                        print("\(self.username) and \(self.password)")
+                        if networking == false {
+                            networking = true;
+                            manager.checkDetails(user_phone_number: self.username, password: self.password)
+                        }
+                        
+                    }) {
+                        HStack (spacing: 8) {
+                            Text("LOGIN")
+                                .foregroundColor(Color("ColorWhiteAccent"))
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .foregroundColor(Color("ColorWhiteAccent"))
+                    } //: BUTTON
+                    .accentColor(Color("ColorYellowButton"))
+                    .background(Color("ColorBlackPrimaryDark"))
+                    .cornerRadius(5)
+                    .padding(.bottom, 50)
+                } else { // MARK: - if manager.showLoginButton
+                    ProgressView()
+                }
+            } // MARK: - VSTACK
+            .padding(.top, 50)
             
-             
-             Text("Not A Member? Join Here")
-                 .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            
+             Text("Create A FishPott")
+                 .foregroundColor(Color("ColorBlackPrimaryDark"))
                  .padding(.bottom, 10)
                  .onTapGesture {
                      self.currentStage = "SignupView"
                  }
-            
-            if updateContent2.showProgress {
-                ProgressView().onDisappear(perform: {
-                    networking = false;
-                    if updateContent2.values_set {
-                         self.currentStage = "LoggedInView"
-                    }
-                })
-            } else {
-             Text("Proceed As A Guest")
-                .foregroundColor(.gray)
-                 .padding(.bottom, 150)
-                 .onTapGesture {
-                    
-                    if networking == false {
-                        networking = true;
-                        updateContent2.update_content();
-                        if updateContent2.values_set {
-                             self.currentStage = "LoggedInView"
-                        }
-                    }
-                 }
-            }
-            
-        }
+        } // MARK: - VSTACK
+        .frame(
+              minWidth: 0,
+              maxWidth: .infinity,
+              minHeight: 0,
+              maxHeight: .infinity,
+              alignment: .topLeading
+            )
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

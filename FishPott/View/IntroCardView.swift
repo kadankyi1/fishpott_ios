@@ -49,8 +49,8 @@ struct IntroCardView: View {
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
         .background(LinearGradient(gradient: Gradient(colors: intromodel.gradidentColors), startPoint: .top, endPoint: .bottom))
-        .cornerRadius(20)
-        .padding(.horizontal, 15)
+        //.cornerRadius(20)
+        //.padding(.horizontal, 15)
     }
 }
 

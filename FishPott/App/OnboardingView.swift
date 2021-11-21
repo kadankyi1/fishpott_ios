@@ -19,7 +19,15 @@ struct OnboardingView: View {
             } // LOOP
         } // TAB
         .tabViewStyle(PageTabViewStyle())
-        .padding(.vertical, 20)
+        //.padding(.vertical, 20)
+        .frame(
+              minWidth: 0,
+              maxWidth: .infinity,
+              minHeight: 0,
+              maxHeight: .infinity,
+              alignment: .topLeading
+            )
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
