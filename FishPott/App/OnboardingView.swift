@@ -10,12 +10,13 @@ import SwiftUI
 struct OnboardingView: View {
     // MARK: - PROPERTIES
     var intro: [IntroModel] = introData
+    @Binding var currentStage: String
     
     // MARK: - BODY
     var body: some View {
         TabView {
             ForEach(intro[0...1]){ item in
-                IntroCardView(intromodel: item)
+                IntroCardView(intromodel: item, currentStage: $currentStage)
             } // LOOP
         } // TAB
         .tabViewStyle(PageTabViewStyle())
@@ -34,7 +35,7 @@ struct OnboardingView: View {
 // MARK - PREVIEW
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView(intro: introData)
+        OnboardingView(intro: introData, currentStage: .constant("SignupView"))
             .previewDevice("iPhone 11 Pro")
     }
 }

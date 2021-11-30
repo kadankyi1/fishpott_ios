@@ -22,10 +22,12 @@ struct LoginView: View {
         
         
     var body: some View {
-        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 5) {
-            Image("CAW-app-Login-2")
+        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10) {
+            
+            Image("roundlogo")
                     .resizable()
-                .scaleEffect(x: 1, y: 0.95, anchor: .top)
+                    .frame(width: 100, height: 100, alignment: .top)
+                    .padding(.vertical, 50)
             
             if manager.requestMade {
                 if !manager.authenticated {
@@ -75,15 +77,15 @@ struct LoginView: View {
                 }) {
                     HStack (spacing: 8) {
                         Text("LOGIN")
-                            .foregroundColor(Color("ColorAccentOppBlack"))
+                            .foregroundColor(Color("ColorWhiteAccent"))
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 10)
-                    .foregroundColor(Color("ColorYellowButton"))
+                    .foregroundColor(Color("ColorWhiteAccent"))
                 } //: BUTTON
-                .accentColor(Color("ColorYellowButton"))
-                .background(Color("ColorYellowButton"))
-                .cornerRadius(20)
+                .accentColor(Color("ColorBlackPrimary"))
+                .background(Color("ColorBlackPrimary"))
+                .cornerRadius(5)
                 .padding(.bottom, 50)
                 
             } // MARK - if manager.showLoginButton
@@ -91,38 +93,32 @@ struct LoginView: View {
                 ProgressView()
             }
             
-             
-             Text("Not A Member? Join Here")
-                 .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                 .padding(.bottom, 10)
-                 .onTapGesture {
-                     self.currentStage = "SignupView"
-                 }
             
-            if updateContent2.showProgress {
-                ProgressView().onDisappear(perform: {
-                    networking = false;
-                    if updateContent2.values_set {
-                         self.currentStage = "LoggedInView"
-                    }
-                })
-            } else {
-             Text("Proceed As A Guest")
-                .foregroundColor(.gray)
-                 .padding(.bottom, 150)
-                 .onTapGesture {
-                    
-                    if networking == false {
-                        networking = true;
-                        updateContent2.update_content();
-                        if updateContent2.values_set {
-                             self.currentStage = "LoggedInView"
-                        }
-                    }
-                 }
+            Text("Start A FishPott")
+                .foregroundColor(Color("ColorBlackPrimary"))
+                .padding(.bottom, 10)
+                .onTapGesture {
+                    self.currentStage = "SignupView"
+                }
+            
+        
+        Text("Privacy Policy")
+            .foregroundColor(Color("ColorBlackPrimary"))
+            .padding(.bottom, 10)
+            .onTapGesture {
+                self.currentStage = "SignupView"
             }
             
+            Text("Privacy Policy | Terms & Conditions")
+                .foregroundColor(Color("ColorBlackPrimary"))
+                .padding(.bottom, 10)
+                .onTapGesture {
+                    self.currentStage = "SignupView"
+                }
+            
+            
         } // MARK - VSTACK
+        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
     }
 }
 

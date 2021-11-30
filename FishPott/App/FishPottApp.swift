@@ -17,8 +17,8 @@ struct FishPottApp: App {
         WindowGroup {
             
             if(self.currentStage == "OnboardingView"){
-                //OnboardingView(currentStage: $currentStage)
-                OnboardingView(intro: introData)
+                OnboardingView(currentStage: $currentStage)
+                //OnboardingView(intro: introData)
             } else if(self.currentStage == "LoginView"){
                 LoginView(currentStage: $currentStage)
             } else if(self.currentStage == "SignupView"){

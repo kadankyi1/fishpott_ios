@@ -11,6 +11,7 @@ struct IntroCardView: View {
     // MARK: - PROPERTIES
     var intromodel: IntroModel
     @State private var isAnimating: Bool = false
+    @Binding var currentStage: String
     
     
     // MARK: BODY
@@ -39,7 +40,7 @@ struct IntroCardView: View {
                     .padding(.horizontal, 16)
                 
                 // INFO : BUTTON-START
-                StartButtonView()
+                StartButtonView(currentStage: $currentStage)
             } //  VSTACK
         } //  ZSTACK
         .onAppear{
@@ -57,7 +58,7 @@ struct IntroCardView: View {
 // MARK: - PREVIEW
 struct IntroCardView_Previews: PreviewProvider {
     static var previews: some View {
-        IntroCardView(intromodel: introData[1])
+        IntroCardView(intromodel: introData[1], currentStage: .constant("SignupView"))
             .previewLayout(.fixed(width: 320, height: 640))
     }
 }
