@@ -110,7 +110,7 @@ struct LoginView: View {
             }
             
             Text("Privacy Policy | Terms & Conditions")
-                .foregroundColor(Color("ColorBlackPrimary"))
+                .foregroundColor(Color("ColorGray"))
                 .padding(.bottom, 10)
                 .onTapGesture {
                     self.currentStage = "SignupView"
