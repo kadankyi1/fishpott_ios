@@ -25,7 +25,7 @@ struct FishPottApp: App {
             } else if(self.currentStage == "SignupView"){
                 //SignupView(currentStage: $currentStage)
             } else {
-                //MainView()
+                MainView()
             }
             
         } // MARK: - WINDOW GROUP
@@ -58,13 +58,15 @@ func getUserFirstOpenView(_ index: String) -> String {
     var media_allowed = UserDefaults.standard.integer(forKey: "media_allowed") ?? 0
     var user_min_allowed_version = UserDefaults.standard.integer(forKey: "user_min_allowed_version") ?? 0
     var mtn_momo_number = UserDefaults.standard.string(forKey: "mtn_momo_number") ?? ""
+    var mtn_momo_acc_name = UserDefaults.standard.string(forKey: "mtn_momo_acc_name") ?? ""
+    var vodafone_momo_number = UserDefaults.standard.string(forKey: "vodafone_momo_number") ?? ""
+    var vodafone_momo_acc_name = UserDefaults.standard.string(forKey: "vodafone_momo_acc_name") ?? ""
+    var airteltigo_momo_number = UserDefaults.standard.string(forKey: "airteltigo_momo_number") ?? ""
+    var airteltigo_momo_acc_name = UserDefaults.standard.string(forKey: "airteltigo_momo_acc_name") ?? ""
+    
     //print("getSavedString: \(str)")
-    if(str != "" && latest_audio_image != "" && latest_video1_image != "" && latest_video2_image != ""){
-        if(user_firstname == "Guest" && user_lastname == "User"){
-            str = "SignupView"
-        } else {
+    if(user_phone != "" && user_id != "" && access_token != "" && user_pott_name != "" && user_full_name != ""){
             str = "MainView"
-        }
     } else {
         str = "OnboardingView"
     }
