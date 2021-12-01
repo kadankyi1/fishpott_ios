@@ -23,7 +23,7 @@ struct FishPottApp: App {
             } else if(self.currentStage == "LoginView"){
                 LoginView(currentStage: $currentStage)
             } else if(self.currentStage == "SignupView"){
-                //SignupView(currentStage: $currentStage)
+                SignupView(currentStage: $currentStage)
             } else {
                 MainView()
             }
@@ -64,7 +64,11 @@ func getUserFirstOpenView(_ index: String) -> String {
     var airteltigo_momo_number = UserDefaults.standard.string(forKey: "airteltigo_momo_number") ?? ""
     var airteltigo_momo_acc_name = UserDefaults.standard.string(forKey: "airteltigo_momo_acc_name") ?? ""
     
-    //print("getSavedString: \(str)")
+    print("user_phone: \(user_phone)")
+    print("user_id: \(user_id)")
+    print("access_token: \(access_token)")
+    print("user_pott_name: \(user_pott_name)")
+    print("user_full_name: \(user_full_name)")
     if(user_phone != "" && user_id != "" && access_token != "" && user_pott_name != "" && user_full_name != ""){
             str = "MainView"
     } else {

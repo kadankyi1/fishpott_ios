@@ -17,30 +17,22 @@ struct SignupActionTextsViews: View {
     @ObservedObject var updateContent3 = HttpUpdateContentForSignup()
     
     var body: some View {
-        Text("Sign-In Here")
-            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-            .padding(.bottom, 25)
+        
+        
+        Text("Start A FishPott")
+            .foregroundColor(Color("ColorBlackPrimary"))
+            .padding(.bottom, 10)
             .onTapGesture {
                 self.currentStage = "LoginView"
             }
         
-        
-        if updateContent3.showProgress {
-            ProgressView()
-                .onDisappear(perform: {
-                    if updateContent3.values_set {
-                         self.currentStage = "LoggedInView"
-                    }
-                })
-        } else {
-            Text("Proceed As A Guest")
-            .foregroundColor(.gray)
-            .padding(.bottom, 25)
+        Text("Privacy Policy | Terms & Conditions")
+            .foregroundColor(Color("ColorGray"))
+            .padding(.bottom, 10)
             .onTapGesture {
-                updateContent3.update_content();
+                Link("FishPott Privacy Policy", destination: URL(string: "https://fishpott.com/pp.html")!)
             }
-            
-        }
+        
     }
 }
 
