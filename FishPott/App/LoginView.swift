@@ -101,14 +101,6 @@ struct LoginView: View {
                     self.currentStage = "SignupView"
                 }
             
-        
-        Text("Privacy Policy")
-            .foregroundColor(Color("ColorBlackPrimary"))
-            .padding(.bottom, 10)
-            .onTapGesture {
-                self.currentStage = "SignupView"
-            }
-            
             Text("Privacy Policy | Terms & Conditions")
                 .foregroundColor(Color("ColorGray"))
                 .padding(.bottom, 10)
@@ -145,7 +137,13 @@ class HttpAuth: ObservableObject {
         showLoginButton = false
         guard let url = URL(string: "http://144.202.76.74/api/v1/member/login") else { return }
 
-        let body: [String: String] = ["user_phone_number": user_phone_number, "password": password]
+        let body: [String: String] = [
+            "user_phone_number": user_phone_number,
+            "password": password,
+            "user_language": "en",
+            "app_type": "ios",
+            "app_version_code": FishPottApp.app_version
+        ]
 
         let finalBody = try! JSONSerialization.data(withJSONObject: body)
 
@@ -160,13 +158,13 @@ class HttpAuth: ObservableObject {
             
             do {
                 let json = try JSON(data: data)
-                if let status = json["status"].int {
+                if let status = json["status"].string {
                   //Now you got your value
                     print(status)
                     
                     DispatchQueue.main.async {
                         self.requestMade = true
-                        if status == 1 {
+                        if !status.contains("yes") {
                             print(status)
                             self.authenticated = true
                             if let thisaccesstoken = json["access_token"].string {
@@ -174,7 +172,7 @@ class HttpAuth: ObservableObject {
                                 self.accessToken = thisaccesstoken
                                 print("access_token: \(self.accessToken)")
                               }
-                            if let firstname = json["user"]["user_firstname"].string {
+                            if let firstname = json["user_full_name"].string {
                                 //Now you got your value
                                 self.userFirstName = firstname
                                 print("userFirstName: \(self.userFirstName)")
