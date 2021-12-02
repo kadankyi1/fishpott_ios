@@ -26,6 +26,10 @@
 		DFB0F5662756361800968F2B /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB0F5652756361800968F2B /* GeometryGetter.swift */; };
 		DFB0F5682756363700968F2B /* AdaptsToKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB0F5672756363700968F2B /* AdaptsToKeyboard.swift */; };
 		DFB0F56A2756364C00968F2B /* KeyboardHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB0F5692756364C00968F2B /* KeyboardHost.swift */; };
+		DFC74E9B2758DE2300F64CA5 /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC74E9A2758DE2300F64CA5 /* SuggestionView.swift */; };
+		DFC74E9D2758DE3F00F64CA5 /* FinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC74E9C2758DE3F00F64CA5 /* FinderView.swift */; };
+		DFC74E9F2758DE7600F64CA5 /* InvestmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC74E9E2758DE7600F64CA5 /* InvestmentsView.swift */; };
+		DFC74EA12758DE8500F64CA5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC74EA02758DE8500F64CA5 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,10 @@
 		DFB0F5652756361800968F2B /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
 		DFB0F5672756363700968F2B /* AdaptsToKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptsToKeyboard.swift; sourceTree = "<group>"; };
 		DFB0F5692756364C00968F2B /* KeyboardHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHost.swift; sourceTree = "<group>"; };
+		DFC74E9A2758DE2300F64CA5 /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionView.swift; sourceTree = "<group>"; };
+		DFC74E9C2758DE3F00F64CA5 /* FinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderView.swift; sourceTree = "<group>"; };
+		DFC74E9E2758DE7600F64CA5 /* InvestmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsView.swift; sourceTree = "<group>"; };
+		DFC74EA02758DE8500F64CA5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +138,10 @@
 				DF5F5FA0274817CC00822C71 /* OnboardingView.swift */,
 				DF5F5FA8274917A400822C71 /* LoginView.swift */,
 				DF5F5FAA274A169800822C71 /* SignupView.swift */,
+				DFC74E9A2758DE2300F64CA5 /* SuggestionView.swift */,
+				DFC74E9C2758DE3F00F64CA5 /* FinderView.swift */,
+				DFC74E9E2758DE7600F64CA5 /* InvestmentsView.swift */,
+				DFC74EA02758DE8500F64CA5 /* ProfileView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -289,19 +301,23 @@
 			files = (
 				DF5F5FB0274A1B2F00822C71 /* PickerTextField.swift in Sources */,
 				DF5F5FB2274A201A00822C71 /* SignupActionTextsViews.swift in Sources */,
+				DFC74E9B2758DE2300F64CA5 /* SuggestionView.swift in Sources */,
 				DF5F5FAB274A169800822C71 /* SignupView.swift in Sources */,
 				DF5F5FAE274A1AC200822C71 /* KeyboardGuardian.swift in Sources */,
 				DFB0F5662756361800968F2B /* GeometryGetter.swift in Sources */,
 				DF5F5F8F2747AF3A00822C71 /* ContentView.swift in Sources */,
 				DF5F5F9F2748116900822C71 /* StartButtonView.swift in Sources */,
 				DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */,
+				DFC74E9F2758DE7600F64CA5 /* InvestmentsView.swift in Sources */,
 				DFB0F5682756363700968F2B /* AdaptsToKeyboard.swift in Sources */,
 				DFAF793E275769BB00BC04DF /* MainView.swift in Sources */,
+				DFC74EA12758DE8500F64CA5 /* ProfileView.swift in Sources */,
 				DF5F5FA1274817CC00822C71 /* OnboardingView.swift in Sources */,
 				DF5F5FA42748ED2B00822C71 /* IntroModel.swift in Sources */,
 				DF5F5F9D2748035700822C71 /* IntroCardView.swift in Sources */,
 				DF5F5FA9274917A400822C71 /* LoginView.swift in Sources */,
 				DF5F5FA72748F45A00822C71 /* IntroData.swift in Sources */,
+				DFC74E9D2758DE3F00F64CA5 /* FinderView.swift in Sources */,
 				DFB0F56A2756364C00968F2B /* KeyboardHost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
