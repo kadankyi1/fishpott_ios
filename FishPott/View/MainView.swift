@@ -103,10 +103,9 @@ struct MainView: View {
                         
                         VStack {
                                  Image(tabBarImageNames[num])
-                                    //.font(.system(size: 25, weight: .bold))
                                     .renderingMode(.template)
+                                    .frame(height: 55)
                                     .colorMultiply(.init(white: 0.8))
-                                    //.foregroundColor(.red)
                                     .foregroundColor(selectedIndex == num ? Color(.black) : .init(white: 0.8))
                                 Text(tabBarMenuNames[num])
                                     .foregroundColor(Color("ColorAccentOppBlack"))
