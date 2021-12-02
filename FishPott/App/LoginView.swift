@@ -118,12 +118,12 @@ struct LoginView: View {
                     self.currentStage = "SignupView"
                 }
             
-            Text("Privacy Policy | Terms & Conditions")
-                .foregroundColor(Color("ColorGray"))
-                .padding(.bottom, 10)
-                .onTapGesture {
-                    self.currentStage = "SignupView"
-                }
+            Link(destination: URL(string: "https://fishpott.com/pp.html")!, label: {
+                Text("Privacy Policy | Terms & Conditions")
+                    .foregroundColor(Color("ColorGray"))
+                    .padding(.bottom, 10)
+                    
+            })
             
             
         } // MARK - VSTACK

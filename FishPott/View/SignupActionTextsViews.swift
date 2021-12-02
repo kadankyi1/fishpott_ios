@@ -17,21 +17,20 @@ struct SignupActionTextsViews: View {
     @ObservedObject var updateContent3 = HttpUpdateContentForSignup()
     
     var body: some View {
-        
-        
-        Text("Start A FishPott")
+        Text("Login")
             .foregroundColor(Color("ColorBlackPrimary"))
             .padding(.bottom, 10)
             .onTapGesture {
                 self.currentStage = "LoginView"
             }
         
-        Text("Privacy Policy | Terms & Conditions")
-            .foregroundColor(Color("ColorGray"))
-            .padding(.bottom, 10)
-            .onTapGesture {
-                Link("FishPott Privacy Policy", destination: URL(string: "https://fishpott.com/pp.html")!)
-            }
+        Link(destination: URL(string: "https://fishpott.com/pp.html")!, label: {
+            Text("Privacy Policy | Terms & Conditions")
+                .foregroundColor(Color("ColorGray"))
+                .padding(.bottom, 10)
+                
+        })
+        
         
     }
 }
