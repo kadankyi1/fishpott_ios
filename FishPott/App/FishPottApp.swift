@@ -25,7 +25,7 @@ struct FishPottApp: App {
             } else if(self.currentStage == "SignupView"){
                 SignupView(currentStage: $currentStage)
             } else {
-                MainView()
+                MainView(currentStage: $currentStage)
             }
             
         } // MARK: - WINDOW GROUP
