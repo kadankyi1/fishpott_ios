@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3CAC7059827CB052102BDCB2 /* Pods_FishPott.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9809116ED39C7B48189E9AA /* Pods_FishPott.framework */; };
+		DF513162275B4D950029ED4B /* splashfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF513161275B4D950029ED4B /* splashfont.ttf */; };
 		DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */; };
 		DF5F5F8F2747AF3A00822C71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F8E2747AF3A00822C71 /* ContentView.swift */; };
 		DF5F5F912747AF3D00822C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF5F5F902747AF3D00822C71 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		95B79C23ACA8455358803D4B /* Pods-FishPott.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FishPott.debug.xcconfig"; path = "Target Support Files/Pods-FishPott/Pods-FishPott.debug.xcconfig"; sourceTree = "<group>"; };
 		C9809116ED39C7B48189E9AA /* Pods_FishPott.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FishPott.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE70B70C8FFF26BFCEAC3953 /* Pods-FishPott.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FishPott.release.xcconfig"; path = "Target Support Files/Pods-FishPott/Pods-FishPott.release.xcconfig"; sourceTree = "<group>"; };
+		DF513161275B4D950029ED4B /* splashfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = splashfont.ttf; sourceTree = "<group>"; };
 		DF5F5F892747AF3A00822C71 /* FishPott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishPott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishPottApp.swift; sourceTree = "<group>"; };
 		DF5F5F8E2747AF3A00822C71 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DF513163275B4DDC0029ED4B /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DF513161275B4D950029ED4B /* splashfont.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		DF5F5F802747AF3A00822C71 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 		DF5F5F8B2747AF3A00822C71 /* FishPott */ = {
 			isa = PBXGroup;
 			children = (
+				DF513163275B4DDC0029ED4B /* Font */,
 				DF5F5FAC274A1AA500822C71 /* Utils */,
 				DF5F5FA52748F44500822C71 /* Data */,
 				DF5F5FA22748ED0A00822C71 /* Model */,
@@ -245,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF513162275B4D950029ED4B /* splashfont.ttf in Resources */,
 				DF5F5F942747AF3D00822C71 /* Preview Assets.xcassets in Resources */,
 				DF5F5F912747AF3D00822C71 /* Assets.xcassets in Resources */,
 			);

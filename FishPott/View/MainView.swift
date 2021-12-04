@@ -36,6 +36,9 @@ struct MainView: View {
          */
         VStack(spacing: 0) {
             
+        Text("FishPott")
+            .foregroundColor(Color(.black))
+            .font(.system(size: 15))
             ZStack {
                 
                 Spacer()
@@ -104,11 +107,10 @@ struct MainView: View {
                         VStack {
                                  Image(tabBarImageNames[num])
                                     .renderingMode(.template)
-                                    .frame(height: 55)
                                     .colorMultiply(.init(white: 0.8))
                                     .foregroundColor(selectedIndex == num ? Color(.black) : .init(white: 0.8))
                                 Text(tabBarMenuNames[num])
-                                    .foregroundColor(Color("ColorAccentOppBlack"))
+                                    .foregroundColor(selectedIndex == num ? Color(.black) : .init(white: 0.8))
                                     .font(.system(size: 12))
                             Spacer()
                         } // MARK: - VSTACK
