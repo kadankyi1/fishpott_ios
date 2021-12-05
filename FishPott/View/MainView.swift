@@ -130,6 +130,8 @@ struct MainView: View {
                 }
             } // MARK: - HSTACK
             
+            .background(Color.white)
+            
             
         }
         .background(Color.black)
