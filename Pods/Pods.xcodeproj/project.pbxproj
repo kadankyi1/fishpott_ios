@@ -28,7 +28,7 @@
 
 /* Begin PBXFileReference section */
 		260540ED954C1AC9F4F657EDF2E63CB6 /* Pods-FishPott-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FishPott-acknowledgements.plist"; sourceTree = "<group>"; };
-		334353C985222C3712BF91F84F0BD804 /* Pods-FishPott */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-FishPott"; path = Pods_FishPott.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		334353C985222C3712BF91F84F0BD804 /* Pods_FishPott.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FishPott.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		393952AA67DEEF47E5C984ADF2E077A2 /* Pods-FishPott.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FishPott.release.xcconfig"; sourceTree = "<group>"; };
 		47F9C4A4BCFD1C1ADC7F64918A40EDB0 /* Pods-FishPott.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FishPott.debug.xcconfig"; sourceTree = "<group>"; };
 		53C1A7E15161AE3A0E3A5090E19F84AE /* SwiftyJSON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.release.xcconfig; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		814190333BD21276E78670CE90669F3F /* Pods-FishPott.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FishPott.modulemap"; sourceTree = "<group>"; };
 		85E6264DDDA4D2E1B37014342045276C /* Pods-FishPott-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FishPott-umbrella.h"; sourceTree = "<group>"; };
 		874D7ABD2F10BB23F044CCCAEFA96E16 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON/SwiftyJSON.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A02287654566C4E833D550868E61137D /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
 		D55EF352BEE30EB0EBBAB361B97E16D5 /* Pods-FishPott-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FishPott-Info.plist"; sourceTree = "<group>"; };
 		E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +81,7 @@
 		4120AA53669301A8FB954074E234BDD3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				334353C985222C3712BF91F84F0BD804 /* Pods-FishPott */,
+				334353C985222C3712BF91F84F0BD804 /* Pods_FishPott.framework */,
 				E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON */,
 			);
 			name = Products;
@@ -93,7 +93,6 @@
 				874D7ABD2F10BB23F044CCCAEFA96E16 /* SwiftyJSON.swift */,
 				E7117206C2C7669CF7C06E59DE55529D /* Support Files */,
 			);
-			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -202,7 +201,7 @@
 			);
 			name = "Pods-FishPott";
 			productName = Pods_FishPott;
-			productReference = 334353C985222C3712BF91F84F0BD804 /* Pods-FishPott */;
+			productReference = 334353C985222C3712BF91F84F0BD804 /* Pods_FishPott.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */ = {
@@ -322,6 +321,8 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-FishPott/Pods-FishPott.modulemap";
+				NEW_SETTING = "";
+				NEW_SETTING1 = "";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -557,6 +558,8 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-FishPott/Pods-FishPott.modulemap";
+				NEW_SETTING = "";
+				NEW_SETTING1 = "";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";

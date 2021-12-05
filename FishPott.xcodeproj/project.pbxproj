@@ -53,6 +53,7 @@
 		DF5F5FAD274A1AC200822C71 /* KeyboardGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGuardian.swift; sourceTree = "<group>"; };
 		DF5F5FAF274A1B2F00822C71 /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		DF5F5FB1274A201A00822C71 /* SignupActionTextsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupActionTextsViews.swift; sourceTree = "<group>"; };
+		DF919A4B275C99F6009B7F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DFAF793D275769BB00BC04DF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DFB0F5652756361800968F2B /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
 		DFB0F5672756363700968F2B /* AdaptsToKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptsToKeyboard.swift; sourceTree = "<group>"; };
@@ -92,12 +93,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DF513163275B4DDC0029ED4B /* Font */ = {
+		DF513163275B4DDC0029ED4B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				DF513161275B4D950029ED4B /* splashfont.ttf */,
 			);
-			path = Font;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		DF5F5F802747AF3A00822C71 = {
@@ -121,7 +122,8 @@
 		DF5F5F8B2747AF3A00822C71 /* FishPott */ = {
 			isa = PBXGroup;
 			children = (
-				DF513163275B4DDC0029ED4B /* Font */,
+				DF919A4B275C99F6009B7F41 /* Info.plist */,
+				DF513163275B4DDC0029ED4B /* Fonts */,
 				DF5F5FAC274A1AA500822C71 /* Utils */,
 				DF5F5FA52748F44500822C71 /* Data */,
 				DF5F5FA22748ED0A00822C71 /* Model */,
@@ -465,6 +467,7 @@
 				DEVELOPMENT_TEAM = AD23W3PT6L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FishPott/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -497,6 +500,7 @@
 				DEVELOPMENT_TEAM = AD23W3PT6L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FishPott/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

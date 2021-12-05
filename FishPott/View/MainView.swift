@@ -16,6 +16,14 @@ struct MainView: View {
         self._currentStage = .constant("MainView")
         UITabBar.appearance().barTintColor = .systemBackground
         UINavigationBar.appearance().barTintColor = .systemBackground
+        
+        for family in UIFont.familyNames {
+             print(family)
+
+             for names in UIFont.fontNames(forFamilyName: family){
+             print("== \(names)")
+             }
+        }
     }
     
     //var access_token: String = getSavedString("user_accesstoken");
@@ -38,7 +46,9 @@ struct MainView: View {
             
         Text("FishPott")
             .foregroundColor(Color(.black))
-            .font(.system(size: 15))
+            .font(.custom("SweetSensationsPersonalUse", size: 30))
+            .padding(.top, 5)
+            
             ZStack {
                 
                 Spacer()
