@@ -97,6 +97,7 @@ struct MainView: View {
             
             Divider()
                 .padding(.bottom, 8)
+                .background(Color.white)
             
             HStack {
                 ForEach(0..<4) { num in
