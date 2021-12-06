@@ -12,28 +12,57 @@ struct SuggestionView: View {
     // MARK: - PROPERTIES
     @State private var shouldRefresh = false
     @ObservedObject var getSuggestionHttpAuth = GetSuggestionHttpAuth()
-    @State private var networking: Int = 0
+    @State private var networking: Bool = false
     
     
     var body: some View {
             if getSuggestionHttpAuth.authenticated  == 0{
-                Image("roundlogo")
-                        .resizable()
-                        .frame(width: 100, height: 100, alignment: .top)
-                        .padding(.vertical, 50)
-                Text("Click here to get a suggestion")
-                .font(.headline)
-                .foregroundColor(Color.black)
+                VStack(spacing: 10) {
+                    Image("roundlogo")
+                            .resizable()
+                            .frame(width: 100, height: 100, alignment: .top)
+                            .padding(.vertical, 50)
+                    Text("Click here to get a suggestion")
+                    .font(.headline)
+                    .foregroundColor(Color.black)
+                    .onTapGesture {
+                       if networking == false {
+                           networking = true;
+                           getSuggestionHttpAuth.sendRequest(app_version: FishPottApp.app_version);
+                           getSuggestionHttpAuth.authenticated = 3
+                           print("here 1")
+                       }
+                    }
+                } //  VSTACK
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                .background(Color.white)
             } else if getSuggestionHttpAuth.authenticated  == 1 {
                 DrillQuestionView(drillQuestion: getSuggestionHttpAuth.theDrillQuestion, drillAnswer1: getSuggestionHttpAuth.theDrillAnswer1, drillAnswer2: getSuggestionHttpAuth.theDrillAnswer2, drillAnswer3: getSuggestionHttpAuth.theDrillAnswer3, drillAnswer4: getSuggestionHttpAuth.theDrillAnswer4)
+            } else if getSuggestionHttpAuth.authenticated  == 3 {
+                    VStack(spacing: 10) {
+                        Image("roundlogo")
+                                .resizable()
+                                .frame(width: 100, height: 100, alignment: .top)
+                                .padding(.vertical, 50)
+                        Text("Fetching Suggestion...")
+                        .font(.headline)
+                        .foregroundColor(Color.black)
+                        ProgressView()
+                    } //  VSTACK
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                    .background(Color.white)
             } else {
-                Image("roundlogo")
-                        .resizable()
-                        .frame(width: 100, height: 100, alignment: .top)
-                        .padding(.vertical, 50)
-                Text("Failed. Click here to try again")
-                .font(.headline)
-                .foregroundColor(.red)
+                VStack(spacing: 10) {
+                    Image("roundlogo")
+                            .resizable()
+                            .frame(width: 100, height: 100, alignment: .top)
+                            .padding(.vertical, 50)
+                    Text("Failed. Click here to try again")
+                    .font(.headline)
+                    .foregroundColor(.red)
+                } //  VSTACK
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                .background(Color.white)
             }// MARK - if manager.authenticated
         
     }
@@ -58,7 +87,7 @@ class GetSuggestionHttpAuth: ObservableObject {
     @Published var theDrillAnswer3: String = ""
     @Published var theDrillAnswer4: String = ""
 
-func checkDetails(app_version: String) {
+func sendRequest(app_version: String) {
     showLoginButton = false
     guard let url = URL(string: "http://144.202.111.61/api/v1/user/get-my-suggestion") else { return }
         
@@ -71,7 +100,7 @@ func checkDetails(app_version: String) {
             "app_version_code": app_version,
             "user_language": "en"
         ]
-
+    print(body)
     let finalBody = try! JSONSerialization.data(withJSONObject: body)
 
     var request = URLRequest(url: url)
@@ -87,9 +116,11 @@ func checkDetails(app_version: String) {
         
         do {
             let json = try JSON(data: data2)
+            print("json")
+            print(json)
             if let status = json["status"].int {
               //Now you got your value
-                print(status)
+                //print(status)
                 
                 DispatchQueue.main.async {
                     if status == 1 {

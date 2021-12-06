@@ -17,13 +17,15 @@ struct MainView: View {
         UITabBar.appearance().barTintColor = .systemBackground
         UINavigationBar.appearance().barTintColor = .systemBackground
         
-        for family in UIFont.familyNames {
+        /*
+         for family in UIFont.familyNames {
              print(family)
 
              for names in UIFont.fontNames(forFamilyName: family){
              print("== \(names)")
              }
         }
+         */
     }
     
     //var access_token: String = getSavedString("user_accesstoken");
