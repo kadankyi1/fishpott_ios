@@ -13,7 +13,7 @@ struct SuggestionView: View {
     
     
     var body: some View {
-        
+        DrillQuestionView()
     }
 }
 

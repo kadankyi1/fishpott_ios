@@ -1,5 +1,5 @@
 //
-//  DrillQuestionView.swift
+//  DrillAnswer.swift
 //  FishPott
 //
 //  Created by Dankyi Anno Kwaku on 12/5/21.
@@ -7,15 +7,13 @@
 
 import SwiftUI
 
-struct DrillQuestionView: View {
+struct DrillAnswer: View {
     // MARK: - PROPERTIES
     var drillQuestion: String
     var drillAnswer1: String
     var drillAnswer2: String
     var drillAnswer3: String
     var drillAnswer4: String
-    
-    
     var body: some View {
         VStack(spacing: 10) {
             ZStack {
@@ -156,8 +154,9 @@ struct DrillQuestionView: View {
     }
 }
 
-struct DrillQuestionView_Previews: PreviewProvider {
+struct DrillAnswer_Previews: PreviewProvider {
     static var previews: some View {
-        DrillQuestionView(drillQuestion: "You are at the end of a cliff being chased by a lion", drillAnswer1: "I'm jumping", drillAnswer2: "I'm fighting", drillAnswer3: "What else can I do", drillAnswer4: "God help me" )
+        DrillAnswer(drillQuestion: "You are at the end of a cliff being chased by a lion", drillAnswer1: "I'm jumping", drillAnswer2: "I'm fighting", drillAnswer3: "What else can I do", drillAnswer4: "God help me" )
+     
     }
 }
