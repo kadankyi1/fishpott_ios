@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DrillAnswer: View {
+struct DrillAnsweredView: View {
     // MARK: - PROPERTIES
     var drillQuestion: String
     var drillAnswer1: String
@@ -154,9 +154,9 @@ struct DrillAnswer: View {
     }
 }
 
-struct DrillAnswer_Previews: PreviewProvider {
+struct DrillAnsweredView_Previews: PreviewProvider {
     static var previews: some View {
-        DrillAnswer(drillQuestion: "You are at the end of a cliff being chased by a lion", drillAnswer1: "I'm jumping", drillAnswer2: "I'm fighting", drillAnswer3: "What else can I do", drillAnswer4: "God help me" )
+        DrillAnsweredView(drillQuestion: "You are at the end of a cliff being chased by a lion", drillAnswer1: "I'm jumping", drillAnswer2: "I'm fighting", drillAnswer3: "What else can I do", drillAnswer4: "God help me" )
      
     }
 }
