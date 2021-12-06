@@ -100,12 +100,14 @@ func sendRequest(app_version: String) {
             "app_version_code": app_version,
             "user_language": "en"
         ]
-    print(body)
     let finalBody = try! JSONSerialization.data(withJSONObject: body)
-
+    print(body)
+    print(finalBody)
+    
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.httpBody = finalBody
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.setValue("application/json", forHTTPHeaderField: "Accept")
     request.setValue("Bearer " + getSavedString("access_token"), forHTTPHeaderField: "Authorization")
 
@@ -113,6 +115,7 @@ func sendRequest(app_version: String) {
         print("starting 1")
         guard let data2 = data2 else { return }
         print("starting 2")
+        print(data2)
         
         do {
             let json = try JSON(data: data2)
