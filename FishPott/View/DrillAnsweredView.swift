@@ -24,7 +24,7 @@ struct DrillAnsweredView: View {
             ZStack {
                 VStack(spacing: 20) {
                     // INFO : HEADLINE
-                    Text(drillQuestion)
+                    Text("Drill Answered")
                         .foregroundColor(Color.white)
                         .font(.subheadline)
                         .multilineTextAlignment(.center)

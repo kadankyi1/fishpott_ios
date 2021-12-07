@@ -120,9 +120,14 @@ struct DrillQuestionView: View {
                     
                     else if answerDrillSuggestionHttpAuth.networking == 1 {
                         ProgressView()
-                    } else if answerDrillSuggestionHttpAuth.networking == 3 {
-                        self.drillStage = 1
-                        print("drillStage: \(self.drillStage)")
+                    } else if answerDrillSuggestionHttpAuth.networking == 2 {
+                        Text("...")
+                        .font(.headline)
+                        .foregroundColor(.green)
+                        .onAppear(perform: {
+                            self.drillStage = 1
+                            print("drillStage: \(self.drillStage)")
+                        })
                     }
                         
                 } //  VSTACK

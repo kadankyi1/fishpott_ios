@@ -22,8 +22,8 @@ struct DrillView: View {
     
     var body: some View {
         if drillStage  == 0 {
-            DrillQuestionView(drillID: drillID, drillQuestion: drillQuestion, drillAnswer1: drillAnswer1, drillAnswer2: drillAnswer2, drillAnswer3: drillAnswer3, drillAnswer4: drillAnswer4, suggestionStage: $drillStage)
-        } else if answerDrillSuggestionHttpAuth.stage  == 1 {
+            DrillQuestionView(drillID: drillID, drillQuestion: drillQuestion, drillAnswer1: drillAnswer1, drillAnswer2: drillAnswer2, drillAnswer3: drillAnswer3, drillAnswer4: drillAnswer4, drillStage: $drillStage)
+        } else if drillStage  == 1 {
             DrillAnsweredView(drillQuestion: drillQuestion, drillAnswer1: drillAnswer1, drillAnswer2: drillAnswer2, drillAnswer3: drillAnswer3, drillAnswer4: drillAnswer4, drillAnswer1Count: answerDrillSuggestionHttpAuth.theDrillAnswer1Count, drillAnswer2Count: answerDrillSuggestionHttpAuth.theDrillAnswer2Count, drillAnswer3Count: answerDrillSuggestionHttpAuth.theDrillAnswer3Count, drillAnswer4Count: answerDrillSuggestionHttpAuth.theDrillAnswer4Count)
         }
     }
@@ -93,7 +93,7 @@ func sendRequest(drill_id: String, drill_answer: String, app_version: String) {
                     if status == 1 {
                         print("status pass")
                         self.stage = 1
-                        self.networking = 3;
+                        self.networking = 2;
                         if let message = json["message"].string {
                             //Now you got your value
                               print(message)
