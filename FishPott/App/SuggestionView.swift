@@ -36,8 +36,10 @@ struct SuggestionView: View {
                 } //  VSTACK
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                 .background(Color.white)
-            } else if getSuggestionHttpAuth.authenticated  == 1 {
-                DrillQuestionView(drillQuestion: getSuggestionHttpAuth.theDrillQuestion, drillAnswer1: getSuggestionHttpAuth.theDrillAnswer1, drillAnswer2: getSuggestionHttpAuth.theDrillAnswer2, drillAnswer3: getSuggestionHttpAuth.theDrillAnswer3, drillAnswer4: getSuggestionHttpAuth.theDrillAnswer4)
+            } else if getSuggestionHttpAuth.authenticated  == 1 { // DRILL
+                DrillView(drillID: getSuggestionHttpAuth.theDrillSysId, drillQuestion: getSuggestionHttpAuth.theDrillQuestion, drillAnswer1: getSuggestionHttpAuth.theDrillAnswer1, drillAnswer2: getSuggestionHttpAuth.theDrillAnswer2, drillAnswer3: getSuggestionHttpAuth.theDrillAnswer3, drillAnswer4: getSuggestionHttpAuth.theDrillAnswer4, drillStage: 0)
+            } else if getSuggestionHttpAuth.authenticated  == 1 { // BUSINESS
+                //DrillView(drillID: getSuggestionHttpAuth.theDrillSysId, drillQuestion: getSuggestionHttpAuth.theDrillQuestion, drillAnswer1: getSuggestionHttpAuth.theDrillAnswer1, drillAnswer2: getSuggestionHttpAuth.theDrillAnswer2, drillAnswer3: getSuggestionHttpAuth.theDrillAnswer3, drillAnswer4: getSuggestionHttpAuth.theDrillAnswer4)
             } else if getSuggestionHttpAuth.authenticated  == 3 {
                     VStack(spacing: 10) {
                         Image("roundlogo")
