@@ -24,7 +24,7 @@ struct DrillAnsweredView: View {
             ZStack {
                 VStack(spacing: 20) {
                     // INFO : HEADLINE
-                    Text("Drill Answered")
+                    Text(drillQuestion)
                         .foregroundColor(Color.white)
                         .font(.subheadline)
                         .multilineTextAlignment(.center)
@@ -34,100 +34,83 @@ struct DrillAnsweredView: View {
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
             ZStack {
                 VStack(spacing: 2) {
-                    HStack (spacing: 8) {
+                    
+                    GroupBox(label: Text("Answers Around The World").fontWeight(.heavy))
+                    {}//: BUTTON
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                    .cornerRadius(5)
+                    .padding(.bottom, 10)
+                    .padding(.top, 10)
+                    .padding(.horizontal, 10)
+                    .lineLimit(nil)
+                    
+                    
+                    VStack(alignment: .leading, spacing: 5){
+                        Text(drillAnswer1Count + " People said..")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                        
+                        Divider().padding(.vertical, 2)
                         Text(drillAnswer1)
-                            .foregroundColor(Color("ColorWhiteAccent"))
-                    }//: BUTTON
+                            .font(.caption)
+                            .foregroundColor(Color.secondary)
+                            .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                    }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                    .accentColor(Color("ColorBlackPrimary"))
-                    .background(Color("ColorBlackPrimary"))
                     .cornerRadius(5)
                     .padding(.bottom, 10)
                     .padding(.top, 10)
                     .padding(.horizontal, 10)
-                    .lineLimit(nil)
                     
-                    Button(action: {
+                    
+                    VStack(alignment: .leading, spacing: 5){
+                        Text(drillAnswer2Count + " People said..")
+                            .font(.headline)
+                            .fontWeight(.bold)
                         
-                        //print("user_firstname: \(self.user_firstname)")
-                        //print("user_surname: \(self.user_surname)")
-                        //print("user_country: \(self.user_country)")
-                        /*
-                         if networking == false {
-                            networking = true;
-                            manager.checkDetails(user_firstname: self.user_firstname, user_surname: self.user_surname, user_country: self.user_country, user_gender: self.user_gender, user_dob: self.user_dob, user_pottname: self.user_pottname, user_email: self.user_email, user_phone_number: self.user_phone_number, password: self.password, app_version: FishPottApp.app_version)
-                        }
-                         */
-                    }) {
-                        HStack (spacing: 8) {
-                            Text(drillAnswer2)
-                                .foregroundColor(Color("ColorWhiteAccent"))
-                        }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 10)
-                        .foregroundColor(Color("ColorWhiteAccent"))
-                    } //: BUTTON
+                        Divider().padding(.vertical, 2)
+                        Text(drillAnswer2)
+                            .font(.caption)
+                            .foregroundColor(Color.secondary)
+                            .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                    }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                    .accentColor(Color("ColorBlackPrimary"))
-                    .background(Color("ColorBlackPrimary"))
                     .cornerRadius(5)
                     .padding(.bottom, 10)
                     .padding(.top, 10)
                     .padding(.horizontal, 10)
-                    .lineLimit(nil)
                     
-                    Button(action: {
+                    
+                    VStack(alignment: .leading, spacing: 5){
+                        Text(drillAnswer3Count + " People said..")
+                            .font(.headline)
+                            .fontWeight(.bold)
                         
-                        //print("user_firstname: \(self.user_firstname)")
-                        //print("user_surname: \(self.user_surname)")
-                        //print("user_country: \(self.user_country)")
-                        /*
-                         if networking == false {
-                            networking = true;
-                            manager.checkDetails(user_firstname: self.user_firstname, user_surname: self.user_surname, user_country: self.user_country, user_gender: self.user_gender, user_dob: self.user_dob, user_pottname: self.user_pottname, user_email: self.user_email, user_phone_number: self.user_phone_number, password: self.password, app_version: FishPottApp.app_version)
-                        }
-                         */
-                    }) {
-                        HStack (spacing: 8) {
-                            Text(drillAnswer3)
-                                .foregroundColor(Color("ColorWhiteAccent"))
-                        }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 10)
-                        .foregroundColor(Color("ColorWhiteAccent"))
-                    } //: BUTTON
+                        Divider().padding(.vertical, 2)
+                        Text(drillAnswer3)
+                            .font(.caption)
+                            .foregroundColor(Color.secondary)
+                            .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                    }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                    .accentColor(Color("ColorBlackPrimary"))
-                    .background(Color("ColorBlackPrimary"))
                     .cornerRadius(5)
                     .padding(.bottom, 10)
                     .padding(.top, 10)
                     .padding(.horizontal, 10)
-                    .lineLimit(nil)
                     
-                    Button(action: {
+                    
+                    VStack(alignment: .leading, spacing: 5){
+                        Text(drillAnswer4Count + " People said..")
+                            .font(.headline)
+                            .fontWeight(.bold)
                         
-                        //print("user_firstname: \(self.user_firstname)")
-                        //print("user_surname: \(self.user_surname)")
-                        //print("user_country: \(self.user_country)")
-                        /*
-                         if networking == false {
-                            networking = true;
-                            manager.checkDetails(user_firstname: self.user_firstname, user_surname: self.user_surname, user_country: self.user_country, user_gender: self.user_gender, user_dob: self.user_dob, user_pottname: self.user_pottname, user_email: self.user_email, user_phone_number: self.user_phone_number, password: self.password, app_version: FishPottApp.app_version)
-                        }
-                         */
-                    }) {
-                        HStack (spacing: 8) {
-                            Text(drillAnswer4)
-                                .foregroundColor(Color("ColorWhiteAccent"))
-                        }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 10)
-                        .foregroundColor(Color("ColorWhiteAccent"))
-                    } //: BUTTON
+                        Divider().padding(.vertical, 2)
+                        Text(drillAnswer4)
+                            .font(.caption)
+                            .foregroundColor(Color.secondary)
+                            .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                    }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                    .accentColor(Color("ColorBlackPrimary"))
-                    .background(Color("ColorBlackPrimary"))
                     .cornerRadius(5)
                     .padding(.bottom, 10)
                     .padding(.top, 10)

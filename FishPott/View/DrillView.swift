@@ -94,11 +94,6 @@ func sendRequest(drill_id: String, drill_answer: String, app_version: String) {
                         print("status pass")
                         self.stage = 1
                         self.networking = 2;
-                        if let message = json["message"].string {
-                            //Now you got your value
-                              print(message)
-                              self.message = message
-                        }
                         if let answer_1_count = json["data"]["answer_1_count"].string {
                             //Now you got your value
                             self.theDrillAnswer1Count = answer_1_count
@@ -118,6 +113,11 @@ func sendRequest(drill_id: String, drill_answer: String, app_version: String) {
                             //Now you got your value
                             self.theDrillAnswer4Count = answer_4_count
                             print("answer_4_count: \(answer_4_count)")
+                        }
+                        if let message = json["message"].string {
+                            //Now you got your value
+                              print(message)
+                              self.message = message
                         }
                         
                     } else {

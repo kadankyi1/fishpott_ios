@@ -59,7 +59,7 @@ struct SuggestionView: View {
                             .resizable()
                             .frame(width: 100, height: 100, alignment: .top)
                             .padding(.vertical, 50)
-                    Text("Failed. Click here to try again")
+                    Text(getSuggestionHttpAuth.message)
                     .font(.headline)
                     .foregroundColor(.red)
                 } //  VSTACK
