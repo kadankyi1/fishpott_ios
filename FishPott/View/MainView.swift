@@ -73,15 +73,14 @@ struct MainView: View {
                     }*/
                     SuggestionView()
                 case 1:
-                    InvestmentsView()
+                    FinderView()
                 case 2:
                     /*
                     ScrollView {
                         Text("Read Page")
                     }
                     */
-                    FinderView()
-                    
+                    InvestmentsView()
                 case 3:
                     ProfileView()
                     

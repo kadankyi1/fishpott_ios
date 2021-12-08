@@ -26,7 +26,7 @@ struct DrillView: View {
     var body: some View {
         if drillStage  == 0 {
             DrillQuestionView(drillID: drillID, drillQuestion: drillQuestion, drillAnswer1: drillAnswer1, drillAnswer2: drillAnswer2, drillAnswer3: drillAnswer3, drillAnswer4: drillAnswer4, drillStage: $drillStage, theDrillAnswer1Count: $theDrillAnswer1Count, theDrillAnswer2Count: $theDrillAnswer2Count, theDrillAnswer3Count: $theDrillAnswer3Count, theDrillAnswer4Count: $theDrillAnswer4Count)
-        } else if drillStage  == 1 {
+        } else if drillStage  == 1 { 
             DrillAnsweredView(drillQuestion: drillQuestion, drillAnswer1: drillAnswer1, drillAnswer2: drillAnswer2, drillAnswer3: drillAnswer3, drillAnswer4: drillAnswer4, drillAnswer1Count: theDrillAnswer1Count, drillAnswer2Count: theDrillAnswer2Count, drillAnswer3Count: theDrillAnswer3Count, drillAnswer4Count: theDrillAnswer4Count)
         }
     }
