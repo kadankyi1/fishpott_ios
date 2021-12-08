@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3CAC7059827CB052102BDCB2 /* Pods_FishPott.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9809116ED39C7B48189E9AA /* Pods_FishPott.framework */; };
+		DF219F412760C0FB008E75A3 /* BusinessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF219F402760C0FB008E75A3 /* BusinessView.swift */; };
 		DF513162275B4D950029ED4B /* splashfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF513161275B4D950029ED4B /* splashfont.ttf */; };
 		DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */; };
 		DF5F5F8F2747AF3A00822C71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F8E2747AF3A00822C71 /* ContentView.swift */; };
@@ -40,6 +41,7 @@
 		95B79C23ACA8455358803D4B /* Pods-FishPott.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FishPott.debug.xcconfig"; path = "Target Support Files/Pods-FishPott/Pods-FishPott.debug.xcconfig"; sourceTree = "<group>"; };
 		C9809116ED39C7B48189E9AA /* Pods_FishPott.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FishPott.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE70B70C8FFF26BFCEAC3953 /* Pods-FishPott.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FishPott.release.xcconfig"; path = "Target Support Files/Pods-FishPott/Pods-FishPott.release.xcconfig"; sourceTree = "<group>"; };
+		DF219F402760C0FB008E75A3 /* BusinessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessView.swift; sourceTree = "<group>"; };
 		DF513161275B4D950029ED4B /* splashfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = splashfont.ttf; sourceTree = "<group>"; };
 		DF5F5F892747AF3A00822C71 /* FishPott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishPott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishPottApp.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				DFDCFBD8275DE6F100BB0B90 /* DrillView.swift */,
 				DFDCFBDA275DEA0800BB0B90 /* DrillAnsweredView.swift */,
 				DFDCFBDC275E26D700BB0B90 /* DrillQuestionView.swift */,
+				DF219F402760C0FB008E75A3 /* BusinessView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */,
 				DFC74E9F2758DE7600F64CA5 /* InvestmentsView.swift in Sources */,
 				DFB0F5682756363700968F2B /* AdaptsToKeyboard.swift in Sources */,
+				DF219F412760C0FB008E75A3 /* BusinessView.swift in Sources */,
 				DFAF793E275769BB00BC04DF /* MainView.swift in Sources */,
 				DFC74EA12758DE8500F64CA5 /* ProfileView.swift in Sources */,
 				DF5F5FA1274817CC00822C71 /* OnboardingView.swift in Sources */,
