@@ -16,6 +16,7 @@ struct SuggestionView: View {
     
     
     var body: some View {
+        ScrollView(.vertical, showsIndicators: false){
             if getSuggestionHttpAuth.authenticated  == 0{
                 VStack(spacing: 10) {
                     Image("roundlogo")
@@ -34,7 +35,8 @@ struct SuggestionView: View {
                        }
                     }
                 } //  VSTACK
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 600, idealHeight: 600, maxHeight: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                //.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                 .background(Color.white)
             } else if getSuggestionHttpAuth.authenticated  == 1 { // DRILL
                 DrillView(drillID: getSuggestionHttpAuth.theDrillSysId, drillQuestion: getSuggestionHttpAuth.theDrillQuestion, drillAnswer1: getSuggestionHttpAuth.theDrillAnswer1, drillAnswer2: getSuggestionHttpAuth.theDrillAnswer2, drillAnswer3: getSuggestionHttpAuth.theDrillAnswer3, drillAnswer4: getSuggestionHttpAuth.theDrillAnswer4, drillStage: 0)
@@ -51,7 +53,7 @@ struct SuggestionView: View {
                         .foregroundColor(Color.black)
                         ProgressView()
                     } //  VSTACK
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 600, idealHeight: 600, maxHeight: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color.white)
             } else {
                 VStack(spacing: 10) {
@@ -62,10 +64,19 @@ struct SuggestionView: View {
                     Text(getSuggestionHttpAuth.message)
                     .font(.headline)
                     .foregroundColor(.red)
+                    .onTapGesture {
+                       if networking == false {
+                           networking = true;
+                           getSuggestionHttpAuth.sendRequest(app_version: FishPottApp.app_version);
+                           getSuggestionHttpAuth.authenticated = 3
+                           print("here new 1")
+                       }
+                    }
                 } //  VSTACK
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 600, idealHeight: 600, maxHeight: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .background(Color.white)
             }// MARK - if manager.authenticated
+        }
         
     }
 }

@@ -46,7 +46,7 @@ struct MainView: View {
         VStack(spacing: 0) {
             
         Text("FishPott ")
-            .foregroundColor(Color(.white))
+            .foregroundColor(Color(.black))
             .font(.custom("SweetSensationsPersonalUse", size: 30))
             .padding(.top, 5)
             
@@ -136,7 +136,7 @@ struct MainView: View {
             
             
         }
-        .background(Color.black)
+        .background(Color.white)
     }
 }
 

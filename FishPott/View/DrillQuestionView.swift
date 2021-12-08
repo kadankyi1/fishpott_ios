@@ -34,7 +34,8 @@ struct DrillQuestionView: View {
                         .padding(.horizontal, 16)
                 } //  VSTACK
             } //  ZSTACK
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 300, idealHeight: 300, maxHeight: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            //.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
             ZStack {
                 VStack(spacing: 2) {
                     
@@ -50,12 +51,12 @@ struct DrillQuestionView: View {
                             .padding(.vertical, 10)
                             .foregroundColor(Color("ColorWhiteAccent"))
                         } //: BUTTON
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 70, idealHeight: 70, maxHeight: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .accentColor(Color("ColorBlackPrimary"))
                         .background(Color("ColorBlackPrimary"))
                         .cornerRadius(5)
                         .padding(.bottom, 10)
-                        .padding(.top, 10)
+                        .padding(.top, 15)
                         .padding(.horizontal, 10)
                         .lineLimit(nil)
                         
@@ -71,7 +72,7 @@ struct DrillQuestionView: View {
                             .padding(.vertical, 10)
                             .foregroundColor(Color("ColorWhiteAccent"))
                         } //: BUTTON
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 70, idealHeight: 70, maxHeight: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .accentColor(Color("ColorBlackPrimary"))
                         .background(Color("ColorBlackPrimary"))
                         .cornerRadius(5)
@@ -92,7 +93,7 @@ struct DrillQuestionView: View {
                             .padding(.vertical, 10)
                             .foregroundColor(Color("ColorWhiteAccent"))
                         } //: BUTTON
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 70, idealHeight: 70, maxHeight: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .accentColor(Color("ColorBlackPrimary"))
                         .background(Color("ColorBlackPrimary"))
                         .cornerRadius(5)
@@ -113,11 +114,11 @@ struct DrillQuestionView: View {
                             .padding(.vertical, 10)
                             .foregroundColor(Color("ColorWhiteAccent"))
                         } //: BUTTON
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 70, idealHeight: 70, maxHeight: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .accentColor(Color("ColorBlackPrimary"))
                         .background(Color("ColorBlackPrimary"))
                         .cornerRadius(5)
-                        .padding(.bottom, 10)
+                        .padding(.bottom, 80)
                         .padding(.top, 10)
                         .padding(.horizontal, 10)
                     } // if
@@ -144,7 +145,7 @@ struct DrillQuestionView: View {
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
             .background(Color.white)
         } //  VSTACK
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 800, idealHeight: 800, maxHeight: 800, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         .background(Color.black)
     }
 }
