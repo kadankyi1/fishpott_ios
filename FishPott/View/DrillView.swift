@@ -17,14 +17,17 @@ struct DrillView: View {
     var drillAnswer3: String
     var drillAnswer4: String
     @State var drillStage = 0
-    @ObservedObject var answerDrillSuggestionHttpAuth = AnswerDrillSuggestionHttpAuth()
+    @State var theDrillAnswer1Count = ""
+    @State var theDrillAnswer2Count = ""
+    @State var theDrillAnswer3Count = ""
+    @State var theDrillAnswer4Count = ""
     
     
     var body: some View {
         if drillStage  == 0 {
-            DrillQuestionView(drillID: drillID, drillQuestion: drillQuestion, drillAnswer1: drillAnswer1, drillAnswer2: drillAnswer2, drillAnswer3: drillAnswer3, drillAnswer4: drillAnswer4, drillStage: $drillStage)
+            DrillQuestionView(drillID: drillID, drillQuestion: drillQuestion, drillAnswer1: drillAnswer1, drillAnswer2: drillAnswer2, drillAnswer3: drillAnswer3, drillAnswer4: drillAnswer4, drillStage: $drillStage, theDrillAnswer1Count: $theDrillAnswer1Count, theDrillAnswer2Count: $theDrillAnswer2Count, theDrillAnswer3Count: $theDrillAnswer3Count, theDrillAnswer4Count: $theDrillAnswer4Count)
         } else if drillStage  == 1 {
-            DrillAnsweredView(drillQuestion: drillQuestion, drillAnswer1: drillAnswer1, drillAnswer2: drillAnswer2, drillAnswer3: drillAnswer3, drillAnswer4: drillAnswer4, drillAnswer1Count: answerDrillSuggestionHttpAuth.theDrillAnswer1Count, drillAnswer2Count: answerDrillSuggestionHttpAuth.theDrillAnswer2Count, drillAnswer3Count: answerDrillSuggestionHttpAuth.theDrillAnswer3Count, drillAnswer4Count: answerDrillSuggestionHttpAuth.theDrillAnswer4Count)
+            DrillAnsweredView(drillQuestion: drillQuestion, drillAnswer1: drillAnswer1, drillAnswer2: drillAnswer2, drillAnswer3: drillAnswer3, drillAnswer4: drillAnswer4, drillAnswer1Count: theDrillAnswer1Count, drillAnswer2Count: theDrillAnswer2Count, drillAnswer3Count: theDrillAnswer3Count, drillAnswer4Count: theDrillAnswer4Count)
         }
     }
 }
@@ -42,14 +45,14 @@ class AnswerDrillSuggestionHttpAuth: ObservableObject {
     @Published var networking = 0
     @Published var showLoginButton = true
     @Published var message = ""
-    @Published var theDrillSysId: String = ""
-    @Published var theDrillAnswer1Count: String = ""
-    @Published var theDrillAnswer2Count: String = ""
-    @Published var theDrillAnswer3Count: String = ""
-    @Published var theDrillAnswer4Count: String = ""
+    @Published var theDrillSysId = ""
+    @Published var theDrillAnswer1Count = ""
+    @Published var theDrillAnswer2Count = ""
+    @Published var theDrillAnswer3Count = ""
+    @Published var theDrillAnswer4Count = ""
 
 func sendRequest(drill_id: String, drill_answer: String, app_version: String) {
-    networking = 1;
+    networking = 1
     showLoginButton = false
     guard let url = URL(string: "http://144.202.111.61/api/v1/user/save-drill-answer") else { return }
         
@@ -93,26 +96,31 @@ func sendRequest(drill_id: String, drill_answer: String, app_version: String) {
                     if status == 1 {
                         print("status pass")
                         self.stage = 1
-                        self.networking = 2;
-                        if let answer_1_count = json["data"]["answer_1_count"].string {
+                        self.networking = 2
+                        print("CHECK answer_1_count: \(json["data"]["answer_1_count"])")
+                        print("CHECK answer_2_count: \(json["data"]["answer_2_count"])")
+                        print("CHECK answer_3_count: \(json["data"]["answer_3_count"])")
+                        print("CHECK answer_4_count: \(json["data"]["answer_4_count"])")
+                        
+                         if let answer_1_count = json["data"]["answer_1_count"].int {
                             //Now you got your value
-                            self.theDrillAnswer1Count = answer_1_count
-                            print("answer_1_count: \(answer_1_count)")
+                            self.theDrillAnswer1Count = String(answer_1_count)
+                            print("-answer_1_count: \(answer_1_count)")
                         }
-                        if let answer_2_count = json["data"]["answer_2_count"].string {
+                        if let answer_2_count = json["data"]["answer_2_count"].int {
                             //Now you got your value
-                            self.theDrillAnswer2Count = answer_2_count
-                            print("answer_2_count: \(answer_2_count)")
+                            self.theDrillAnswer2Count = String(answer_2_count)
+                            print("-answer_2_count: \(answer_2_count)")
                         }
-                        if let answer_3_count = json["data"]["answer_3_count"].string {
+                        if let answer_3_count = json["data"]["answer_3_count"].int {
                             //Now you got your value
-                            self.theDrillAnswer3Count = answer_3_count
-                            print("answer_3_count: \(answer_3_count)")
+                            self.theDrillAnswer3Count = String(answer_3_count)
+                            print("-answer_3_count: \(answer_3_count)")
                         }
-                        if let answer_4_count = json["data"]["answer_4_count"].string {
+                        if let answer_4_count = json["data"]["answer_4_count"].int {
                             //Now you got your value
-                            self.theDrillAnswer4Count = answer_4_count
-                            print("answer_4_count: \(answer_4_count)")
+                            self.theDrillAnswer4Count = String(answer_4_count)
+                            print("-answer_4_count: \(answer_4_count)")
                         }
                         if let message = json["message"].string {
                             //Now you got your value
@@ -136,7 +144,7 @@ func sendRequest(drill_id: String, drill_answer: String, app_version: String) {
             DispatchQueue.main.async {
                 self.message = "Answering Failed"
                 self.stage = 2
-                self.networking = 0;
+                self.networking = 0
             }
         }
         

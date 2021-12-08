@@ -16,6 +16,10 @@ struct DrillQuestionView: View {
     var drillAnswer3: String
     var drillAnswer4: String
     @Binding var drillStage: Int
+    @Binding var theDrillAnswer1Count: String
+    @Binding var theDrillAnswer2Count: String
+    @Binding var theDrillAnswer3Count: String
+    @Binding var theDrillAnswer4Count: String
     @ObservedObject var answerDrillSuggestionHttpAuth = AnswerDrillSuggestionHttpAuth()
     
     var body: some View {
@@ -125,7 +129,12 @@ struct DrillQuestionView: View {
                         .font(.headline)
                         .foregroundColor(.green)
                         .onAppear(perform: {
+                            self.theDrillAnswer1Count = answerDrillSuggestionHttpAuth.theDrillAnswer1Count
+                            self.theDrillAnswer2Count = answerDrillSuggestionHttpAuth.theDrillAnswer2Count
+                            self.theDrillAnswer3Count = answerDrillSuggestionHttpAuth.theDrillAnswer3Count
+                            self.theDrillAnswer4Count = answerDrillSuggestionHttpAuth.theDrillAnswer4Count
                             self.drillStage = 1
+                            print("self.theDrillAnswer4Count: \(self.theDrillAnswer4Count)")
                             print("drillStage: \(self.drillStage)")
                         })
                     }
@@ -142,6 +151,6 @@ struct DrillQuestionView: View {
 
 struct DrillQuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        DrillQuestionView(drillID: "testid", drillQuestion: "You are at the end of a cliff being chased by a lion", drillAnswer1: "I'm jumping", drillAnswer2: "I'm fighting", drillAnswer3: "What else can I do", drillAnswer4: "God help me", drillStage: .constant(0))
+        DrillQuestionView(drillID: "testid", drillQuestion: "You are at the end of a cliff being chased by a lion", drillAnswer1: "I'm jumping", drillAnswer2: "I'm fighting", drillAnswer3: "What else can I do", drillAnswer4: "God help me", drillStage: .constant(0), theDrillAnswer1Count: .constant(""), theDrillAnswer2Count: .constant(""), theDrillAnswer3Count: .constant(""), theDrillAnswer4Count: .constant(""))
     }
 }

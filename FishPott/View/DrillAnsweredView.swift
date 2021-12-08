@@ -46,9 +46,12 @@ struct DrillAnsweredView: View {
                     
                     
                     VStack(alignment: .leading, spacing: 5){
-                        Text(drillAnswer1Count + " People said..")
+                        Text(drillAnswer1Count + " People said...")
                             .font(.headline)
                             .fontWeight(.bold)
+                            .onAppear(perform: {
+                                    print("drillAnswer1Count: \(drillAnswer1Count)")
+                            })
                         
                         Divider().padding(.vertical, 2)
                         Text(drillAnswer1)
@@ -64,7 +67,7 @@ struct DrillAnsweredView: View {
                     
                     
                     VStack(alignment: .leading, spacing: 5){
-                        Text(drillAnswer2Count + " People said..")
+                        Text(drillAnswer2Count + " People said...")
                             .font(.headline)
                             .fontWeight(.bold)
                         
@@ -82,7 +85,7 @@ struct DrillAnsweredView: View {
                     
                     
                     VStack(alignment: .leading, spacing: 5){
-                        Text(drillAnswer3Count + " People said..")
+                        Text(drillAnswer3Count + " People said...")
                             .font(.headline)
                             .fontWeight(.bold)
                         
@@ -100,7 +103,7 @@ struct DrillAnsweredView: View {
                     
                     
                     VStack(alignment: .leading, spacing: 5){
-                        Text(drillAnswer4Count + " People said..")
+                        Text(drillAnswer4Count + " People said...")
                             .font(.headline)
                             .fontWeight(.bold)
                         
