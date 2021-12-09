@@ -40,8 +40,8 @@ struct SuggestionView: View {
                 .background(Color.white)
             } else if getSuggestionHttpAuth.authenticated  == 1 { // DRILL
                 DrillView(drillID: getSuggestionHttpAuth.theDrillSysId, drillQuestion: getSuggestionHttpAuth.theDrillQuestion, drillAnswer1: getSuggestionHttpAuth.theDrillAnswer1, drillAnswer2: getSuggestionHttpAuth.theDrillAnswer2, drillAnswer3: getSuggestionHttpAuth.theDrillAnswer3, drillAnswer4: getSuggestionHttpAuth.theDrillAnswer4, drillStage: 0)
-            } else if getSuggestionHttpAuth.authenticated  == 1 { // BUSINESS
-                //DrillView(drillID: getSuggestionHttpAuth.theDrillSysId, drillQuestion: getSuggestionHttpAuth.theDrillQuestion, drillAnswer1: getSuggestionHttpAuth.theDrillAnswer1, drillAnswer2: getSuggestionHttpAuth.theDrillAnswer2, drillAnswer3: getSuggestionHttpAuth.theDrillAnswer3, drillAnswer4: getSuggestionHttpAuth.theDrillAnswer4)
+            } else if getSuggestionHttpAuth.authenticated  == 4 { // BUSINESS
+                BusinessView(businessID: "testID", businessName: "Randy Pharmacy", businessCountry: "Ghana", businessFindCode: "TT-282201", businessType: "Pharmacy", businessLogo: "startinfo2", businessDescription: "This is a good business that has been around for over 15 years", businessAddress: "C/11, Taxi Rank, Madina - CD19991", businessStartDate: "Jan 12, 2005", businessWebsite: "https://github.com/kadankyi1?tab=overview", businessPitchText: "Be part of the sprout. You will love it", businessPitchVideo: "http://144.202.111.61/uploads/pitchvideos/CS201720810.mp4", businessLastYrRevenue: "$299,999", businessLastYrProfit: "$100,000", businessDebt: "0", businessCashOnHand: "$156000", businessNetWorth: "$300,500", businessPricePerStock: "$300", businessInvestmentAmtNeeded: "$100,000", businessInvestmentAmtReceived: "$35,000", businessMaxInvestorsNeeded: "20", businessCurrentShareholders: "10", businessFinancialReport: "http://144.202.111.61/uploads/financedata/CS201720810.pdf", businessCeoName: "Emelia Saint", businessCfoName: "Sanctum Heyst")
             } else if getSuggestionHttpAuth.authenticated  == 3 {
                     VStack(spacing: 10) {
                         Image("roundlogo")
@@ -140,46 +140,54 @@ func sendRequest(app_version: String) {
                 
                 DispatchQueue.main.async {
                     if status == 1 {
-                        self.authenticated = 1
+                        
+                        if let message = json["message"].string {
+                            //Now you got your value
+                            self.message = message
+                            if message == "drill" {
+                                self.authenticated = 1
+                                print("d message: \(message)")
+                            } else if message == "business" {
+                                self.authenticated = 4
+                                print("b message: \(message)")
+                            } else {
+                                self.authenticated = 2
+                                print("err message: \(message)")
+                            }
+                          }
                         
                         if let drill_sys_id = json["data"]["drill_sys_id"].string {
                             //Now you got your value
-                            saveTextInStorage("drill_sys_id", drill_sys_id)
                             self.theDrillSysId = drill_sys_id
                             print("drill_sys_id: \(drill_sys_id)")
                           }
                         
                         if let drill_question = json["data"]["drill_question"].string {
                             //Now you got your value
-                            saveTextInStorage("drill_question", drill_question)
                             self.theDrillQuestion = drill_question
                             print("drill_question: \(drill_question)")
                           }
                         
                         if let drill_answer_1 = json["data"]["drill_answer_1"].string {
                             //Now you got your value
-                            saveTextInStorage("drill_answer_1", drill_answer_1)
                             self.theDrillAnswer1 = drill_answer_1
                             print("drill_answer_1: \(drill_answer_1)")
                           }
                         
                         if let drill_answer_2 = json["data"]["drill_answer_2"].string {
                             //Now you got your value
-                            saveTextInStorage("drill_answer_2", drill_answer_2)
                             self.theDrillAnswer2 = drill_answer_2
                             print("drill_answer_2: \(drill_answer_2)")
                           }
                         
                         if let drill_answer_3 = json["data"]["drill_answer_3"].string {
                             //Now you got your value
-                            saveTextInStorage("drill_answer_3", drill_answer_3)
                             self.theDrillAnswer3 = drill_answer_3
                             print("drill_answer_3: \(drill_answer_3)")
                           }
                         
                         if let drill_answer_4 = json["data"]["drill_answer_4"].string {
                             //Now you got your value
-                            saveTextInStorage("drill_answer_4", drill_answer_4)
                             self.theDrillAnswer4 = drill_answer_4
                             print("drill_answer_4: \(drill_answer_4)")
                           }
