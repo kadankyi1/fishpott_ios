@@ -222,9 +222,17 @@ struct BusinessView: View {
                     .multilineTextAlignment(.leading)
                     .padding(.horizontal, 16)
                     
+                HStack {
+                    
+                    Link("View Business Website", destination: URL(string: businessWebsite)!)
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 13))
+                        Image(systemName: "arrow.up.right.square").foregroundColor(.pink)
+                }
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                .padding(.bottom, 30)
                 
             } //  VSTACK
-            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 350, idealHeight: 350, maxHeight: 350, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             .background(Color.white)
             .clipped()
             .shadow(color: Color("ColorGray"), radius: 3, x: 0, y: 1)
@@ -240,7 +248,7 @@ struct BusinessView: View {
             
             
         } //  VSTACK
-        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 800, idealHeight: 800, maxHeight: 800, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 1000, idealHeight: 1000, maxHeight: 1000, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
     }
 }
 
