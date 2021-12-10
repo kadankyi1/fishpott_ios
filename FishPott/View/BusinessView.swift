@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import VideoPlayer
 
 struct BusinessView: View {
     // MARK: - PROPERTIES
@@ -34,6 +35,7 @@ struct BusinessView: View {
     var businessFinancialReport: String
     var businessCeoName: String
     var businessCfoName: String
+    @State private var play: Bool = false
     
     var body: some View {
         VStack(spacing: 10) {
@@ -95,43 +97,140 @@ struct BusinessView: View {
                         .padding(.horizontal, 10)
                         .lineLimit(nil)
                 } //  VSTACK
-                .padding(.top, 10)
+                .padding(.top, 20)
                 .background(Color.white)
                 
-                    VStack(spacing: 10) {
-                        // INFO : HEADLINE
-                        Image("layslogo")
-                                .resizable()
-                                .frame(width: 100, height: 100, alignment: .top)
-                                .padding(.vertical, 0)
-                                .cornerRadius(100)
-                        Text(businessName)
-                            .foregroundColor(Color.black)
-                            .fontWeight(.bold)
-                            .font(.system(size: 20))
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal, 16)
+                    HStack(spacing: 10) {
                         HStack(){
-                            Text(businessCountry)
-                                .foregroundColor(Color.black)
-                                .font(.system(size: 20))
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal, 16)
-                            Text("|")
-                                .foregroundColor(Color.black)
-                                .fontWeight(.bold)
-                                .font(.system(size: 20))
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal, 16)
-                            Text(businessType)
-                                .foregroundColor(Color.black)
-                                .font(.system(size: 20))
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal, 16)
+                            Image("house")
+                                    .resizable()
+                                    .frame(width: 30, height: 30, alignment: .top)
+                                    .padding(.vertical, 0)
+                                    .padding(.horizontal, 10)
+                            
+                            VStack(spacing: 5) {
+                                Text(businessNetWorth)
+                                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                    .foregroundColor(Color.black)
+                                    .font(.system(size: 15))
+                                    .multilineTextAlignment(.center)
+                                    .padding(.horizontal, 16)
+                                Text("Net Worth")
+                                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                    .foregroundColor(Color.black)
+                                    .font(.system(size: 13))
+                                    .multilineTextAlignment(.center)
+                                    .padding(.horizontal, 16)
+                            }
+                            Spacer()
+                            Divider().padding(.vertical, 2)
+                            Spacer()
+                            Image("house")
+                                    .resizable()
+                                    .frame(width: 30, height: 30, alignment: .top)
+                                    .padding(.vertical, 0)
+                                    .padding(.horizontal, 10)
+                            
+                            VStack(spacing: 5) {
+                                Text(businessCurrentShareholders)
+                                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                    .foregroundColor(Color.black)
+                                    .font(.system(size: 15))
+                                    .multilineTextAlignment(.leading)
+                                    .padding(.horizontal, 16)
+                                Text("Investors")
+                                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                    .foregroundColor(Color.black)
+                                    .font(.system(size: 13))
+                                    .multilineTextAlignment(.center)
+                                    .padding(.horizontal, 16)
+                            }
                         }
-                    } //  VSTACK
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 200, idealHeight: 200, maxHeight: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    } //  HSTACK
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 100, idealHeight: 100, maxHeight: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color.white)
+                    .clipped()
+                    .shadow(color: Color("ColorGray"), radius: 3, x: 0, y: 1)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 10)
+                    .cornerRadius(20)
+            
+                VStack(spacing: 10) {
+                    HStack(){
+                        
+                        Text("Pitch")
+                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                            .foregroundColor(Color.black)
+                            .font(.system(size: 13))
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 2)
+                        Spacer()
+                        Image("house")
+                                .resizable()
+                                .frame(width: 30, height: 30, alignment: .top)
+                                .padding(.vertical, 0)
+                    }
+                    .padding(.horizontal, 16)
+                    
+                    Divider()
+                        .padding(.horizontal, 20)
+                    Text(businessPitchText)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 13))
+                        .multilineTextAlignment(.leading)
+                        .padding(.horizontal, 16)
+                    
+                    let url = URL(string: businessPitchVideo)!
+                    VideoPlayer(url: url, play: $play)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 200, idealHeight: 200, maxHeight: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .background(Color.black)
+                        
+                    
+                } //  VSTACK
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 350, idealHeight: 350, maxHeight: 350, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .background(Color.white)
+                .clipped()
+                .shadow(color: Color("ColorGray"), radius: 3, x: 0, y: 1)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 10)
+                .cornerRadius(20)
+            
+            VStack(spacing: 10) {
+                HStack(){
+                    
+                    Text("Services & Executives")
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 13))
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 2)
+                    Spacer()
+                    Image("house")
+                            .resizable()
+                            .frame(width: 30, height: 30, alignment: .top)
+                            .padding(.vertical, 0)
+                }
+                .padding(.horizontal, 16)
+                
+                Divider()
+                    .padding(.horizontal, 20)
+                Text(businessDescription)
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                    .foregroundColor(Color.black)
+                    .font(.system(size: 13))
+                    .multilineTextAlignment(.leading)
+                    .padding(.horizontal, 16)
+                    
+                
+            } //  VSTACK
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 350, idealHeight: 350, maxHeight: 350, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .background(Color.white)
+            .clipped()
+            .shadow(color: Color("ColorGray"), radius: 3, x: 0, y: 1)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 10)
+            .cornerRadius(20)
             ZStack {
             } //  ZSTACK
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)

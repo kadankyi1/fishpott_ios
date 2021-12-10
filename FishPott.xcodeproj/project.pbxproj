@@ -24,6 +24,7 @@
 		DF5F5FAE274A1AC200822C71 /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FAD274A1AC200822C71 /* KeyboardGuardian.swift */; };
 		DF5F5FB0274A1B2F00822C71 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FAF274A1B2F00822C71 /* PickerTextField.swift */; };
 		DF5F5FB2274A201A00822C71 /* SignupActionTextsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FB1274A201A00822C71 /* SignupActionTextsViews.swift */; };
+		DF96EBC527633CF40028BBE4 /* VideoPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = DF96EBC427633CF40028BBE4 /* VideoPlayer */; };
 		DFAF793E275769BB00BC04DF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAF793D275769BB00BC04DF /* MainView.swift */; };
 		DFB0F5662756361800968F2B /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB0F5652756361800968F2B /* GeometryGetter.swift */; };
 		DFB0F5682756363700968F2B /* AdaptsToKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB0F5672756363700968F2B /* AdaptsToKeyboard.swift */; };
@@ -78,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CAC7059827CB052102BDCB2 /* Pods_FishPott.framework in Frameworks */,
+				DF96EBC527633CF40028BBE4 /* VideoPlayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +230,9 @@
 			dependencies = (
 			);
 			name = FishPott;
+			packageProductDependencies = (
+				DF96EBC427633CF40028BBE4 /* VideoPlayer */,
+			);
 			productName = FishPott;
 			productReference = DF5F5F892747AF3A00822C71 /* FishPott.app */;
 			productType = "com.apple.product-type.application";
@@ -256,6 +261,9 @@
 				Base,
 			);
 			mainGroup = DF5F5F802747AF3A00822C71;
+			packageReferences = (
+				DF96EBC327633CF40028BBE4 /* XCRemoteSwiftPackageReference "VideoPlayer" */,
+			);
 			productRefGroup = DF5F5F8A2747AF3A00822C71 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -559,6 +567,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DF96EBC327633CF40028BBE4 /* XCRemoteSwiftPackageReference "VideoPlayer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wxxsw/VideoPlayer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DF96EBC427633CF40028BBE4 /* VideoPlayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF96EBC327633CF40028BBE4 /* XCRemoteSwiftPackageReference "VideoPlayer" */;
+			productName = VideoPlayer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF5F5F812747AF3A00822C71 /* Project object */;
 }
