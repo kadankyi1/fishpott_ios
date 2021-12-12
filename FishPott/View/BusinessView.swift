@@ -185,7 +185,6 @@ struct BusinessView: View {
                     VideoPlayer(url: url, play: $play)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 200, idealHeight: 200, maxHeight: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .background(Color.black)
-                        
                     
                 } //  VSTACK
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 350, idealHeight: 350, maxHeight: 350, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -211,6 +210,7 @@ struct BusinessView: View {
                             .frame(width: 30, height: 30, alignment: .top)
                             .padding(.vertical, 0)
                 }
+                .padding(.top, 16)
                 .padding(.horizontal, 16)
                 
                 Divider()
@@ -223,15 +223,124 @@ struct BusinessView: View {
                     .padding(.horizontal, 16)
                     
                 HStack {
-                    
-                    Link("View Business Website", destination: URL(string: businessWebsite)!)
+                    Link("Click to view business website", destination: URL(string: businessWebsite)!)
                         .foregroundColor(Color.black)
                         .font(.system(size: 13))
+                        .padding(.horizontal, 16)
                         Image(systemName: "arrow.up.right.square").foregroundColor(.pink)
                 }
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                .padding(.bottom, 30)
+                .padding(.bottom, 10)
                 
+                    HStack(){
+                        VStack(spacing: 5) {
+                            Text(businessCeoName)
+                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                .foregroundColor(Color.black)
+                                .font(.system(size: 15))
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 16)
+                            Text("CEO")
+                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                .foregroundColor(Color.black)
+                                .font(.system(size: 13))
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 16)
+                        }
+                        Spacer()
+                        Divider().padding(.vertical, 2)
+                        Spacer()
+                        
+                        VStack(spacing: 5) {
+                            Text(businessCfoName)
+                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                .foregroundColor(Color.black)
+                                .font(.system(size: 15))
+                                .multilineTextAlignment(.leading)
+                                .padding(.horizontal, 16)
+                            Text("CFO")
+                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                .foregroundColor(Color.black)
+                                .font(.system(size: 13))
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 16)
+                        }
+                    }
+                    .padding(.bottom, 20)
+                
+                
+                VStack(spacing: 10) {
+                    HStack(){
+                        
+                        Text("Services & Executives")
+                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                            .foregroundColor(Color.black)
+                            .font(.system(size: 13))
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 2)
+                        Spacer()
+                        Image("house")
+                                .resizable()
+                                .frame(width: 30, height: 30, alignment: .top)
+                                .padding(.vertical, 0)
+                    }
+                    .padding(.top, 16)
+                    .padding(.horizontal, 16)
+                    
+                    Divider()
+                        .padding(.horizontal, 20)
+                    Text(businessDescription)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 13))
+                        .multilineTextAlignment(.leading)
+                        .padding(.horizontal, 16)
+                        
+                    HStack {
+                        Link("Click to view business website", destination: URL(string: businessWebsite)!)
+                            .foregroundColor(Color.black)
+                            .font(.system(size: 13))
+                            .padding(.horizontal, 16)
+                            Image(systemName: "arrow.up.right.square").foregroundColor(.pink)
+                    }
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                    .padding(.bottom, 10)
+                    
+                        HStack(){
+                            VStack(spacing: 5) {
+                                Text(businessCeoName)
+                                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                    .foregroundColor(Color.black)
+                                    .font(.system(size: 15))
+                                    .multilineTextAlignment(.center)
+                                    .padding(.horizontal, 16)
+                                Text("CEO")
+                                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                    .foregroundColor(Color.black)
+                                    .font(.system(size: 13))
+                                    .multilineTextAlignment(.center)
+                                    .padding(.horizontal, 16)
+                            }
+                            Spacer()
+                            Divider().padding(.vertical, 2)
+                            Spacer()
+                            
+                            VStack(spacing: 5) {
+                                Text(businessCfoName)
+                                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                    .foregroundColor(Color.black)
+                                    .font(.system(size: 15))
+                                    .multilineTextAlignment(.leading)
+                                    .padding(.horizontal, 16)
+                                Text("CFO")
+                                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                    .foregroundColor(Color.black)
+                                    .font(.system(size: 13))
+                                    .multilineTextAlignment(.center)
+                                    .padding(.horizontal, 16)
+                            }
+                        }
+                        .padding(.bottom, 20)
             } //  VSTACK
             .background(Color.white)
             .clipped()
@@ -239,16 +348,9 @@ struct BusinessView: View {
             .padding(.vertical, 10)
             .padding(.horizontal, 10)
             .cornerRadius(20)
-            ZStack {
-            } //  ZSTACK
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-            .background(Color.white)
-            
-            
-            
             
         } //  VSTACK
-        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 1000, idealHeight: 1000, maxHeight: 1000, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 0, maxHeight: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
     }
 }
 
