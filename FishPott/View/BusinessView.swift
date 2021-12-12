@@ -33,6 +33,7 @@ struct BusinessView: View {
     var businessMaxInvestorsNeeded: String
     var businessCurrentShareholders: String
     var businessFinancialReport: String
+    var businessFinancialReportBio: String
     var businessCeoName: String
     var businessCfoName: String
     @State private var play: Bool = false
@@ -268,79 +269,6 @@ struct BusinessView: View {
                     }
                     .padding(.bottom, 20)
                 
-                
-                VStack(spacing: 10) {
-                    HStack(){
-                        
-                        Text("Services & Executives")
-                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                            .foregroundColor(Color.black)
-                            .font(.system(size: 13))
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal, 2)
-                        Spacer()
-                        Image("house")
-                                .resizable()
-                                .frame(width: 30, height: 30, alignment: .top)
-                                .padding(.vertical, 0)
-                    }
-                    .padding(.top, 16)
-                    .padding(.horizontal, 16)
-                    
-                    Divider()
-                        .padding(.horizontal, 20)
-                    Text(businessDescription)
-                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                        .foregroundColor(Color.black)
-                        .font(.system(size: 13))
-                        .multilineTextAlignment(.leading)
-                        .padding(.horizontal, 16)
-                        
-                    HStack {
-                        Link("Click to view business website", destination: URL(string: businessWebsite)!)
-                            .foregroundColor(Color.black)
-                            .font(.system(size: 13))
-                            .padding(.horizontal, 16)
-                            Image(systemName: "arrow.up.right.square").foregroundColor(.pink)
-                    }
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                    .padding(.bottom, 10)
-                    
-                        HStack(){
-                            VStack(spacing: 5) {
-                                Text(businessCeoName)
-                                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                                    .foregroundColor(Color.black)
-                                    .font(.system(size: 15))
-                                    .multilineTextAlignment(.center)
-                                    .padding(.horizontal, 16)
-                                Text("CEO")
-                                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                                    .foregroundColor(Color.black)
-                                    .font(.system(size: 13))
-                                    .multilineTextAlignment(.center)
-                                    .padding(.horizontal, 16)
-                            }
-                            Spacer()
-                            Divider().padding(.vertical, 2)
-                            Spacer()
-                            
-                            VStack(spacing: 5) {
-                                Text(businessCfoName)
-                                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                                    .foregroundColor(Color.black)
-                                    .font(.system(size: 15))
-                                    .multilineTextAlignment(.leading)
-                                    .padding(.horizontal, 16)
-                                Text("CFO")
-                                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                                    .foregroundColor(Color.black)
-                                    .font(.system(size: 13))
-                                    .multilineTextAlignment(.center)
-                                    .padding(.horizontal, 16)
-                            }
-                        }
-                        .padding(.bottom, 20)
             } //  VSTACK
             .background(Color.white)
             .clipped()
@@ -349,6 +277,107 @@ struct BusinessView: View {
             .padding(.horizontal, 10)
             .cornerRadius(20)
             
+            
+            VStack(spacing: 10) {
+                HStack(){
+                    
+                    Text("Financial Overview")
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 13))
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 2)
+                    Spacer()
+                    Image("house")
+                            .resizable()
+                            .frame(width: 30, height: 30, alignment: .top)
+                            .padding(.vertical, 0)
+                }
+                .padding(.top, 16)
+                .padding(.horizontal, 16)
+                
+                Divider()
+                    .padding(.horizontal, 20)
+                
+                    HStack(){
+                        VStack(spacing: 5) {
+                            Text(businessLastYrRevenue)
+                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                .foregroundColor(Color.black)
+                                .font(.system(size: 15))
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 16)
+                            Text("Revenue")
+                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                .foregroundColor(Color.black)
+                                .font(.system(size: 13))
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 16)
+                        }
+                        Spacer()
+                        Divider().padding(.vertical, 2)
+                        Spacer()
+                        
+                        VStack(spacing: 5) {
+                            Text(businessCashOnHand)
+                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                .foregroundColor(Color.black)
+                                .font(.system(size: 15))
+                                .multilineTextAlignment(.leading)
+                                .padding(.horizontal, 16)
+                            Text("Balance")
+                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                .foregroundColor(Color.black)
+                                .font(.system(size: 13))
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 16)
+                        }
+                        Spacer()
+                        Divider().padding(.vertical, 2)
+                        Spacer()
+                        
+                        VStack(spacing: 5) {
+                            Text(businessInvestmentAmtNeeded)
+                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                .foregroundColor(Color.black)
+                                .font(.system(size: 15))
+                                .multilineTextAlignment(.leading)
+                                .padding(.horizontal, 16)
+                            Text("Raising")
+                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                .foregroundColor(Color.black)
+                                .font(.system(size: 13))
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 16)
+                        }
+                    }
+                    .padding(.bottom, 20)
+                
+                Text(businessFinancialReportBio)
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                    .foregroundColor(Color.black)
+                    .font(.system(size: 13))
+                    .multilineTextAlignment(.leading)
+                    .padding(.horizontal, 16)
+                    
+                HStack {
+                    Link("Click here to view financial report of business.", destination: URL(string: businessFinancialReport)!)
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 13))
+                        .padding(.horizontal, 16)
+                        Image(systemName: "arrow.up.right.square").foregroundColor(.pink)
+                }
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                .padding(.bottom, 10)
+                
+                
+            } //  VSTACK
+            .background(Color.white)
+            .clipped()
+            .shadow(color: Color("ColorGray"), radius: 3, x: 0, y: 1)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 10)
+            .cornerRadius(20)
         } //  VSTACK
         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 0, maxHeight: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
     }
@@ -356,6 +385,6 @@ struct BusinessView: View {
 
 struct BusinessView_Previews: PreviewProvider {
     static var previews: some View {
-        BusinessView(businessID: "testID", businessName: "Randy Pharmacy", businessCountry: "Ghana", businessFindCode: "TT-282201", businessType: "Pharmacy", businessLogo: "startinfo2", businessDescription: "This is a good business that has been around for over 15 years", businessAddress: "C/11, Taxi Rank, Madina - CD19991", businessStartDate: "Jan 12, 2005", businessWebsite: "https://github.com/kadankyi1?tab=overview", businessPitchText: "Be part of the sprout. You will love it", businessPitchVideo: "http://144.202.111.61/uploads/pitchvideos/CS201720810.mp4", businessLastYrRevenue: "$299,999", businessLastYrProfit: "$100,000", businessDebt: "0", businessCashOnHand: "$156000", businessNetWorth: "$300,500", businessPricePerStock: "$300", businessInvestmentAmtNeeded: "$100,000", businessInvestmentAmtReceived: "$35,000", businessMaxInvestorsNeeded: "20", businessCurrentShareholders: "10", businessFinancialReport: "http://144.202.111.61/uploads/financedata/CS201720810.pdf", businessCeoName: "Emelia Saint", businessCfoName: "Sanctum Heyst")
+        BusinessView(businessID: "testID", businessName: "Randy Pharmacy", businessCountry: "Ghana", businessFindCode: "TT-282201", businessType: "Pharmacy", businessLogo: "startinfo2", businessDescription: "This is a good business that has been around for over 15 years", businessAddress: "C/11, Taxi Rank, Madina - CD19991", businessStartDate: "Jan 12, 2005", businessWebsite: "https://github.com/kadankyi1?tab=overview", businessPitchText: "Be part of the sprout. You will love it", businessPitchVideo: "http://144.202.111.61/uploads/pitchvideos/CS201720810.mp4", businessLastYrRevenue: "$299,999", businessLastYrProfit: "$100,000", businessDebt: "0", businessCashOnHand: "$156000", businessNetWorth: "$300,500", businessPricePerStock: "$300", businessInvestmentAmtNeeded: "$100,000", businessInvestmentAmtReceived: "$35,000", businessMaxInvestorsNeeded: "20", businessCurrentShareholders: "10", businessFinancialReport: "http://144.202.111.61/uploads/financedata/CS201720810.pdf", businessFinancialReportBio: "This is business is picking up.", businessCeoName: "Emelia Saint", businessCfoName: "Sanctum Heyst")
     }
 }
