@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3CAC7059827CB052102BDCB2 /* Pods_FishPott.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9809116ED39C7B48189E9AA /* Pods_FishPott.framework */; };
 		DF219F412760C0FB008E75A3 /* BusinessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF219F402760C0FB008E75A3 /* BusinessView.swift */; };
+		DF4D5D3E27661A7D00CE199D /* BuySharesAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4D5D3D27661A7D00CE199D /* BuySharesAmountView.swift */; };
 		DF513162275B4D950029ED4B /* splashfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF513161275B4D950029ED4B /* splashfont.ttf */; };
 		DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */; };
 		DF5F5F8F2747AF3A00822C71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F8E2747AF3A00822C71 /* ContentView.swift */; };
@@ -43,6 +44,7 @@
 		C9809116ED39C7B48189E9AA /* Pods_FishPott.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FishPott.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE70B70C8FFF26BFCEAC3953 /* Pods-FishPott.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FishPott.release.xcconfig"; path = "Target Support Files/Pods-FishPott/Pods-FishPott.release.xcconfig"; sourceTree = "<group>"; };
 		DF219F402760C0FB008E75A3 /* BusinessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessView.swift; sourceTree = "<group>"; };
+		DF4D5D3D27661A7D00CE199D /* BuySharesAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySharesAmountView.swift; sourceTree = "<group>"; };
 		DF513161275B4D950029ED4B /* splashfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = splashfont.ttf; sourceTree = "<group>"; };
 		DF5F5F892747AF3A00822C71 /* FishPott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishPott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishPottApp.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				DFDCFBDA275DEA0800BB0B90 /* DrillAnsweredView.swift */,
 				DFDCFBDC275E26D700BB0B90 /* DrillQuestionView.swift */,
 				DF219F402760C0FB008E75A3 /* BusinessView.swift */,
+				DF4D5D3D27661A7D00CE199D /* BuySharesAmountView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				DFB0F5662756361800968F2B /* GeometryGetter.swift in Sources */,
 				DF5F5F8F2747AF3A00822C71 /* ContentView.swift in Sources */,
 				DF5F5F9F2748116900822C71 /* StartButtonView.swift in Sources */,
+				DF4D5D3E27661A7D00CE199D /* BuySharesAmountView.swift in Sources */,
 				DFDCFBDD275E26D700BB0B90 /* DrillQuestionView.swift in Sources */,
 				DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */,
 				DFC74E9F2758DE7600F64CA5 /* InvestmentsView.swift in Sources */,

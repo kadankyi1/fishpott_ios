@@ -37,8 +37,10 @@ struct BusinessView: View {
     var businessCeoName: String
     var businessCfoName: String
     @State private var play: Bool = false
+    @State var onOff = false
     
     var body: some View {
+        NavigationView {
         VStack(spacing: 10) {
                 VStack(spacing: 10) {
                     // INFO : HEADLINE
@@ -74,6 +76,8 @@ struct BusinessView: View {
                 } //  VSTACK
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 200, idealHeight: 200, maxHeight: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .background(Color.black)
+            
+                NavigationLink(destination: BuySharesAmountView()){
                 HStack(spacing: 2) {
                     Text("Be A Shareholder")
                         .foregroundColor(Color.black)
@@ -98,6 +102,7 @@ struct BusinessView: View {
                         .padding(.horizontal, 10)
                         .lineLimit(nil)
                 } //  VSTACK
+                }
                 .padding(.top, 20)
                 .background(Color.white)
                 
@@ -380,6 +385,9 @@ struct BusinessView: View {
             .cornerRadius(20)
         } //  VSTACK
         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 0, maxHeight: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }
+        .navigationBarTitle(Text("Events"), displayMode: .inline)
+        .navigationBarHidden($onOff.wrappedValue)
     }
 }
 
