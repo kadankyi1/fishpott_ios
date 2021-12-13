@@ -7,6 +7,7 @@
 
 import SwiftUI
 import VideoPlayer
+import URLImage // Import the package module
 
 struct BusinessView: View {
     // MARK: - PROPERTIES
@@ -36,18 +37,24 @@ struct BusinessView: View {
     var businessFinancialReportBio: String
     var businessCeoName: String
     var businessCfoName: String
-    @State private var play: Bool = false
+    @State private var play: Bool = true
     @State var onOff = false
     
     var body: some View {
         VStack(spacing: 10) {
                 VStack(spacing: 10) {
                     // INFO : HEADLINE
-                    Image("layslogo")
-                            .resizable()
-                            .frame(width: 100, height: 100, alignment: .top)
-                            .padding(.vertical, 0)
-                            .cornerRadius(100)
+                    let this_url = URL(string: businessLogo);
+                    URLImage(this_url!,
+                             content: { image in
+                                 image
+                                    .resizable()
+                                    .frame(width: 100, height: 100, alignment: .top)
+                                    .padding(.vertical, 0)
+                                    .cornerRadius(100)
+                                    
+                             })
+                    
                     Text(businessName)
                         .foregroundColor(Color.white)
                         .fontWeight(.bold)

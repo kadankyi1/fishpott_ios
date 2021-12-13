@@ -290,7 +290,7 @@ func sendRequest(app_version: String) {
                                     print("businessPitchText: \(businessPitchText)")
                                   }
                                 
-                                if let businessPitchVideo = json["data"]["business_pitch_text"].string {
+                                if let businessPitchVideo = json["data"]["business_pitch_video"].string {
                                     //Now you got your value
                                     self.businessPitchVideo = businessPitchVideo
                                     print("businessPitchVideo: \(businessPitchVideo)")

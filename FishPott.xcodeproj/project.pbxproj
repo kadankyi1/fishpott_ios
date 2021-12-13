@@ -25,6 +25,8 @@
 		DF5F5FAE274A1AC200822C71 /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FAD274A1AC200822C71 /* KeyboardGuardian.swift */; };
 		DF5F5FB0274A1B2F00822C71 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FAF274A1B2F00822C71 /* PickerTextField.swift */; };
 		DF5F5FB2274A201A00822C71 /* SignupActionTextsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FB1274A201A00822C71 /* SignupActionTextsViews.swift */; };
+		DF8B392D27672F0A00637535 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = DF8B392C27672F0A00637535 /* URLImage */; };
+		DF8B392F27672F0A00637535 /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = DF8B392E27672F0A00637535 /* URLImageStore */; };
 		DF96EBC527633CF40028BBE4 /* VideoPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = DF96EBC427633CF40028BBE4 /* VideoPlayer */; };
 		DFAF793E275769BB00BC04DF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAF793D275769BB00BC04DF /* MainView.swift */; };
 		DFB0F5662756361800968F2B /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB0F5652756361800968F2B /* GeometryGetter.swift */; };
@@ -80,7 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF8B392F27672F0A00637535 /* URLImageStore in Frameworks */,
 				3CAC7059827CB052102BDCB2 /* Pods_FishPott.framework in Frameworks */,
+				DF8B392D27672F0A00637535 /* URLImage in Frameworks */,
 				DF96EBC527633CF40028BBE4 /* VideoPlayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +239,8 @@
 			name = FishPott;
 			packageProductDependencies = (
 				DF96EBC427633CF40028BBE4 /* VideoPlayer */,
+				DF8B392C27672F0A00637535 /* URLImage */,
+				DF8B392E27672F0A00637535 /* URLImageStore */,
 			);
 			productName = FishPott;
 			productReference = DF5F5F892747AF3A00822C71 /* FishPott.app */;
@@ -266,6 +272,7 @@
 			mainGroup = DF5F5F802747AF3A00822C71;
 			packageReferences = (
 				DF96EBC327633CF40028BBE4 /* XCRemoteSwiftPackageReference "VideoPlayer" */,
+				DF8B392B27672F0A00637535 /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = DF5F5F8A2747AF3A00822C71 /* Products */;
 			projectDirPath = "";
@@ -573,6 +580,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DF8B392B27672F0A00637535 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		DF96EBC327633CF40028BBE4 /* XCRemoteSwiftPackageReference "VideoPlayer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/wxxsw/VideoPlayer";
@@ -584,6 +599,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DF8B392C27672F0A00637535 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF8B392B27672F0A00637535 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+		DF8B392E27672F0A00637535 /* URLImageStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF8B392B27672F0A00637535 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImageStore;
+		};
 		DF96EBC427633CF40028BBE4 /* VideoPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DF96EBC327633CF40028BBE4 /* XCRemoteSwiftPackageReference "VideoPlayer" */;
