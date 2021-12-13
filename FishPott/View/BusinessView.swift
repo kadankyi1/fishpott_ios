@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import VideoPlayer
+//import VideoPlayer
+import AVKit
 import URLImage // Import the package module
 
 struct BusinessView: View {
@@ -37,7 +38,7 @@ struct BusinessView: View {
     var businessFinancialReportBio: String
     var businessCeoName: String
     var businessCfoName: String
-    @State private var play: Bool = true
+    @State private var play: Bool = false
     @State var onOff = false
     
     var body: some View {
@@ -194,10 +195,17 @@ struct BusinessView: View {
                         .padding(.horizontal, 16)
                     
                     let url = URL(string: businessPitchVideo)!
-                    VideoPlayer(url: url, play: $play)
+                    VideoPlayer(player: AVPlayer(url:  url))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 200, idealHeight: 200, maxHeight: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .background(Color.black)
-                    
+                    /*
+                     VideoPlayer(url: url, play: $play)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 200, idealHeight: 200, maxHeight: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .background(Color.black)
+                        .onTapGesture {
+                            false
+                        }
+                    */
                 } //  VSTACK
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 350, idealHeight: 350, maxHeight: 350, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .background(Color.white)
