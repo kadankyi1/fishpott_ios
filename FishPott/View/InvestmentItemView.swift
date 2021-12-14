@@ -29,12 +29,28 @@ struct InvestmentItemView: View {
                             .multilineTextAlignment(.center)
                     }
                     
-                    Text("  " + investment.value_phrase + "  ")
-                    .font(.footnote)
-                    .bold()
-                    .foregroundColor(Color.white)
-                    .background(Color.green)
-                    .cornerRadius(2)
+                    if investment.value_phrase == "Value Profit" {
+                        Text("  " + investment.value_phrase + "  ")
+                        .font(.footnote)
+                        .bold()
+                        .foregroundColor(Color.white)
+                        .background(Color.green)
+                        .cornerRadius(2)
+                    } else if investment.value_phrase == "Value Loss" {
+                        Text("  " + investment.value_phrase + "  ")
+                        .font(.footnote)
+                        .bold()
+                        .foregroundColor(Color.white)
+                        .background(Color.red)
+                        .cornerRadius(2)
+                    } else {
+                        Text("  " + investment.value_phrase + "  ")
+                        .font(.footnote)
+                        .bold()
+                        .foregroundColor(Color.gray)
+                        .background(Color.green)
+                        .cornerRadius(2)
+                    }
                 }
             
                 HStack(){
@@ -82,7 +98,6 @@ struct InvestmentItemView: View {
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                 .foregroundColor(Color.black)
                 .font(.system(size: 13))
-                .
                 .multilineTextAlignment(.center)
             } //  VSTACK
             .clipped()
@@ -94,6 +109,6 @@ struct InvestmentItemView: View {
 
 struct InvestmentItemView_Previews: PreviewProvider {
     static var previews: some View {
-        InvestmentItemView(investment: investmentData[0])
+        InvestmentItemView(investment: investmentData[1])
     }
 }

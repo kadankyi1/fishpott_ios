@@ -12,7 +12,6 @@ struct InvestmentsView: View {
     // MARK: - PROPERTIES
     @ObservedObject var investmentFetchHttpAuth = InvestmentFetchHttpAuth()
     
-    
     var body: some View {
         NavigationView {
             if investmentFetchHttpAuth.authenticated == 4 {
@@ -29,10 +28,7 @@ struct InvestmentsView: View {
                 } else {
                     List {
                         ForEach(investmentFetchHttpAuth.received_investments) { item in
-                            Text("Getting Your Investments...")
-                            .font(.headline)
-                                //ReadArticleRowView(article: item)
-                                    .padding(.vertical, 4)
+                            InvestmentItemView(investment: item)
                         }
                     }
                 }

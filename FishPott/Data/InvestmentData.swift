@@ -27,5 +27,14 @@ let investmentData: [InvestmentModel] = [
         quantity_of_stocks: "500",
         value_phrase: "Value Loss",
         ai_info: "Your networth has reduced"
+    ),
+    InvestmentModel(
+        business_id: "bizid1",
+        business_name: "Break Cafe",
+        cost_per_share_usd: "$4",
+        value_per_share_usd: "$4",
+        quantity_of_stocks: "500",
+        value_phrase: "Value Neutral",
+        ai_info: "Your networth stays neutral"
     )
 ]
