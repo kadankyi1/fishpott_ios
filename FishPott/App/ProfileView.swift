@@ -21,9 +21,16 @@ struct ProfileView: View {
                     // MARK: -- SECTION 1
                     
                     GroupBox(){
-                        ProfileRowView(icon: "house", name: "110 - Pott Intelligence")
-                        ProfileRowView(icon: "house", name: "$110K - Net Worth")
-                        ProfileRowView(icon: "house", name: "1st - Pott Position")
+                        if profileDataFetchHttpAuth.authenticated == 4 {
+                            ProfileRowView(icon: "house", name: "110 - Pott Intelligence")
+                            ProfileRowView(icon: "house", name: "$110K - Net Worth")
+                            ProfileRowView(icon: "house", name: "1st - Pott Position")
+                        } else {
+                            ProgressView()
+                            .onAppear(perform: {
+                                profileDataFetchHttpAuth.sendRequest(app_version: FishPottApp.app_version)
+                            })
+                        }
                     }
                     Divider().padding(.vertical, 2)
                     // MARK: -- SECTION 2
@@ -72,7 +79,7 @@ struct ProfileView_Previews: PreviewProvider {
 
 class ProfileDataFetchHttpAuth: ObservableObject {
 
-    @Published var authenticated = 0
+    @Published var authenticated = 3
     @Published var showLoginButton = true
     @Published var message = ""
     
@@ -80,7 +87,7 @@ class ProfileDataFetchHttpAuth: ObservableObject {
     @Published var pott_intelligence: String = ""
     @Published var pott_position: String = ""
     
-    func sendRequest(business_id: String, app_version: String) {
+    func sendRequest(app_version: String) {
     showLoginButton = false
         self.authenticated = 3
     guard let url = URL(string: "http://144.202.111.61/api/v1/user/get-user-info") else { return }
