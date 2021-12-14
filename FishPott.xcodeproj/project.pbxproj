@@ -37,6 +37,7 @@
 		DFC74E9F2758DE7600F64CA5 /* InvestmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC74E9E2758DE7600F64CA5 /* InvestmentsView.swift */; };
 		DFC74EA12758DE8500F64CA5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC74EA02758DE8500F64CA5 /* ProfileView.swift */; };
 		DFCD56CF276891F900F092C8 /* InvestmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCD56CE276891F900F092C8 /* InvestmentModel.swift */; };
+		DFCD56D12768A26500F092C8 /* InvestmentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCD56D02768A26500F092C8 /* InvestmentItemView.swift */; };
 		DFDCFBD9275DE6F100BB0B90 /* DrillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDCFBD8275DE6F100BB0B90 /* DrillView.swift */; };
 		DFDCFBDB275DEA0800BB0B90 /* DrillAnsweredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDCFBDA275DEA0800BB0B90 /* DrillAnsweredView.swift */; };
 		DFDCFBDD275E26D700BB0B90 /* DrillQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDCFBDC275E26D700BB0B90 /* DrillQuestionView.swift */; };
@@ -74,6 +75,7 @@
 		DFC74E9E2758DE7600F64CA5 /* InvestmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsView.swift; sourceTree = "<group>"; };
 		DFC74EA02758DE8500F64CA5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DFCD56CE276891F900F092C8 /* InvestmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentModel.swift; sourceTree = "<group>"; };
+		DFCD56D02768A26500F092C8 /* InvestmentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentItemView.swift; sourceTree = "<group>"; };
 		DFDCFBD8275DE6F100BB0B90 /* DrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillView.swift; sourceTree = "<group>"; };
 		DFDCFBDA275DEA0800BB0B90 /* DrillAnsweredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillAnsweredView.swift; sourceTree = "<group>"; };
 		DFDCFBDC275E26D700BB0B90 /* DrillQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillQuestionView.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				DFDCFBDC275E26D700BB0B90 /* DrillQuestionView.swift */,
 				DF219F402760C0FB008E75A3 /* BusinessView.swift */,
 				DF4D5D3D27661A7D00CE199D /* BuySharesAmountView.swift */,
+				DFCD56D02768A26500F092C8 /* InvestmentItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				DF5F5FA42748ED2B00822C71 /* IntroModel.swift in Sources */,
 				DF5F5F9D2748035700822C71 /* IntroCardView.swift in Sources */,
 				DF5F5FA9274917A400822C71 /* LoginView.swift in Sources */,
+				DFCD56D12768A26500F092C8 /* InvestmentItemView.swift in Sources */,
 				DFDCFBD9275DE6F100BB0B90 /* DrillView.swift in Sources */,
 				DF5F5FA72748F45A00822C71 /* IntroData.swift in Sources */,
 				DFC74E9D2758DE3F00F64CA5 /* FinderView.swift in Sources */,

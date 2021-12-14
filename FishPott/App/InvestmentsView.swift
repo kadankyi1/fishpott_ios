@@ -9,37 +9,60 @@ import SwiftUI
 import SwiftyJSON
 
 struct InvestmentsView: View {
+    // MARK: - PROPERTIES
+    @ObservedObject var investmentFetchHttpAuth = InvestmentFetchHttpAuth()
+    
+    
     var body: some View {
         NavigationView {
-            if articles_http_manager.requestMade {
-                if (articles_http_manager.status == "success"){
-                    List {
-                        ForEach(articles_http_manager.received_articles) { item in
-                            NavigationLink(destination: ArticleDetailView(article: item)){
-                                ReadArticleRowView(article: item)
-                                    .padding(.vertical, 4)
-                            }
-                        }
+            if investmentFetchHttpAuth.authenticated == 4 {
+                if investmentFetchHttpAuth.count_received_investments == 0 {
+                    VStack(spacing: 10) {
+                        Image("roundlogo")
+                                .resizable()
+                                .frame(width: 100, height: 100, alignment: .top)
+                                .padding(.vertical, 50)
+                        Text("You have no investments")
+                        .font(.headline)
+                        .foregroundColor(Color.black)
                     }
                 } else {
-                    VStack {}
-                        .alert(isPresented: $model.isValid, content: {
-                        Alert(title: Text("Oops"),
-                              message: Text("Something went awry"),
-                              dismissButton: .default(
-                                Text("Okay"))
-                                {
-                                    //print("do something")
-                                    
-                                })
-                    })
+                    List {
+                        ForEach(investmentFetchHttpAuth.received_investments) { item in
+                            Text("Getting Your Investments...")
+                            .font(.headline)
+                                //ReadArticleRowView(article: item)
+                                    .padding(.vertical, 4)
+                        }
+                    }
                 }
+                
+            } else if investmentFetchHttpAuth.authenticated == 3 {
+                VStack(spacing: 10) {
+                    Image("roundlogo")
+                            .resizable()
+                            .frame(width: 100, height: 100, alignment: .top)
+                            .padding(.vertical, 50)
+                    Text("Getting Your Investments...")
+                    .font(.headline)
+                    .foregroundColor(Color.black)
+                    ProgressView()
+                    .onAppear(perform: {
+                        investmentFetchHttpAuth.sendRequest(app_version: FishPottApp.app_version)
+                    })
+                } //  VSTACK
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 600, idealHeight: 600, maxHeight: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .background(Color.white)
             } else {
-                ProgressView()
-                .onAppear(perform: {
-                    print("Access Token request starting")
-                    articles_http_manager.getArticles(user_accesstoken: access_token)
-                })
+                VStack(spacing: 10) {
+                    Image("roundlogo")
+                            .resizable()
+                            .frame(width: 100, height: 100, alignment: .top)
+                            .padding(.vertical, 50)
+                    Text("Failed to get investments. Try again later.")
+                    .font(.headline)
+                    .foregroundColor(Color.red)
+                }
             }
             
         } // NAVIGATION
@@ -56,12 +79,13 @@ struct InvestmentsView_Previews: PreviewProvider {
 
 class InvestmentFetchHttpAuth: ObservableObject {
 
-    @Published var authenticated = 0
+    @Published var authenticated = 3
     @Published var showLoginButton = true
     @Published var message = ""
+    @Published var count_received_investments = 0
     @Published var received_investments: [InvestmentModel] = []
     
-    func sendRequest(business_id: String, app_version: String) {
+    func sendRequest(app_version: String) {
     showLoginButton = false
         self.authenticated = 3
     guard let url = URL(string: "http://144.202.111.61/api/v1/user/get-my-investments") else { return }
@@ -98,42 +122,38 @@ class InvestmentFetchHttpAuth: ObservableObject {
             print(json)
             if let status = json["status"].int {
               //Now you got your value
-                //print(status)
+                print(status)
                 DispatchQueue.main.async {
                     if status == 1 {
-                        
-                        if let items = json["data"]["data"].array {
+                        self.authenticated = 4
+                        if let items = json["data"].array {
                             for item in items {
-                                if let article_type = item["article_type"].string {
-                                    print(article_type)
-                                    if let article_title = item["article_title"].string {
-                                        print(article_title)
-                                        if let article_body = item["article_body"].string {
-                                            print(article_body)
-                                            if let created_at = item["created_at"].string {
-                                                    print(created_at)
-                                                    if let article_image = item["article_image"].string {
-                                                        print(article_image)
-                                                    if let article_id = item["article_id"].int {
-                                                        print(article_id)
-                                                        var type_color = "ColorSpecialArticles"
-                                                        if(article_type == "HERALD OF GLORY"){
-                                                            type_color = "ColorArticleHeraldOfGlory"
-                                                        } else if(article_type == "BIBLE READING PLAN"){
-                                                            type_color = "ColorBibleReadingPlan"
-                                                        } else if(article_type == "GLORY NEWS"){
-                                                            type_color = "ColorGloryNews"
+                                if let business_id = item["business_id"].string {
+                                    print(business_id)
+                                    if let business_name = item["business_name"].string {
+                                        print(business_name)
+                                        if let cost_per_share_usd = item["cost_per_share_usd"].string {
+                                            print(cost_per_share_usd)
+                                            if let value_per_share_usd = item["value_per_share_usd"].string {
+                                                    print(value_per_share_usd)
+                                                    if let quantity_of_stocks = item["quantity_of_stocks"].int {
+                                                        print(quantity_of_stocks)
+                                                    if let value_phrase = item["value_phrase"].string {
+                                                        print(value_phrase)
+                                                        if let ai_info = item["ai_info"].string {
+                                                            print(ai_info)
+                                                            let number_of_stocks = String(quantity_of_stocks)
+                                                            self.count_received_investments+=1
+                                                            self.received_investments.append(InvestmentModel(
+                                                                business_id: business_id,
+                                                                business_name: business_name,
+                                                                cost_per_share_usd: cost_per_share_usd,
+                                                                value_per_share_usd: value_per_share_usd,
+                                                                quantity_of_stocks: number_of_stocks,
+                                                                value_phrase: value_phrase,
+                                                                ai_info: ai_info
+                                                            ))
                                                         }
-                                                        self.authenticated = 4
-                                                        self.received_articles.append(ArticleModel(
-                                                            article_sku: article_id,
-                                                            articletype: article_type,
-                                                            title: article_title,
-                                                            body: article_body,
-                                                            image: article_image,
-                                                            badge_color: type_color,
-                                                            article_date: created_at
-                                                        ))
                                                     }
                                                 }
                                             }
