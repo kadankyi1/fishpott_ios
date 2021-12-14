@@ -36,6 +36,7 @@
 		DFC74E9D2758DE3F00F64CA5 /* FinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC74E9C2758DE3F00F64CA5 /* FinderView.swift */; };
 		DFC74E9F2758DE7600F64CA5 /* InvestmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC74E9E2758DE7600F64CA5 /* InvestmentsView.swift */; };
 		DFC74EA12758DE8500F64CA5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC74EA02758DE8500F64CA5 /* ProfileView.swift */; };
+		DFCD56CF276891F900F092C8 /* InvestmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCD56CE276891F900F092C8 /* InvestmentModel.swift */; };
 		DFDCFBD9275DE6F100BB0B90 /* DrillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDCFBD8275DE6F100BB0B90 /* DrillView.swift */; };
 		DFDCFBDB275DEA0800BB0B90 /* DrillAnsweredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDCFBDA275DEA0800BB0B90 /* DrillAnsweredView.swift */; };
 		DFDCFBDD275E26D700BB0B90 /* DrillQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDCFBDC275E26D700BB0B90 /* DrillQuestionView.swift */; };
@@ -72,6 +73,7 @@
 		DFC74E9C2758DE3F00F64CA5 /* FinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderView.swift; sourceTree = "<group>"; };
 		DFC74E9E2758DE7600F64CA5 /* InvestmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsView.swift; sourceTree = "<group>"; };
 		DFC74EA02758DE8500F64CA5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DFCD56CE276891F900F092C8 /* InvestmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentModel.swift; sourceTree = "<group>"; };
 		DFDCFBD8275DE6F100BB0B90 /* DrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillView.swift; sourceTree = "<group>"; };
 		DFDCFBDA275DEA0800BB0B90 /* DrillAnsweredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillAnsweredView.swift; sourceTree = "<group>"; };
 		DFDCFBDC275E26D700BB0B90 /* DrillQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillQuestionView.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				DF5F5FA32748ED2B00822C71 /* IntroModel.swift */,
+				DFCD56CE276891F900F092C8 /* InvestmentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				DFDCFBDD275E26D700BB0B90 /* DrillQuestionView.swift in Sources */,
 				DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */,
 				DFC74E9F2758DE7600F64CA5 /* InvestmentsView.swift in Sources */,
+				DFCD56CF276891F900F092C8 /* InvestmentModel.swift in Sources */,
 				DFB0F5682756363700968F2B /* AdaptsToKeyboard.swift in Sources */,
 				DF219F412760C0FB008E75A3 /* BusinessView.swift in Sources */,
 				DFAF793E275769BB00BC04DF /* MainView.swift in Sources */,

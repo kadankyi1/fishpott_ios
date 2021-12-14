@@ -350,9 +350,9 @@ func sendRequest(app_version: String) {
                                     print("businessMaxInvestorsNeeded: \(businessMaxInvestorsNeeded)")
                                   }
                                 
-                                if let businessCurrentShareholders = json["data"]["business_current_shareholders"].string {
+                                if let businessCurrentShareholders = json["data"]["business_current_shareholders"].int {
                                     //Now you got your value
-                                    self.businessCurrentShareholders = businessCurrentShareholders
+                                    self.businessCurrentShareholders = String(businessCurrentShareholders)
                                     print("businessCurrentShareholders: \(businessCurrentShareholders)")
                                   }
                                 
