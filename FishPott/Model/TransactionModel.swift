@@ -12,7 +12,6 @@ import SwiftUI
 struct TransactionModel: Identifiable {
     var id = UUID()
     var type: String
-    var status: String
     var info_1: String
     var info_2: String
     var info_3: String

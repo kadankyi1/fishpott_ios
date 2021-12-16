@@ -1,20 +1,40 @@
 //
-//  TransactionData.swift
+//  InvestmentData.swift
 //  FishPott
 //
-//  Created by Dankyi Anno Kwaku on 12/16/21.
+//  Created by Dankyi Anno Kwaku on 12/14/21.
 //
 
 import SwiftUI
 
-struct TransactionData: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+// MARK: - INTRO DATA
 
-struct TransactionData_Previews: PreviewProvider {
-    static var previews: some View {
-        TransactionData()
-    }
-}
+let TransactionData: [TransactionModel] = [
+    TransactionModel(
+        type: "SHARES PURCHASE",
+        info_1: "Paid",
+        info_2: "¢5,999.00",
+        info_3: "Randy Pharmacy",
+        info_4: "100",
+        info_5: "Nov 21 '21",
+        info_6: "testdi1"
+    ),
+    TransactionModel(
+        type: "SHARES PURCHASE",
+        info_1: "Cancelled",
+        info_2: "¢620.00",
+        info_3: "Samba Lit Restaurant",
+        info_4: "40",
+        info_5: "Dec 21 '21",
+        info_6: "testdi1"
+    ),
+    TransactionModel(
+        type: "SHARES PURCHASE",
+        info_1: "Pending",
+        info_2: "¢9,300.00",
+        info_3: "Kertcity Investments",
+        info_4: "50",
+        info_5: "Jan 21 '21",
+        info_6: "testdi1"
+    )
+]

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TransactionItemView: View {
     // MARK: - PROPERTIES
-    var investment: InvestmentModel
+    var transaction: TransactionModel
     
     // MARK: - BODY
     var body: some View {
@@ -18,49 +18,49 @@ struct TransactionItemView: View {
                 
                 HStack(){
                     VStack(spacing: 5) {
-                        Text(investment.business_name)
+                        Text(transaction.type)
                             .font(.headline)
                             .fontWeight(.bold)
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                        Text("Business Name")
+                        Text(transaction.info_3)
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                             .foregroundColor(Color.black)
                             .font(.system(size: 13))
                             .multilineTextAlignment(.center)
                     }
                     
-                    if investment.value_phrase == "Value Profit" {
-                        Text("  " + investment.value_phrase + "  ")
+                    if transaction.info_1 == "Paid" || transaction.info_1 == "Completed" {
+                        Text("  Completed  ")
                         .font(.footnote)
                         .bold()
                         .foregroundColor(Color.white)
                         .background(Color.green)
                         .cornerRadius(2)
-                    } else if investment.value_phrase == "Value Loss" {
-                        Text("  " + investment.value_phrase + "  ")
+                    } else if transaction.info_1 == "Pending" {
+                        Text("  " + transaction.info_1 + "  ")
+                        .font(.footnote)
+                        .bold()
+                        .foregroundColor(Color.black)
+                        .background(Color.yellow)
+                        .cornerRadius(2)
+                    }  else {
+                        Text("  " + transaction.info_1 + "  ")
                         .font(.footnote)
                         .bold()
                         .foregroundColor(Color.white)
                         .background(Color.red)
-                        .cornerRadius(2)
-                    } else {
-                        Text("  " + investment.value_phrase + "  ")
-                        .font(.footnote)
-                        .bold()
-                        .foregroundColor(Color.gray)
-                        .background(Color.green)
                         .cornerRadius(2)
                     }
                 }
             
                 HStack(){
                     VStack(spacing: 5) {
-                        Text(investment.cost_per_share_usd)
+                        Text(transaction.info_4)
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                             .foregroundColor(Color.black)
                             .font(.system(size: 15))
                             .multilineTextAlignment(.center)
-                        Text("Cost Per Share")
+                        Text("Quantity")
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                             .foregroundColor(Color.black)
                             .font(.system(size: 13))
@@ -70,23 +70,11 @@ struct TransactionItemView: View {
                     //Divider().padding(.vertical, 2)
                     Spacer()
                     VStack(spacing: 5) {
-                        Text(investment.value_per_share_usd)
+                        Text(transaction.info_2)
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                             .foregroundColor(Color.black)
                             .font(.system(size: 15))
-                        Text("Value Per Share")
-                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                            .foregroundColor(Color.black)
-                            .font(.system(size: 13))
-                            .multilineTextAlignment(.center)
-                    }
-                    Spacer()
-                    VStack(spacing: 5) {
-                        Text(investment.quantity_of_stocks)
-                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                            .foregroundColor(Color.black)
-                            .font(.system(size: 15))
-                        Text("Stocks Quantity")
+                        Text("Total Cost")
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                             .foregroundColor(Color.black)
                             .font(.system(size: 13))
@@ -94,7 +82,7 @@ struct TransactionItemView: View {
                     }
                 }
                 
-                Text(investment.ai_info)
+                Text(transaction.info_5)
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                 .foregroundColor(Color.black)
                 .font(.system(size: 13))
@@ -109,6 +97,6 @@ struct TransactionItemView: View {
 
 struct TransactionItemView_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionItemView(investment: investmentData[1])
+        TransactionItemView(transaction: TransactionData[2])
     }
 }
