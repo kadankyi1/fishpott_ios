@@ -22,9 +22,9 @@ struct ProfileView: View {
                     
                     GroupBox(){
                         if profileDataFetchHttpAuth.authenticated == 4 {
-                            ProfileRowView(icon: "house", name: "110 - Pott Intelligence")
-                            ProfileRowView(icon: "house", name: "$110K - Net Worth")
-                            ProfileRowView(icon: "house", name: "1st - Pott Position")
+                            ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_intelligence + " - Pott Intelligence")
+                            ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_networth + " - Net Worth")
+                            ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_position + " - Pott Position")
                         } else {
                             ProgressView()
                             .onAppear(perform: {
@@ -55,9 +55,7 @@ struct ProfileView: View {
                     Divider().padding(.vertical, 2)
                     GroupBox(){
                         
-                        NavigationLink(destination: AboutFishPottView()){
-                            ProfileRowView(icon: "house", name: "Contact FishPott")
-                        }
+                        ProfileRowView(icon: "house", name: "Contact - info@fishPott.com")
                         Divider().padding(.vertical, 2)
                         ProfileRowView(icon: "house", name: "", content: nil, linkLabel: "Privacy Policy", linkDestination: "https://fishpott.com/pp.html")
                         
@@ -137,9 +135,10 @@ class ProfileDataFetchHttpAuth: ObservableObject {
                               print("pott_networth: \(pott_networth)")
                             }
                             
-                            if let pott_intelligence = json["data"]["pott_intelligence"].string {
+                            if let pott_intelligence = json["data"]["pott_intelligence"].int {
                                 //Now you got your value
-                                self.pott_intelligence = pott_intelligence
+                                
+                                self.pott_intelligence = String(pott_intelligence)
                                 print("pott_intelligence: \(pott_intelligence)")
                               }
                         
