@@ -15,7 +15,7 @@ struct TransactionsView: View {
     var body: some View {
         NavigationView {
             if transactionsFetchHttpAuth.authenticated == 4 {
-                if transactionsFetchHttpAuth.count_received_investments == 0 {
+                if transactionsFetchHttpAuth.count_received_items == 0 {
                     VStack(spacing: 10) {
                         Image("roundlogo")
                                 .resizable()
@@ -27,7 +27,7 @@ struct TransactionsView: View {
                     }
                 } else {
                     List {
-                        ForEach(transactionsFetchHttpAuth.received_investments) { item in
+                        ForEach(transactionsFetchHttpAuth.received_items) { item in
                             InvestmentItemView(investment: item)
                         }
                     }
@@ -78,7 +78,7 @@ class TransactionsFetchHttpAuth: ObservableObject {
     @Published var authenticated = 3
     @Published var showLoginButton = true
     @Published var message = ""
-    @Published var count_received_investments = 0
+    @Published var count_received_items = 0
     @Published var received_items: [InvestmentModel] = []
     
     func sendRequest(app_version: String) {
@@ -139,8 +139,8 @@ class TransactionsFetchHttpAuth: ObservableObject {
                                                         if let ai_info = item["ai_info"].string {
                                                             print(ai_info)
                                                             let number_of_stocks = String(quantity_of_stocks)
-                                                            self.count_received_investments+=1
-                                                            self.received_investments.append(InvestmentModel(
+                                                            self.count_received_items+=1
+                                                            self.received_items.append(InvestmentModel(
                                                                 business_id: business_id,
                                                                 business_name: business_name,
                                                                 cost_per_share_usd: cost_per_share_usd,

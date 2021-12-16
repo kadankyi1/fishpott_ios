@@ -45,6 +45,9 @@
 		DFDCFBDB275DEA0800BB0B90 /* DrillAnsweredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDCFBDA275DEA0800BB0B90 /* DrillAnsweredView.swift */; };
 		DFDCFBDD275E26D700BB0B90 /* DrillQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDCFBDC275E26D700BB0B90 /* DrillQuestionView.swift */; };
 		DFF03D68276B2BEE00C31FC4 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF03D67276B2BEE00C31FC4 /* TransactionsView.swift */; };
+		DFF03D6A276B361900C31FC4 /* TransactionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF03D69276B361900C31FC4 /* TransactionItemView.swift */; };
+		DFF03D6C276B365D00C31FC4 /* TransactionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF03D6B276B365D00C31FC4 /* TransactionData.swift */; };
+		DFF03D6E276B366C00C31FC4 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF03D6D276B366C00C31FC4 /* TransactionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +90,9 @@
 		DFDCFBDA275DEA0800BB0B90 /* DrillAnsweredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillAnsweredView.swift; sourceTree = "<group>"; };
 		DFDCFBDC275E26D700BB0B90 /* DrillQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillQuestionView.swift; sourceTree = "<group>"; };
 		DFF03D67276B2BEE00C31FC4 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
+		DFF03D69276B361900C31FC4 /* TransactionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemView.swift; sourceTree = "<group>"; };
+		DFF03D6B276B365D00C31FC4 /* TransactionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionData.swift; sourceTree = "<group>"; };
+		DFF03D6D276B366C00C31FC4 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +210,7 @@
 				DFCD56D42768B6C900F092C8 /* ProfileRowView.swift */,
 				DFCD56D62768B78100F092C8 /* AboutFishPottView.swift */,
 				DFF03D67276B2BEE00C31FC4 /* TransactionsView.swift */,
+				DFF03D69276B361900C31FC4 /* TransactionItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +220,7 @@
 			children = (
 				DF5F5FA32748ED2B00822C71 /* IntroModel.swift */,
 				DFCD56CE276891F900F092C8 /* InvestmentModel.swift */,
+				DFF03D6D276B366C00C31FC4 /* TransactionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +230,7 @@
 			children = (
 				DF5F5FA62748F45A00822C71 /* IntroData.swift */,
 				DFCD56D22768A4C100F092C8 /* InvestmentData.swift */,
+				DFF03D6B276B365D00C31FC4 /* TransactionData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -361,10 +370,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFF03D6C276B365D00C31FC4 /* TransactionData.swift in Sources */,
 				DFF03D68276B2BEE00C31FC4 /* TransactionsView.swift in Sources */,
 				DF5F5FB0274A1B2F00822C71 /* PickerTextField.swift in Sources */,
 				DF5F5FB2274A201A00822C71 /* SignupActionTextsViews.swift in Sources */,
 				DFC74E9B2758DE2300F64CA5 /* SuggestionView.swift in Sources */,
+				DFF03D6A276B361900C31FC4 /* TransactionItemView.swift in Sources */,
 				DF5F5FAB274A169800822C71 /* SignupView.swift in Sources */,
 				DF5F5FAE274A1AC200822C71 /* KeyboardGuardian.swift in Sources */,
 				DFB0F5662756361800968F2B /* GeometryGetter.swift in Sources */,
@@ -383,6 +394,7 @@
 				DFCD56D32768A4C100F092C8 /* InvestmentData.swift in Sources */,
 				DFCD56D72768B78100F092C8 /* AboutFishPottView.swift in Sources */,
 				DF5F5FA42748ED2B00822C71 /* IntroModel.swift in Sources */,
+				DFF03D6E276B366C00C31FC4 /* TransactionModel.swift in Sources */,
 				DFCD56D52768B6C900F092C8 /* ProfileRowView.swift in Sources */,
 				DF5F5F9D2748035700822C71 /* IntroCardView.swift in Sources */,
 				DF5F5FA9274917A400822C71 /* LoginView.swift in Sources */,
