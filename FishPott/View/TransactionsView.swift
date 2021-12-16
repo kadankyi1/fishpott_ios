@@ -28,7 +28,7 @@ struct TransactionsView: View {
                 } else {
                     List {
                         ForEach(transactionsFetchHttpAuth.received_items) { item in
-                            InvestmentItemView(investment: item)
+                            TransactionItemView(transaction: item)
                         }
                     }
                 }
@@ -79,12 +79,12 @@ class TransactionsFetchHttpAuth: ObservableObject {
     @Published var showLoginButton = true
     @Published var message = ""
     @Published var count_received_items = 0
-    @Published var received_items: [InvestmentModel] = []
+    @Published var received_items: [TransactionModel] = []
     
     func sendRequest(app_version: String) {
     showLoginButton = false
         self.authenticated = 3
-    guard let url = URL(string: "http://144.202.111.61/api/v1/user/get-my-investments") else { return }
+    guard let url = URL(string: "http://144.202.111.61/api/v1/user/get-my-transactions") else { return }
         
     let body: [String: String] =
         [
@@ -124,30 +124,29 @@ class TransactionsFetchHttpAuth: ObservableObject {
                         self.authenticated = 4
                         if let items = json["data"].array {
                             for item in items {
-                                if let business_id = item["business_id"].string {
-                                    print(business_id)
-                                    if let business_name = item["business_name"].string {
-                                        print(business_name)
-                                        if let cost_per_share_usd = item["cost_per_share_usd"].string {
-                                            print(cost_per_share_usd)
-                                            if let value_per_share_usd = item["value_per_share_usd"].string {
-                                                    print(value_per_share_usd)
-                                                    if let quantity_of_stocks = item["quantity_of_stocks"].int {
-                                                        print(quantity_of_stocks)
-                                                    if let value_phrase = item["value_phrase"].string {
-                                                        print(value_phrase)
-                                                        if let ai_info = item["ai_info"].string {
-                                                            print(ai_info)
-                                                            let number_of_stocks = String(quantity_of_stocks)
+                                if let type = item["type"].string {
+                                    print(type)
+                                    if let info_1 = item["info_1"].string {
+                                        print(info_1)
+                                        if let info_2 = item["info_2"].string {
+                                            print(info_2)
+                                            if let info_3 = item["info_3"].string {
+                                                    print(info_3)
+                                                    if let info_4 = item["info_4"].string {
+                                                        print(info_4)
+                                                    if let info_5 = item["info_5"].string {
+                                                        print(info_5)
+                                                        if let info_6 = item["info_6"].string {
+                                                            print(info_6)
                                                             self.count_received_items+=1
-                                                            self.received_items.append(InvestmentModel(
-                                                                business_id: business_id,
-                                                                business_name: business_name,
-                                                                cost_per_share_usd: cost_per_share_usd,
-                                                                value_per_share_usd: value_per_share_usd,
-                                                                quantity_of_stocks: number_of_stocks,
-                                                                value_phrase: value_phrase,
-                                                                ai_info: ai_info
+                                                            self.received_items.append(TransactionModel(
+                                                                type: type,
+                                                                info_1: info_1,
+                                                                info_2: info_2,
+                                                                info_3: info_3,
+                                                                info_4: info_4,
+                                                                info_5: info_5,
+                                                                info_6: info_6
                                                             ))
                                                         }
                                                     }

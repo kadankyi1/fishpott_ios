@@ -35,7 +35,7 @@ struct ProfileView: View {
                     Divider().padding(.vertical, 2)
                     // MARK: -- SECTION 2
                     GroupBox(){
-                        NavigationLink(destination: AboutFishPottView()){
+                        NavigationLink(destination: TransactionsView()){
                             ProfileRowView(icon: "house", name: "View Transactions")
                         }
                         Divider().padding(.vertical, 2)
