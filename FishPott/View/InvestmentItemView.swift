@@ -101,6 +101,9 @@ struct InvestmentItemView: View {
                 .multilineTextAlignment(.center)
             } //  VSTACK
             .clipped()
+            .onTapGesture {
+                   print("stock_id : " + investment.stock_id)
+            }
         }
         .padding(.horizontal, 5)
         .shadow(color: Color.gray, radius: 10, x: 0, y: 0)

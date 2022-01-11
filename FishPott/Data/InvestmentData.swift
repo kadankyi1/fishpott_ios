@@ -11,6 +11,7 @@ import SwiftUI
 
 let investmentData: [InvestmentModel] = [
     InvestmentModel(
+        stock_id: "so-bizid1",
         business_id: "bizid1",
         business_name: "Randy Pharmacy",
         cost_per_share_usd: "$1",
@@ -20,6 +21,7 @@ let investmentData: [InvestmentModel] = [
         ai_info: "Your networth is up"
     ),
     InvestmentModel(
+        stock_id: "so-bizid1",
         business_id: "bizid1",
         business_name: "Break Cafe",
         cost_per_share_usd: "$4",
@@ -29,6 +31,7 @@ let investmentData: [InvestmentModel] = [
         ai_info: "Your networth has reduced"
     ),
     InvestmentModel(
+        stock_id: "so-bizid1",
         business_id: "bizid1",
         business_name: "Break Cafe",
         cost_per_share_usd: "$4",

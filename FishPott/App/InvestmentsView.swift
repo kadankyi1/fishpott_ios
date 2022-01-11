@@ -27,9 +27,15 @@ struct InvestmentsView: View {
                     }
                 } else {
                     List {
-                        ForEach(investmentFetchHttpAuth.received_investments) { item in
-                            InvestmentItemView(investment: item)
-                        }
+                        Text("To transfer shares to another person, click on the investment in the list")
+                        .font(.headline)
+                        .foregroundColor(Color.black)
+                        
+                                ForEach(investmentFetchHttpAuth.received_investments) { item in
+                                    NavigationLink(destination: TransferView(stock_business_name: "Sample Stock", stock_ownership_id: "idididid", quantity_available: 100)){
+                                    InvestmentItemView(investment: item)
+                                }
+                            }
                     }
                 }
                 
@@ -124,8 +130,10 @@ class InvestmentFetchHttpAuth: ObservableObject {
                         self.authenticated = 4
                         if let items = json["data"].array {
                             for item in items {
-                                if let business_id = item["business_id"].string {
-                                    print(business_id)
+                                if let stock_id = item["stock_id"].string {
+                                    print(stock_id)
+                                    if let business_id = item["business_id"].string {
+                                        print(business_id)
                                     if let business_name = item["business_name"].string {
                                         print(business_name)
                                         if let cost_per_share_usd = item["cost_per_share_usd"].string {
@@ -141,6 +149,7 @@ class InvestmentFetchHttpAuth: ObservableObject {
                                                             let number_of_stocks = String(quantity_of_stocks)
                                                             self.count_received_investments+=1
                                                             self.received_investments.append(InvestmentModel(
+                                                                stock_id: stock_id, 
                                                                 business_id: business_id,
                                                                 business_name: business_name,
                                                                 cost_per_share_usd: cost_per_share_usd,
@@ -158,6 +167,7 @@ class InvestmentFetchHttpAuth: ObservableObject {
                                 }
                             }
                         }
+                    }
                         
                     } else {
                         self.authenticated = 2

@@ -11,6 +11,7 @@ import SwiftUI
 // MARK: - INVESTMENT DATA MODEL
 struct InvestmentModel: Identifiable {
     var id = UUID()
+    var stock_id: String
     var business_id: String
     var business_name: String
     var cost_per_share_usd: String

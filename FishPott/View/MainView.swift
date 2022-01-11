@@ -62,24 +62,10 @@ struct MainView: View {
                 
                 switch selectedIndex {
                 case 0:
-                    /*
-                     NavigationView {
-                        ScrollView {
-                            ForEach(0..<100) { num in
-                                Text("\(num)")
-                            }
-                        }
-                        .navigationTitle("Today Page")
-                    }*/
                     SuggestionView()
                 case 1:
                     FinderView()
                 case 2:
-                    /*
-                    ScrollView {
-                        Text("Read Page")
-                    }
-                    */
                     InvestmentsView()
                 case 3:
                     ProfileView()
@@ -100,7 +86,7 @@ struct MainView: View {
                 .background(Color.white)
             
             HStack {
-                ForEach(0..<4) { num in
+                ForEach(0..<5) { num in
                     Button(action: {
                         
                         /*

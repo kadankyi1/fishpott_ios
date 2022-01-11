@@ -2,30 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "GSPlayer",
-        "repositoryURL": "https://github.com/wxxsw/GSPlayer.git",
-        "state": {
-          "branch": null,
-          "revision": "5904551cf33e0c38831fdc56c6a2c9770eadc30d",
-          "version": "0.2.25"
-        }
-      },
-      {
         "package": "URLImage",
         "repositoryURL": "https://github.com/dmytro-anokhin/url-image",
         "state": {
-          "branch": null,
-          "revision": "4042f955f1fdff00ced85545e1eecdbf969b5cd0",
-          "version": "3.1.1"
-        }
-      },
-      {
-        "package": "VideoPlayer",
-        "repositoryURL": "https://github.com/wxxsw/VideoPlayer",
-        "state": {
-          "branch": null,
-          "revision": "3c5b9531ee20e34d3a86142ca2c076a5b99afdb2",
-          "version": "1.2.3"
+          "branch": "main",
+          "revision": "20abda498bf8fe78631b1057b77078147598962b",
+          "version": null
         }
       }
     ]
