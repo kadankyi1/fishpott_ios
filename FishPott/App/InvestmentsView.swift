@@ -32,7 +32,7 @@ struct InvestmentsView: View {
                         .foregroundColor(Color.black)
                         
                                 ForEach(investmentFetchHttpAuth.received_investments) { item in
-                                    NavigationLink(destination: TransferView(stock_business_name: "Sample Stock", stock_ownership_id: "idididid", quantity_available: "100")){
+                                    NavigationLink(destination: TransferView(stock_business_name: item.business_name, stock_ownership_id: item.stock_id, quantity_available: item.quantity_of_stocks)){
                                     InvestmentItemView(investment: item)
                                 }
                             }

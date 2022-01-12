@@ -25,13 +25,13 @@ struct TransferView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
-            if transferSharesHttpAuth.authenticated  == 0 {
+            if transferSharesHttpAuth.authenticated  == 0 ||  transferSharesHttpAuth.authenticated  == 4 {
                 VStack(spacing: 10) {
                     
                 Text(stock_business_name)
-                    .foregroundColor(Color("ColorWhiteAccent"))
+                        .foregroundColor(.black)
                     
-                    TextField("Stocks Amount", text: $transfer_quantity).textFieldStyle(RoundedBorderTextFieldStyle.init())
+                    TextField("Transfer Amount", text: $transfer_quantity).textFieldStyle(RoundedBorderTextFieldStyle.init())
                         .scaleEffect(x: 1, y: 1, anchor: .center)
                         .padding(.horizontal, 50)
                         .padding(.bottom, 10)
@@ -49,6 +49,11 @@ struct TransferView: View {
                         .padding(.bottom, 10)
                         .background(GeometryGetter(rect: $kGuardian.rects[0]))
                     
+                        if transferSharesHttpAuth.authenticated  == 4 {
+                            Text(transferSharesHttpAuth.message)
+                            .font(.headline)
+                            .foregroundColor(.red)
+                        }
                         Button(action: {
                             print("FishPottApp.app_version: " + FishPottApp.app_version)
                             if networking == false {
@@ -59,7 +64,7 @@ struct TransferView: View {
                             }
                         }) {
                             HStack (spacing: 4) {
-                                Text("Find")
+                                Text("Transfer")
                                     .foregroundColor(Color("ColorWhiteAccent"))
                             }
                             .padding(.horizontal, 16)
@@ -100,7 +105,7 @@ struct TransferView: View {
                                 .resizable()
                                 .frame(width: 100, height: 100, alignment: .top)
                                 .padding(.vertical, 50)
-                        Text("Finding Item...")
+                        Text("Processing transfer...")
                         .font(.headline)
                         .foregroundColor(Color.black)
                         ProgressView()
@@ -197,7 +202,7 @@ class TransferSharesHttpAuth: ObservableObject {
                         if let message = json["message"].string {
                             //Now you got your value
                             self.message = message
-                            if message == "business" {
+                            if message == "success" {
                                 self.authenticated = 4
                                 print("b message: \(message)")
                                 
@@ -214,7 +219,7 @@ class TransferSharesHttpAuth: ObservableObject {
                                   }
                                 
                             } else {
-                                self.authenticated = 2
+                                self.authenticated = 0
                                 print("err message: \(message)")
                             }
                           }
