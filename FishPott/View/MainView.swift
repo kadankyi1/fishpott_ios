@@ -86,7 +86,7 @@ struct MainView: View {
                 .background(Color.white)
             
             HStack {
-                ForEach(0..<5) { num in
+                ForEach(0..<4) { num in
                     Button(action: {
                         
                         /*
