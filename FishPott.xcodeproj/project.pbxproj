@@ -12,6 +12,8 @@
 		DF280D39278D82E800002BF7 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = DF280D38278D82E800002BF7 /* URLImage */; };
 		DF280D3B278D82E800002BF7 /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = DF280D3A278D82E800002BF7 /* URLImageStore */; };
 		DF280D3D278D8C4700002BF7 /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF280D3C278D8C4700002BF7 /* TransferView.swift */; };
+		DF280D3F278EDA5500002BF7 /* SellbackSharesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF280D3E278EDA5400002BF7 /* SellbackSharesView.swift */; };
+		DF280D41278EE05400002BF7 /* SharesToolBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF280D40278EE05400002BF7 /* SharesToolBoxView.swift */; };
 		DF4D5D3E27661A7D00CE199D /* BuySharesAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4D5D3D27661A7D00CE199D /* BuySharesAmountView.swift */; };
 		DF513162275B4D950029ED4B /* splashfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF513161275B4D950029ED4B /* splashfont.ttf */; };
 		DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */; };
@@ -56,6 +58,8 @@
 		DE70B70C8FFF26BFCEAC3953 /* Pods-FishPott.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FishPott.release.xcconfig"; path = "Target Support Files/Pods-FishPott/Pods-FishPott.release.xcconfig"; sourceTree = "<group>"; };
 		DF219F402760C0FB008E75A3 /* BusinessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessView.swift; sourceTree = "<group>"; };
 		DF280D3C278D8C4700002BF7 /* TransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferView.swift; sourceTree = "<group>"; };
+		DF280D3E278EDA5400002BF7 /* SellbackSharesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellbackSharesView.swift; sourceTree = "<group>"; };
+		DF280D40278EE05400002BF7 /* SharesToolBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharesToolBoxView.swift; sourceTree = "<group>"; };
 		DF4D5D3D27661A7D00CE199D /* BuySharesAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySharesAmountView.swift; sourceTree = "<group>"; };
 		DF513161275B4D950029ED4B /* splashfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = splashfont.ttf; sourceTree = "<group>"; };
 		DF5F5F892747AF3A00822C71 /* FishPott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishPott.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,7 +193,6 @@
 				DFC74E9C2758DE3F00F64CA5 /* FinderView.swift */,
 				DFC74E9E2758DE7600F64CA5 /* InvestmentsView.swift */,
 				DFC74EA02758DE8500F64CA5 /* ProfileView.swift */,
-				DF280D3C278D8C4700002BF7 /* TransferView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -209,9 +212,12 @@
 				DF4D5D3D27661A7D00CE199D /* BuySharesAmountView.swift */,
 				DFCD56D02768A26500F092C8 /* InvestmentItemView.swift */,
 				DFCD56D42768B6C900F092C8 /* ProfileRowView.swift */,
+				DF280D3C278D8C4700002BF7 /* TransferView.swift */,
 				DFCD56D62768B78100F092C8 /* AboutFishPottView.swift */,
 				DFF03D67276B2BEE00C31FC4 /* TransactionsView.swift */,
 				DFF03D69276B361900C31FC4 /* TransactionItemView.swift */,
+				DF280D3E278EDA5400002BF7 /* SellbackSharesView.swift */,
+				DF280D40278EE05400002BF7 /* SharesToolBoxView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -394,9 +400,11 @@
 				DFCD56D32768A4C100F092C8 /* InvestmentData.swift in Sources */,
 				DFCD56D72768B78100F092C8 /* AboutFishPottView.swift in Sources */,
 				DF5F5FA42748ED2B00822C71 /* IntroModel.swift in Sources */,
+				DF280D3F278EDA5500002BF7 /* SellbackSharesView.swift in Sources */,
 				DFF03D6E276B366C00C31FC4 /* TransactionModel.swift in Sources */,
 				DFCD56D52768B6C900F092C8 /* ProfileRowView.swift in Sources */,
 				DF5F5F9D2748035700822C71 /* IntroCardView.swift in Sources */,
+				DF280D41278EE05400002BF7 /* SharesToolBoxView.swift in Sources */,
 				DF5F5FA9274917A400822C71 /* LoginView.swift in Sources */,
 				DFCD56D12768A26500F092C8 /* InvestmentItemView.swift in Sources */,
 				DFDCFBD9275DE6F100BB0B90 /* DrillView.swift in Sources */,
