@@ -14,6 +14,10 @@
 		DF280D3D278D8C4700002BF7 /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF280D3C278D8C4700002BF7 /* TransferView.swift */; };
 		DF280D3F278EDA5500002BF7 /* SellbackSharesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF280D3E278EDA5400002BF7 /* SellbackSharesView.swift */; };
 		DF280D41278EE05400002BF7 /* SharesToolBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF280D40278EE05400002BF7 /* SharesToolBoxView.swift */; };
+		DF280D43278EE1F800002BF7 /* SharesToolboxMenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF280D42278EE1F800002BF7 /* SharesToolboxMenuItemView.swift */; };
+		DF280D47278EF8A500002BF7 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DF280D46278EF8A500002BF7 /* FirebaseMessaging */; };
+		DF280D49278EFB5A00002BF7 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DF280D48278EFB5A00002BF7 /* FirebaseAnalytics */; };
+		DF280D4B278EFBAF00002BF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF280D4A278EFBAF00002BF7 /* GoogleService-Info.plist */; };
 		DF4D5D3E27661A7D00CE199D /* BuySharesAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4D5D3D27661A7D00CE199D /* BuySharesAmountView.swift */; };
 		DF513162275B4D950029ED4B /* splashfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF513161275B4D950029ED4B /* splashfont.ttf */; };
 		DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */; };
@@ -60,6 +64,9 @@
 		DF280D3C278D8C4700002BF7 /* TransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferView.swift; sourceTree = "<group>"; };
 		DF280D3E278EDA5400002BF7 /* SellbackSharesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellbackSharesView.swift; sourceTree = "<group>"; };
 		DF280D40278EE05400002BF7 /* SharesToolBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharesToolBoxView.swift; sourceTree = "<group>"; };
+		DF280D42278EE1F800002BF7 /* SharesToolboxMenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharesToolboxMenuItemView.swift; sourceTree = "<group>"; };
+		DF280D44278EF24A00002BF7 /* FishPott.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FishPott.entitlements; sourceTree = "<group>"; };
+		DF280D4A278EFBAF00002BF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF4D5D3D27661A7D00CE199D /* BuySharesAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySharesAmountView.swift; sourceTree = "<group>"; };
 		DF513161275B4D950029ED4B /* splashfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = splashfont.ttf; sourceTree = "<group>"; };
 		DF5F5F892747AF3A00822C71 /* FishPott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishPott.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,8 +112,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF280D47278EF8A500002BF7 /* FirebaseMessaging in Frameworks */,
 				DF280D39278D82E800002BF7 /* URLImage in Frameworks */,
 				DF280D3B278D82E800002BF7 /* URLImageStore in Frameworks */,
+				DF280D49278EFB5A00002BF7 /* FirebaseAnalytics in Frameworks */,
 				3CAC7059827CB052102BDCB2 /* Pods_FishPott.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +169,8 @@
 		DF5F5F8B2747AF3A00822C71 /* FishPott */ = {
 			isa = PBXGroup;
 			children = (
+				DF280D4A278EFBAF00002BF7 /* GoogleService-Info.plist */,
+				DF280D44278EF24A00002BF7 /* FishPott.entitlements */,
 				DF919A4B275C99F6009B7F41 /* Info.plist */,
 				DF513163275B4DDC0029ED4B /* Fonts */,
 				DF5F5FAC274A1AA500822C71 /* Utils */,
@@ -218,6 +229,7 @@
 				DFF03D69276B361900C31FC4 /* TransactionItemView.swift */,
 				DF280D3E278EDA5400002BF7 /* SellbackSharesView.swift */,
 				DF280D40278EE05400002BF7 /* SharesToolBoxView.swift */,
+				DF280D42278EE1F800002BF7 /* SharesToolboxMenuItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -274,6 +286,8 @@
 			packageProductDependencies = (
 				DF280D38278D82E800002BF7 /* URLImage */,
 				DF280D3A278D82E800002BF7 /* URLImageStore */,
+				DF280D46278EF8A500002BF7 /* FirebaseMessaging */,
+				DF280D48278EFB5A00002BF7 /* FirebaseAnalytics */,
 			);
 			productName = FishPott;
 			productReference = DF5F5F892747AF3A00822C71 /* FishPott.app */;
@@ -305,6 +319,7 @@
 			mainGroup = DF5F5F802747AF3A00822C71;
 			packageReferences = (
 				DF280D37278D82E800002BF7 /* XCRemoteSwiftPackageReference "url-image" */,
+				DF280D45278EF8A500002BF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = DF5F5F8A2747AF3A00822C71 /* Products */;
 			projectDirPath = "";
@@ -321,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF513162275B4D950029ED4B /* splashfont.ttf in Resources */,
+				DF280D4B278EFBAF00002BF7 /* GoogleService-Info.plist in Resources */,
 				DF5F5F942747AF3D00822C71 /* Preview Assets.xcassets in Resources */,
 				DF5F5F912747AF3D00822C71 /* Assets.xcassets in Resources */,
 			);
@@ -409,6 +425,7 @@
 				DFCD56D12768A26500F092C8 /* InvestmentItemView.swift in Sources */,
 				DFDCFBD9275DE6F100BB0B90 /* DrillView.swift in Sources */,
 				DF5F5FA72748F45A00822C71 /* IntroData.swift in Sources */,
+				DF280D43278EE1F800002BF7 /* SharesToolboxMenuItemView.swift in Sources */,
 				DFC74E9D2758DE3F00F64CA5 /* FinderView.swift in Sources */,
 				DFB0F56A2756364C00968F2B /* KeyboardHost.swift in Sources */,
 				DFDCFBDB275DEA0800BB0B90 /* DrillAnsweredView.swift in Sources */,
@@ -540,6 +557,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FishPott/FishPott.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FishPott/Preview Content\"";
@@ -573,6 +591,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FishPott/FishPott.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FishPott/Preview Content\"";
@@ -632,6 +651,14 @@
 				kind = branch;
 			};
 		};
+		DF280D45278EF8A500002BF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -644,6 +671,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DF280D37278D82E800002BF7 /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImageStore;
+		};
+		DF280D46278EF8A500002BF7 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF280D45278EF8A500002BF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		DF280D48278EFB5A00002BF7 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF280D45278EF8A500002BF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

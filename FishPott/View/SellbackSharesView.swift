@@ -84,7 +84,7 @@ struct SellbackSharesView: View {
                             }
                         }) {
                             HStack (spacing: 4) {
-                                Text("Transfer")
+                                Text("Sell")
                                     .foregroundColor(Color("ColorWhiteAccent"))
                             }
                             .padding(.horizontal, 16)
@@ -126,7 +126,7 @@ struct SellbackSharesView: View {
                                 .resizable()
                                 .frame(width: 100, height: 100, alignment: .top)
                                 .padding(.vertical, 50)
-                        Text("Processing transfer...")
+                        Text("Processing sellback...")
                         .font(.headline)
                         .foregroundColor(Color.black)
                         ProgressView()
