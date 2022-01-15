@@ -41,6 +41,7 @@ struct ProfileRowView: View {
                 EmptyView()
             }
         }
+        
     }
 }
 

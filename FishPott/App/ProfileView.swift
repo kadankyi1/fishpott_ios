@@ -22,7 +22,11 @@ struct ProfileView: View {
                     
                     GroupBox(){
                         if profileDataFetchHttpAuth.authenticated == 4 {
-                            ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_intelligence + " - Pott Intelligence")
+                            ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_intelligence + " - Pott-You Sync")
+                            Text("This is how well your FishPott knows you")
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .foregroundColor(Color.gray)
+                                .font(.system(size: 12))
                             ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_networth + " - Net Worth")
                             ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_position + " - Pott Position")
                         } else {
