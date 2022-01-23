@@ -22,7 +22,7 @@ struct ProfileView: View {
                     
                     GroupBox(){
                         if profileDataFetchHttpAuth.authenticated == 4 {
-                            ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_intelligence + " - Pott-You Sync")
+                            ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_intelligence + " - Pott Intelligence")
                             Text("This is how well your FishPott knows you")
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                                 .foregroundColor(Color.gray)
@@ -92,7 +92,7 @@ class ProfileDataFetchHttpAuth: ObservableObject {
     func sendRequest(app_version: String) {
     showLoginButton = false
         self.authenticated = 3
-    guard let url = URL(string: "http://144.202.111.61/api/v1/user/get-user-info") else { return }
+    guard let url = URL(string: FishPottApp.app_domain + "/api/v1/user/get-user-info") else { return }
         
     let body: [String: String] =
         [
@@ -139,7 +139,7 @@ class ProfileDataFetchHttpAuth: ObservableObject {
                               print("pott_networth: \(pott_networth)")
                             }
                             
-                            if let pott_intelligence = json["data"]["pott_intelligence"].int {
+                            if let pott_intelligence = json["data"]["pott_intelligence"].string {
                                 //Now you got your value
                                 
                                 self.pott_intelligence = String(pott_intelligence)

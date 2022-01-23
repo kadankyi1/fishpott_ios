@@ -156,7 +156,7 @@ class TransferSharesHttpAuth: ObservableObject {
     func sendRequest(user_password: String, stockownership_id: String, transfer_quantity: String, quantity_available: String, receiver_pottname: String, app_version: String) {
     showLoginButton = false
         self.authenticated = 3
-    guard let url = URL(string: "http://144.202.111.61/api/v1/user/send-stock-transfer") else { return }
+    guard let url = URL(string: FishPottApp.app_domain + "/api/v1/user/send-stock-transfer") else { return }
         
     let body: [String: String] =
         [

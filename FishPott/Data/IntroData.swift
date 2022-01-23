@@ -13,7 +13,7 @@ let introData: [IntroModel] = [
     IntroModel(
         title: "FishPott - Drills",
         headline: "Discover your trading nature. Train your FishPott to suggest stocks ",
-        image: "startinfo1",
+        image: "maths",
         gradidentColors: [Color("ColorBlackPrimary"), Color("ColorBlackPrimary")],
         description: "This is a description 1. This is a description 1. This is a description 1."
     ),

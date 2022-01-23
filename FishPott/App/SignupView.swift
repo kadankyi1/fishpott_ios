@@ -238,7 +238,7 @@ class SignupHttpAuth: ObservableObject {
         password: String,
         app_version: String) {
         showLoginButton = false
-        guard let url = URL(string: "http://144.202.111.61/api/v1/user/register-personal") else { return }
+        guard let url = URL(string: FishPottApp.app_domain + "/api/v1/user/register-personal") else { return }
 
         let body: [String: String] =
             [

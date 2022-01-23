@@ -142,7 +142,7 @@ class FinderSearchItemHttpAuth: ObservableObject {
     func sendRequest(business_id: String, app_version: String) {
     showLoginButton = false
         self.authenticated = 3
-    guard let url = URL(string: "http://144.202.111.61/api/v1/user/find-business") else { return }
+    guard let url = URL(string: FishPottApp.app_domain + "/api/v1/user/find-business") else { return }
         
     let body: [String: String] =
         [

@@ -169,7 +169,7 @@ class SellbackSharesHttpAuth: ObservableObject {
     func sendRequest(user_password: String, stockownership_id: String, sell_quantity: String, quantity_available: String, account_name: String, bank_or_momo_number: String, bank_or_network_name: String, bank_routing_number: String, app_version: String) {
     showLoginButton = false
         self.authenticated = 3
-    guard let url = URL(string: "http://144.202.111.61/api/v1/user/sellback-stock") else { return }
+    guard let url = URL(string: FishPottApp.app_domain + "/api/v1/user/sellback-stock") else { return }
         
     let body: [String: String] =
         [

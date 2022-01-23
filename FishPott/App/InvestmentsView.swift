@@ -90,7 +90,7 @@ class InvestmentFetchHttpAuth: ObservableObject {
     func sendRequest(app_version: String) {
     showLoginButton = false
         self.authenticated = 3
-    guard let url = URL(string: "http://144.202.111.61/api/v1/user/get-my-investments") else { return }
+    guard let url = URL(string: FishPottApp.app_domain + "/api/v1/user/get-my-investments") else { return }
         
     let body: [String: String] =
         [

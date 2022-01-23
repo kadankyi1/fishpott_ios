@@ -54,7 +54,7 @@ class AnswerDrillSuggestionHttpAuth: ObservableObject {
 func sendRequest(drill_id: String, drill_answer: String, app_version: String) {
     networking = 1
     showLoginButton = false
-    guard let url = URL(string: "http://144.202.111.61/api/v1/user/save-drill-answer") else { return }
+    guard let url = URL(string: FishPottApp.app_domain + "/api/v1/user/save-drill-answer") else { return }
         
     let body: [String: String] =
         [

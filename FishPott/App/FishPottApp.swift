@@ -14,6 +14,7 @@ struct FishPottApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     //@AppStorage("isOnboardning") var isOnboarding: Bool = true
     static let app_version : String = "7"
+    static let app_domain : String = "https://app.fishpott.com"
     
     @State var currentStage = getUserFirstOpenView("user_accesstoken")
     
