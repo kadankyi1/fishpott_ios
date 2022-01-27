@@ -29,6 +29,7 @@ struct PriceSummaryListItemView: View {
                 .cornerRadius(8)
             Text(name)
                 .foregroundColor(Color.gray)
+            Spacer()
             
             if(content != nil){
                 

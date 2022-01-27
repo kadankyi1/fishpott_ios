@@ -78,7 +78,6 @@ struct BuySharesAmountView: View {
                         VStack(spacing: 10) {
                             BusinessBannerView(businessID: businessID, businessName: businessName, businessLogo: businessLogo, businessCountry: businessCountry, businessType: businessType)
                             
-                            
                             PriceSummaryView(businessName: getFinalPriceHttpAuth.businessName, pricePerItem: getFinalPriceHttpAuth.pricePerItem, quantityToBuy: getFinalPriceHttpAuth.quantityToBuy, dollarToCedisRate: getFinalPriceHttpAuth.dollarToCedisRate, riskStatement: getFinalPriceHttpAuth.riskStatement, riskInsuranceFee: getFinalPriceHttpAuth.riskInsuranceFee, processingFee: getFinalPriceHttpAuth.processingFee, overallTotalUsd: getFinalPriceHttpAuth.overallTotalUsd)
                             
                                     Button(action: {
@@ -102,7 +101,7 @@ struct BuySharesAmountView: View {
                                     .accentColor(Color("ColorBlackPrimary"))
                                     .background(Color("ColorBlackPrimary"))
                                     .cornerRadius(5)
-                                    .padding(.bottom, 50)
+                                    .padding(.bottom, 100)
                         } //  VSTACK
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 600, idealHeight: 600, maxHeight: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         //.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
@@ -222,85 +221,79 @@ class GetFinalPriceHttpAuth: ObservableObject {
                         if let message = json["message"].string {
                             //Now you got your value
                             self.message = message
-                            if message == "business" {
                                 self.authenticated = 4
                                 print("b message: \(message)")
-                                
-                                if let businessName = json["data"]["item"].string {
-                                  //Now you got your value
-                                  self.businessName = businessName
-                                  print("businessName: \(businessName)")
-                                }
-                                
-                                if let pricePerItem = json["data"]["price_per_item"].string {
-                                    //Now you got your value
-                                    self.pricePerItem = pricePerItem
-                                    print("pricePerItem: \(pricePerItem)")
-                                }
-                                
-                                if let quantityToBuy = json["data"]["quantity"].int {
-                                    //Now you got your value
-                                    self.quantityToBuy = quantityToBuy
-                                    print("quantity: \(quantityToBuy)")
-                                }
-                                
-                                if let dollarToCedisRate = json["data"]["rate"].string {
-                                    //Now you got your value
-                                    self.dollarToCedisRate = dollarToCedisRate
-                                    print("dollarToCedisRate: \(dollarToCedisRate)")
-                                }
-                                
-                                if let riskType = json["data"]["risk"].string {
-                                    //Now you got your value
-                                    self.riskType = riskType
-                                    print("riskType: \(riskType)")
-                                }
-                                
-                                if let riskStatement = json["data"]["risk_statement"].string {
-                                    //Now you got your value
-                                    self.riskStatement = riskStatement
-                                    print("riskStatement: \(riskStatement)")
-                                }
-                                
-                                if let riskInsuranceFee = json["data"]["risk_insurance_fee"].string {
-                                    //Now you got your value
-                                    self.riskInsuranceFee = riskInsuranceFee
-                                    print("riskInsuranceFee: \(riskInsuranceFee)")
-                                }
-                                
-                                if let processingFee = json["data"]["processing_fee"].string {
-                                    //Now you got your value
-                                    self.processingFee = processingFee
-                                    print("processingFee: \(processingFee)")
-                                }
-                                
-                                if let overallTotalUsd = json["data"]["overall_total_usd"].string {
-                                    //Now you got your value
-                                    self.overallTotalUsd = overallTotalUsd
-                                    print("overallTotalUsd: \(overallTotalUsd)")
-                                }
-                                
-                                if let overallTotalLocalCurrency = json["data"]["overall_total_local_currency"].string {
-                                    //Now you got your value
-                                    self.overallTotalLocalCurrency = overallTotalLocalCurrency
-                                    print("overallTotalLocalCurrency: \(overallTotalLocalCurrency)")
-                                }
-                                
-                                if let overallTotalLocalCurrencyFloatval = json["data"]["overall_total_local_currency_floatval"].string {
-                                    //Now you got your value
-                                    self.overallTotalLocalCurrencyFloatval = overallTotalLocalCurrencyFloatval
-                                    print("overallTotalLocalCurrencyFloatval: \(overallTotalLocalCurrencyFloatval)")
-                                }
-                                
-                                if let financialYieldInfo = json["data"]["financial_yield_info"].string {
-                                    //Now you got your value
-                                    self.financialYieldInfo = financialYieldInfo
-                                    print("financialYieldInfo: \(financialYieldInfo)")
-                                }
-                                
-                            } else {
-                                self.authenticated = 2
-                                print("err message: \(message)")
+                            
+                            if let businessName = json["data"]["item"].string {
+                              //Now you got your value
+                              self.businessName = businessName
+                              print("businessName: \(businessName)")
+                            }
+                            
+                            if let pricePerItem = json["data"]["price_per_item"].string {
+                                //Now you got your value
+                                self.pricePerItem = pricePerItem
+                                print("pricePerItem: \(pricePerItem)")
+                            }
+                            
+                            if let quantityToBuy = json["data"]["quantity"].int {
+                                //Now you got your value
+                                self.quantityToBuy = quantityToBuy
+                                print("quantity: \(quantityToBuy)")
+                            }
+                            
+                            if let dollarToCedisRate = json["data"]["rate"].string {
+                                //Now you got your value
+                                self.dollarToCedisRate = dollarToCedisRate
+                                print("dollarToCedisRate: \(dollarToCedisRate)")
+                            }
+                            
+                            if let riskType = json["data"]["risk"].string {
+                                //Now you got your value
+                                self.riskType = riskType
+                                print("riskType: \(riskType)")
+                            }
+                            
+                            if let riskStatement = json["data"]["risk_statement"].string {
+                                //Now you got your value
+                                self.riskStatement = riskStatement
+                                print("riskStatement: \(riskStatement)")
+                            }
+                            
+                            if let riskInsuranceFee = json["data"]["risk_insurance_fee"].string {
+                                //Now you got your value
+                                self.riskInsuranceFee = riskInsuranceFee
+                                print("riskInsuranceFee: \(riskInsuranceFee)")
+                            }
+                            
+                            if let processingFee = json["data"]["processing_fee"].string {
+                                //Now you got your value
+                                self.processingFee = processingFee
+                                print("processingFee: \(processingFee)")
+                            }
+                            
+                            if let overallTotalUsd = json["data"]["overall_total_usd"].string {
+                                //Now you got your value
+                                self.overallTotalUsd = overallTotalUsd
+                                print("overallTotalUsd: \(overallTotalUsd)")
+                            }
+                            
+                            if let overallTotalLocalCurrency = json["data"]["overall_total_local_currency"].string {
+                                //Now you got your value
+                                self.overallTotalLocalCurrency = overallTotalLocalCurrency
+                                print("overallTotalLocalCurrency: \(overallTotalLocalCurrency)")
+                            }
+                            
+                            if let overallTotalLocalCurrencyFloatval = json["data"]["overall_total_local_currency_floatval"].string {
+                                //Now you got your value
+                                self.overallTotalLocalCurrencyFloatval = overallTotalLocalCurrencyFloatval
+                                print("overallTotalLocalCurrencyFloatval: \(overallTotalLocalCurrencyFloatval)")
+                            }
+                            
+                            if let financialYieldInfo = json["data"]["financial_yield_info"].string {
+                                //Now you got your value
+                                self.financialYieldInfo = financialYieldInfo
+                                print("financialYieldInfo: \(financialYieldInfo)")
                             }
                           }
                         
