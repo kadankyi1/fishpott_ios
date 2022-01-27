@@ -8,7 +8,7 @@
 import SwiftUI
 import URLImage // Import the package module
 
-struct BuySharesFormView: View {
+struct BusinessBannerView: View {
     // MARK: - PROPERTIES
     var businessID: String
     var businessName: String
@@ -60,6 +60,6 @@ struct BuySharesFormView: View {
 
 struct BuySharesFormView_Previews: PreviewProvider {
     static var previews: some View {
-        BuySharesFormView(businessID: "ID5ID5", businessName: "Tee Shop", businessLogo: "startinfo2", businessCountry: "Ghana", businessType: "Restaurant")
+        BusinessBannerView(businessID: "ID5ID5", businessName: "Tee Shop", businessLogo: "startinfo2", businessCountry: "Ghana", businessType: "Restaurant")
     }
 }

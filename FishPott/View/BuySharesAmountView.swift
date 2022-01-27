@@ -19,17 +19,19 @@ struct BuySharesAmountView: View {
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 3)
     @State private var shouldRefresh = false
     @State private var keyword: String = ""
+    @State private var risk_chosen: String = ""
     @ObservedObject var getFinalPriceHttpAuth = GetFinalPriceHttpAuth()
     @State private var networking: Bool = false
     @State private var lastSelectedIndex: Int?
     @State private var lastSelectedGender: Int?
+    @State var risks_array = ["1","2", "3"] //Here Add Your data
     
     var body: some View {
         
             ScrollView(.vertical, showsIndicators: false){
                 if getFinalPriceHttpAuth.authenticated  == 0 {
                     VStack(spacing: 10) {
-                        BuySharesFormView(businessID: businessID, businessName: businessName, businessLogo: businessLogo, businessCountry: businessCountry, businessType: businessType)
+                        BusinessBannerView(businessID: businessID, businessName: businessName, businessLogo: businessLogo, businessCountry: businessCountry, businessType: businessType)
                         
                         TextField("Investment Amount ($)", text: $keyword).textFieldStyle(RoundedBorderTextFieldStyle.init())
                             .scaleEffect(x: 1, y: 1, anchor: .center)
@@ -50,7 +52,8 @@ struct BuySharesAmountView: View {
                                     print("FishPottApp.app_version: " + FishPottApp.app_version)
                                     if networking == false {
                                         networking = true;
-                                        getFinalPriceHttpAuth.sendRequest(business_id: keyword, app_version: FishPottApp.app_version);
+                                        risk_chosen = risks_array[lastSelectedGender ?? 0]
+                                        getFinalPriceHttpAuth.sendRequest(business_id: businessID, investment_amt_in_dollars: keyword, investment_risk_protection: risk_chosen, app_version: FishPottApp.app_version);
                                         getFinalPriceHttpAuth.authenticated = 3
                                         print("here 1")
                                     }
@@ -73,24 +76,23 @@ struct BuySharesAmountView: View {
                     .background(Color.white)
                 } else if getFinalPriceHttpAuth.authenticated  == 4 {
                         VStack(spacing: 10) {
-                            BuySharesFormView(businessID: businessID, businessName: businessName, businessLogo: businessLogo, businessCountry: businessCountry, businessType: businessType)
+                            BusinessBannerView(businessID: businessID, businessName: businessName, businessLogo: businessLogo, businessCountry: businessCountry, businessType: businessType)
                             
-                            ProfileRowView(icon: "house", name: "Pottname").padding(.horizontal, 50)
-                            Divider().padding(.vertical, 2).padding(.horizontal, 50)
-                            ProfileRowView(icon: "house", name: "Phone").padding(.horizontal, 50)
-                            Divider().padding(.vertical, 2).padding(.horizontal, 50)
+                            
+                            PriceSummaryView(businessName: getFinalPriceHttpAuth.businessName, pricePerItem: getFinalPriceHttpAuth.pricePerItem, quantityToBuy: getFinalPriceHttpAuth.quantityToBuy, dollarToCedisRate: getFinalPriceHttpAuth.dollarToCedisRate, riskStatement: getFinalPriceHttpAuth.riskStatement, riskInsuranceFee: getFinalPriceHttpAuth.riskInsuranceFee, processingFee: getFinalPriceHttpAuth.processingFee, overallTotalUsd: getFinalPriceHttpAuth.overallTotalUsd)
                             
                                     Button(action: {
                                         print("FishPottApp.app_version: " + FishPottApp.app_version)
                                         if networking == false {
                                             networking = true;
-                                            getFinalPriceHttpAuth.sendRequest(business_id: keyword, app_version: FishPottApp.app_version);
+                                            risk_chosen = risks_array[lastSelectedGender ?? 0]
+                                            getFinalPriceHttpAuth.sendRequest(business_id: businessID, investment_amt_in_dollars: keyword, investment_risk_protection: risk_chosen, app_version: FishPottApp.app_version);
                                             getFinalPriceHttpAuth.authenticated = 3
                                             print("here 1")
                                         }
                                     }) {
                                         HStack (spacing: 4) {
-                                            Text("Get Summary")
+                                            Text(" Buy ")
                                                 .foregroundColor(Color("ColorWhiteAccent"))
                                         }
                                         .padding(.horizontal, 16)
@@ -130,7 +132,8 @@ struct BuySharesAmountView: View {
                         .onTapGesture {
                            if networking == false {
                                networking = true;
-                               getFinalPriceHttpAuth.sendRequest(business_id: keyword, app_version: FishPottApp.app_version);
+                               risk_chosen = risks_array[lastSelectedGender ?? 0]
+                               getFinalPriceHttpAuth.sendRequest(business_id: businessID, investment_amt_in_dollars: keyword, investment_risk_protection: risk_chosen, app_version: FishPottApp.app_version);
                                getFinalPriceHttpAuth.authenticated = 3
                                print("here new 1")
                            }
@@ -154,7 +157,7 @@ struct BuySharesAmountView_Previews: PreviewProvider {
 
 class GetFinalPriceHttpAuth: ObservableObject {
 
-    @Published var authenticated = 4
+    @Published var authenticated = 0
     @Published var showLoginButton = true
     @Published var message = ""
     
@@ -171,7 +174,7 @@ class GetFinalPriceHttpAuth: ObservableObject {
     @Published var overallTotalLocalCurrencyFloatval: String = ""
     @Published var financialYieldInfo: String = ""
     
-    func sendRequest(business_id: String, app_version: String) {
+    func sendRequest(business_id: String, investment_amt_in_dollars: String, investment_risk_protection: String, app_version: String) {
     showLoginButton = false
         self.authenticated = 3
     guard let url = URL(string: FishPottApp.app_domain + "/api/v1/user/get-final-price") else { return }
@@ -185,8 +188,8 @@ class GetFinalPriceHttpAuth: ObservableObject {
             "app_version_code": app_version,
             "user_language": "en",
             "business_id": business_id,
-            "investment_amt_in_dollars": business_id,
-            "investment_risk_protection": business_id
+            "investment_amt_in_dollars": investment_amt_in_dollars,
+            "investment_risk_protection": investment_risk_protection
         ]
     let finalBody = try! JSONSerialization.data(withJSONObject: body)
     print(body)
