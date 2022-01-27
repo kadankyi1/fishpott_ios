@@ -34,6 +34,7 @@
 		DF5F5FAE274A1AC200822C71 /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FAD274A1AC200822C71 /* KeyboardGuardian.swift */; };
 		DF5F5FB0274A1B2F00822C71 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FAF274A1B2F00822C71 /* PickerTextField.swift */; };
 		DF5F5FB2274A201A00822C71 /* SignupActionTextsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FB1274A201A00822C71 /* SignupActionTextsViews.swift */; };
+		DFA00B6527A2ACA900A2DD8A /* BuySharesFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA00B6427A2ACA900A2DD8A /* BuySharesFormView.swift */; };
 		DFAF793E275769BB00BC04DF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAF793D275769BB00BC04DF /* MainView.swift */; };
 		DFB0F5662756361800968F2B /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB0F5652756361800968F2B /* GeometryGetter.swift */; };
 		DFB0F5682756363700968F2B /* AdaptsToKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB0F5672756363700968F2B /* AdaptsToKeyboard.swift */; };
@@ -85,6 +86,7 @@
 		DF5F5FAF274A1B2F00822C71 /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		DF5F5FB1274A201A00822C71 /* SignupActionTextsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupActionTextsViews.swift; sourceTree = "<group>"; };
 		DF919A4B275C99F6009B7F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DFA00B6427A2ACA900A2DD8A /* BuySharesFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuySharesFormView.swift; sourceTree = "<group>"; };
 		DFAF793D275769BB00BC04DF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DFB0F5652756361800968F2B /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
 		DFB0F5672756363700968F2B /* AdaptsToKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptsToKeyboard.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				DF5F5F9C2748035700822C71 /* IntroCardView.swift */,
 				DF5F5F9E2748116900822C71 /* StartButtonView.swift */,
 				DF5F5FAF274A1B2F00822C71 /* PickerTextField.swift */,
+				DFA00B6427A2ACA900A2DD8A /* BuySharesFormView.swift */,
 				DF5F5FB1274A201A00822C71 /* SignupActionTextsViews.swift */,
 				DFAF793D275769BB00BC04DF /* MainView.swift */,
 				DFDCFBD8275DE6F100BB0B90 /* DrillView.swift */,
@@ -401,6 +404,7 @@
 				DF5F5FAB274A169800822C71 /* SignupView.swift in Sources */,
 				DF5F5FAE274A1AC200822C71 /* KeyboardGuardian.swift in Sources */,
 				DFB0F5662756361800968F2B /* GeometryGetter.swift in Sources */,
+				DFA00B6527A2ACA900A2DD8A /* BuySharesFormView.swift in Sources */,
 				DF5F5F8F2747AF3A00822C71 /* ContentView.swift in Sources */,
 				DF5F5F9F2748116900822C71 /* StartButtonView.swift in Sources */,
 				DF4D5D3E27661A7D00CE199D /* BuySharesAmountView.swift in Sources */,

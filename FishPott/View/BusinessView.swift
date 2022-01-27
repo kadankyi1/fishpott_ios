@@ -85,7 +85,7 @@ struct BusinessView: View {
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 200, idealHeight: 200, maxHeight: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .background(Color.black)
             
-                NavigationLink(destination: BuySharesAmountView()){
+            NavigationLink(destination: BuySharesAmountView(businessID: businessID, businessName: businessName, businessLogo: businessLogo, businessCountry: businessCountry, businessType: businessType)){
                     VStack(spacing: 10) {
                         HStack(spacing: 2) {
                             Text("Be A Shareholder")
