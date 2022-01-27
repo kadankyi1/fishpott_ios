@@ -83,6 +83,8 @@ func getUserFirstOpenView(_ index: String) -> String {
     //return str == nil ? "" : str!
 }
 
+
+
 class AppDelegate: NSObject, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.message_id"
 
@@ -130,6 +132,9 @@ extension AppDelegate: MessagingDelegate {
         
         Messaging.messaging().subscribe(toTopic: "FISHPOT_TIPS") { error in
           print("Subscribed to FISHPOT_TIPS topic 1")
+        }
+        Messaging.messaging().subscribe(toTopic: "FISHPOT_IOS") { error in
+          print("Subscribed to FISHPOT_IOS topic 1")
         }
     }
 }

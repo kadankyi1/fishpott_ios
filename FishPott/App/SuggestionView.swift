@@ -16,6 +16,8 @@ struct SuggestionView: View {
     
     
     var body: some View {
+        
+    NavigationView {
         ScrollView(.vertical, showsIndicators: false){
             if getSuggestionHttpAuth.authenticated  == 0{
                 VStack(spacing: 10) {
@@ -63,7 +65,7 @@ struct SuggestionView: View {
                             .padding(.vertical, 50)
                     Text(getSuggestionHttpAuth.message)
                     .font(.headline)
-                    .foregroundColor(.red)
+                    .foregroundColor(Color.black)
                     .onTapGesture {
                        if networking == false {
                            networking = true;
@@ -77,6 +79,7 @@ struct SuggestionView: View {
                 .background(Color.white)
             }// MARK - if manager.authenticated
         } // SCROLLVIEW
+    }
         
     }
 }

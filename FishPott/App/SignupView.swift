@@ -10,6 +10,8 @@ import SwiftyJSON
 
 struct SignupView: View {
     
+    @State private var date = Date()
+    let formatter3 = DateFormatter()
     @State private var user_firstname: String = ""
     @State private var user_surname: String = ""
     @State private var user_country: String = ""
@@ -47,6 +49,7 @@ struct SignupView: View {
             if manager.requestMade {
                 if !manager.authenticated {
                     Text(manager.message)
+                    .padding(.horizontal, 50)
                     .font(.headline)
                     .foregroundColor(.red)
                         .onAppear(perform: {
@@ -96,7 +99,7 @@ struct SignupView: View {
             
             
            HStack{
-               PickerTextField(data: ["Ghana","United Kingdom","USA","Afghanistan","Albania","Algeria","American Samoa","Andorra","Angola","Anguilla","Antarctica","Antigua and Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Bouvet Island","Brazil","British Indian Ocean Territory","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central African Republic","Chad","Chile","China","Christmas Island","Cocos (Keeling) Islands","Colombia","Comoros","Congo","Cook Islands","Costa Rica","Cote d\'Ivoire","Croatia","Cuba","Cyprus","Czech Republic","Democratic Republic of the Congo","Denmark","Djibouti","Dominica","Dominican Republic","East Timor","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Faeroe Islands","Falkland Islands","Fiji","Finland","Former Yugoslav Republic of Macedonia","France","French Guiana","French Polynesia","French Southern Territories","Gabon","Georgia","Germany","Gibraltar","Greece","Greenland","Grenada","Guadeloupe","Guam","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Heard Island and McDonald Islands","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Martinique","Mauritania","Mauritius","Mayotte","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Niue","Norfolk Island","North Korea","Northern Marianas","Norway","Oman","Pakistan","Palau","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Pitcairn Islands","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Sao Tome and Principe","Saint Helena","Saint Kitts and Nevis","Saint Lucia","Saint Pierre and Miquelon","Saint Vincent and the Grenadines","Samoa","San Marino","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Georgia and the South Sandwich Islands","South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Svalbard and Jan Mayen","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","The Bahamas","The Gambia","Togo","Tokelau","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Turks and Caicos Islands","Tuvalu","Virgin Islands","Uganda","Ukraine","United Arab Emirates","United States Minor Outlying Islands","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Wallis and Futuna","Western Sahara","Yemen","Yugoslavia","Zambia","Zimbabwe"],placeholder: "Select Country",lastSelectedIndex: self.$lastSelectedIndex)
+               PickerTextField(data: ["Ghana","United Kingdom","USA","Afghanistan","Albania","Algeria","American Samoa","Andorra","Angola","Anguilla","Antarctica","Antigua and Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Bouvet Island","Brazil","British Indian Ocean Territory","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central African Republic","Chad","Chile","China","Christmas Island","Cocos (Keeling) Islands","Colombia","Comoros","Congo","Cook Islands","Costa Rica","Cote d\'Ivoire","Croatia","Cuba","Cyprus","Czech Republic","Democratic Republic of the Congo","Denmark","Djibouti","Dominica","Dominican Republic","East Timor","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Faeroe Islands","Falkland Islands","Fiji","Finland","Former Yugoslav Republic of Macedonia","France","French Guiana","French Polynesia","French Southern Territories","Gabon","Georgia","Germany","Gibraltar","Greece","Greenland","Grenada","Guadeloupe","Guam","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Heard Island and McDonald Islands","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Martinique","Mauritania","Mauritius","Mayotte","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Niue","Norfolk Island","North Korea","Northern Marianas","Norway","Oman","Pakistan","Palau","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Pitcairn Islands","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Sao Tome and Principe","Saint Helena","Saint Kitts and Nevis","Saint Lucia","Saint Pierre and Miquelon","Saint Vincent and the Grenadines","Samoa","San Marino","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Georgia and the South Sandwich Islands","South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Svalbard and Jan Mayen","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","The Bahamas","The Gambia","Togo","Tokelau","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Turks and Caicos Islands","Tuvalu","Virgin Islands","Uganda","Ukraine","United Arab Emirates","United States Minor Outlying Islands","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Wallis and Futuna","Western Sahara","Yemen","Yugoslavia","Zambia","Zimbabwe"],placeholder: "Choose Country",lastSelectedIndex: self.$lastSelectedIndex)
                    .frame(height: 10, alignment: .bottom)
                    .scaleEffect(x: 1, y: 1, anchor: .center)
                PickerTextField(data: ["Male","Female"],placeholder: "Choose Gender",lastSelectedIndex: self.$lastSelectedGender)
@@ -108,31 +111,49 @@ struct SignupView: View {
            .padding(.bottom, -100)
            .padding(.top, -25)
             
+            //C86311D47
+            DatePicker(
+                "Date Of Birth",
+                selection: $date,
+                displayedComponents: [.date]
+            )
+            .padding(.horizontal, 50)
+            .padding(.bottom, 10)
+            .onAppear {
+                let calendar = Calendar(identifier: .gregorian)
+                let components = DateComponents(year: 1987, month: 8, day: 29)
+                if let customDate = calendar.date(from: components) {
+                    self.date = customDate /// set customDate to date
+                }
+            }
+                
+
+            
             HStack{
                 //C86311D47
             TextField("Pottname", text: $user_pottname).textFieldStyle(RoundedBorderTextFieldStyle.init())
                 .scaleEffect(x: 1, y: 1, anchor: .center)
+                
+                    TextField("Email", text: $user_email).textFieldStyle(RoundedBorderTextFieldStyle.init())
+                        .scaleEffect(x: 1, y: 1, anchor: .center)
+            }
+            .padding(.horizontal, 50)
+            .padding(.bottom, 10)
+        
             
-            TextField("Date Of Birth", text: $user_dob).textFieldStyle(RoundedBorderTextFieldStyle.init())
-                .scaleEffect(x: 1, y: 1, anchor: .center)
-            
+            HStack{
+                TextField("Phone", text: $user_phone_number).textFieldStyle(RoundedBorderTextFieldStyle.init())
+                    .scaleEffect(x: 1, y: 1, anchor: .center)
+                
+                SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle.init())
+                    .scaleEffect(x: 1, y: 1, anchor: .top)
             }
             .padding(.horizontal, 50)
             .padding(.bottom, 10)
             
-        
-            TextField("Email", text: $user_email).textFieldStyle(RoundedBorderTextFieldStyle.init())
-                .scaleEffect(x: 1, y: 1, anchor: .center)
-                .padding(.horizontal, 50)
-                .padding(.bottom, 10)
-            
-            TextField("Phone", text: $user_phone_number).textFieldStyle(RoundedBorderTextFieldStyle.init())
-                .scaleEffect(x: 1, y: 1, anchor: .center)
-                .padding(.horizontal, 50)
-                .padding(.bottom, 10)
-            
-            SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle.init())
-                .scaleEffect(x: 1, y: 1, anchor: .top)
+            Text("Pottname is your unique tagname and can be only 15 letters (no special characters). Phone has to begin with country code (+12345567890) ")
+                .foregroundColor(Color.gray)
+                .font(.system(size: 12))
                 .padding(.horizontal, 50)
                 .padding(.bottom, 10)
             
@@ -141,11 +162,17 @@ struct SignupView: View {
                     
                     user_country = countries[lastSelectedIndex ?? 0]
                     user_gender = genders[lastSelectedGender ?? 0]
+                    formatter3.dateFormat = "y-M-d"
+                    print(formatter3.string(from: date))
+
+                    user_dob = formatter3.string(from: date) // Hello
+
                     print("user_firstname: \(self.user_firstname)")
                     print("user_surname: \(self.user_surname)")
                     print("user_country: \(self.user_country)")
                     print("user_gender: \(self.user_gender)")
                     //print("$lastSelectedIndex country: \(countries[lastSelectedIndex ?? 0])")
+                    print("date: \(self.date)")
                     print("user_dob: \(self.user_dob)")
                     print("user_pottname: \(self.user_pottname)")
                     print("user_email: \(self.user_email)")
@@ -253,7 +280,7 @@ class SignupHttpAuth: ObservableObject {
                 "password": password,
                 "user_referred_by": "",
                 "user_language": "en",
-                "app_type": "ios",
+                "app_type": "IOS",
                 "app_version_code": app_version
             ]
 
@@ -407,7 +434,7 @@ class SignupHttpAuth: ObservableObject {
                 print((error as NSError).localizedDescription)
                 DispatchQueue.main.async {
                     self.requestMade = true
-                    self.message = "Registration failed"
+                    self.message = "Fill the form correctly."
                     self.authenticated = false
                     self.showLoginButton = true
                 }

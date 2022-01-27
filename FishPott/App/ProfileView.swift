@@ -59,7 +59,11 @@ struct ProfileView: View {
                     Divider().padding(.vertical, 2)
                     GroupBox(){
                         
-                        ProfileRowView(icon: "house", name: "Contact - info@fishPott.com")
+                        ProfileRowView(icon: "house", name: "Pottname | @" + getSavedString("user_pott_name"))
+                        Divider().padding(.vertical, 2)
+                        ProfileRowView(icon: "house", name: "Phone | " + getSavedString("user_phone"))
+                        Divider().padding(.vertical, 2)
+                        ProfileRowView(icon: "house", name: "Contact | info@fishPott.com")
                         Divider().padding(.vertical, 2)
                         ProfileRowView(icon: "house", name: "", content: nil, linkLabel: "Privacy Policy", linkDestination: "https://fishpott.com/pp.html")
                         

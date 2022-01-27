@@ -42,6 +42,7 @@ struct BusinessView: View {
     @State var onOff = false
     
     var body: some View {
+        
         VStack(spacing: 10) {
                 VStack(spacing: 10) {
                     // INFO : HEADLINE
@@ -85,30 +86,38 @@ struct BusinessView: View {
                 .background(Color.black)
             
                 NavigationLink(destination: BuySharesAmountView()){
-                HStack(spacing: 2) {
-                    Text("Be A Shareholder")
-                        .foregroundColor(Color.black)
-                        .font(.system(size: 18))
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 16)
-                        Button(action: {}) {
-                            HStack (spacing: 8) {
-                                Text(" Buy Shares ")
+                    VStack(spacing: 10) {
+                        HStack(spacing: 2) {
+                            Text("Be A Shareholder")
+                                .foregroundColor(Color.black)
+                                .font(.system(size: 18))
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 16)
+                                VStack() {
+                                    HStack (spacing: 8) {
+                                        Text(" Buy Shares ")
+                                            .foregroundColor(Color("ColorWhiteAccent"))
+                                    }
+                                    .padding(.horizontal, 5)
+                                    .padding(.vertical, 5)
                                     .foregroundColor(Color("ColorWhiteAccent"))
-                            }
-                            .padding(.horizontal, 5)
-                            .padding(.vertical, 5)
-                            .foregroundColor(Color("ColorWhiteAccent"))
-                        } //: BUTTON
-                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 30, idealHeight: 30, maxHeight: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .accentColor(Color("ColorBlackPrimary"))
-                        .background(Color("ColorBlackPrimary"))
-                        .cornerRadius(5)
-                        .padding(.bottom, 4)
-                        .padding(.top, 4)
-                        .padding(.horizontal, 10)
-                        .lineLimit(nil)
-                } //  VSTACK
+                                } //: BUTTON
+                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 30, idealHeight: 30, maxHeight: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .accentColor(Color("ColorBlackPrimary"))
+                                .background(Color("ColorBlackPrimary"))
+                                .cornerRadius(5)
+                                .padding(.bottom, 4)
+                                .padding(.top, 4)
+                                .padding(.horizontal, 10)
+                                .lineLimit(nil)
+                            } //  HSTACK
+                        Text("Business Find Code | " + businessFindCode)
+                            .foregroundColor(Color.black)
+                            .font(.system(size: 16))
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 16)
+                    }
+                    
                 }
                 .padding(.top, 20)
                 .background(Color.white)
@@ -138,7 +147,7 @@ struct BusinessView: View {
                             Spacer()
                             Divider().padding(.vertical, 2)
                             Spacer()
-                            Image("house")
+                            Image("investors")
                                     .resizable()
                                     .frame(width: 30, height: 30, alignment: .top)
                                     .padding(.vertical, 0)
@@ -178,7 +187,7 @@ struct BusinessView: View {
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 2)
                         Spacer()
-                        Image("house")
+                        Image("pitch")
                                 .resizable()
                                 .frame(width: 30, height: 30, alignment: .top)
                                 .padding(.vertical, 0)
@@ -225,7 +234,7 @@ struct BusinessView: View {
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 2)
                     Spacer()
-                    Image("house")
+                    Image("executives")
                             .resizable()
                             .frame(width: 30, height: 30, alignment: .top)
                             .padding(.vertical, 0)
@@ -307,7 +316,7 @@ struct BusinessView: View {
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 2)
                     Spacer()
-                    Image("house")
+                    Image("finance")
                             .resizable()
                             .frame(width: 30, height: 30, alignment: .top)
                             .padding(.vertical, 0)
@@ -407,3 +416,4 @@ struct BusinessView_Previews: PreviewProvider {
         BusinessView(businessID: "testID", businessName: "Randy Pharmacy", businessCountry: "Ghana", businessFindCode: "TT-282201", businessType: "Pharmacy", businessLogo: "startinfo2", businessDescription: "This is a good business that has been around for over 15 years", businessAddress: "C/11, Taxi Rank, Madina - CD19991", businessStartDate: "Jan 12, 2005", businessWebsite: "https://github.com/kadankyi1?tab=overview", businessPitchText: "Be part of the sprout. You will love it", businessPitchVideo: "https://app.fishpott.com/uploads/pitchvideos/CS201720810.mp4", businessLastYrRevenue: "$299,999", businessLastYrProfit: "$100,000", businessDebt: "0", businessCashOnHand: "$156000", businessNetWorth: "$300,500", businessPricePerStock: "$300", businessInvestmentAmtNeeded: "$100,000", businessInvestmentAmtReceived: "$35,000", businessMaxInvestorsNeeded: "20", businessCurrentShareholders: "10", businessFinancialReport: "https://app.fishpott.com/uploads/financedata/CS201720810.pdf", businessFinancialReportBio: "This is business is picking up.", businessCeoName: "Emelia Saint", businessCfoName: "Sanctum Heyst")
     }
 }
+

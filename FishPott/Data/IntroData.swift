@@ -12,7 +12,7 @@ import SwiftUI
 let introData: [IntroModel] = [
     IntroModel(
         title: "FishPott - Drills",
-        headline: "Discover your trading nature. Train your FishPott to suggest stocks ",
+        headline: "Use questions and answers to train your FishPott. Build an intelligent FishPott to find and suggest businesses to you to invest in.",
         image: "maths",
         gradidentColors: [Color("ColorBlackPrimary"), Color("ColorBlackPrimary")],
         description: "This is a description 1. This is a description 1. This is a description 1."
