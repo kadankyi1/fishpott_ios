@@ -27,7 +27,7 @@ struct PriceSummaryView: View {
             PriceSummaryListItemView(icon: "", name: "Exchange Rate: " + dollarToCedisRate).padding(.horizontal, 50)
             PriceSummaryListItemView(icon: "", name: "Risk: " + riskStatement).padding(.horizontal, 50)
             PriceSummaryListItemView(icon: "", name: "Risk Fee: " + riskInsuranceFee).padding(.horizontal, 50)
-            PriceSummaryListItemView(icon: "", name: "Processing Fee: " + riskStatement).padding(.horizontal, 50)
+            PriceSummaryListItemView(icon: "", name: "Processing Fee: " + processingFee).padding(.horizontal, 50)
             Divider().padding(.vertical, 2).padding(.horizontal, 50)
             PriceSummaryListItemView(icon: "", name: "Final Total Fee: " + overallTotalUsd).padding(.horizontal, 50)
         }

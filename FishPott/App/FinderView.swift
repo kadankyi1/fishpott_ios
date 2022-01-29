@@ -17,6 +17,7 @@ struct FinderView: View {
     @State private var networking: Bool = false
     
     var body: some View {
+        NavigationView {
         ScrollView(.vertical, showsIndicators: false){
             if finderSearchItemHttpAuth.authenticated  == 0 {
                 VStack(spacing: 10) {
@@ -88,6 +89,7 @@ struct FinderView: View {
                 .background(Color.white)
             }// MARK - if manager.authenticated
         } // SCROLLVIEW
+      }
     }
 }
 

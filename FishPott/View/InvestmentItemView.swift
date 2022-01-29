@@ -47,8 +47,8 @@ struct InvestmentItemView: View {
                         Text("  " + investment.value_phrase + "  ")
                         .font(.footnote)
                         .bold()
-                        .foregroundColor(Color.gray)
-                        .background(Color.green)
+                        .foregroundColor(Color.white)
+                        .background(Color.gray)
                         .cornerRadius(2)
                     }
                 }

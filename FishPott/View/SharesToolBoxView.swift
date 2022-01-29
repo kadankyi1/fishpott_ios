@@ -21,7 +21,7 @@ struct SharesToolBoxView: View {
                         // MARK: -- SECTION
                         GroupBox(){
                             NavigationLink(destination: TransferView(stock_business_name: stock_business_name, stock_ownership_id: stock_ownership_id, quantity_available: quantity_available)){
-                                SharesToolboxMenuItemView(icon: "transfer", name: "Transfer Shares")
+                                SharesToolboxMenuItemView(icon: "transfer2", name: "Transfer Shares")
                             }
                             
                         }
@@ -33,7 +33,7 @@ struct SharesToolBoxView: View {
                         
                         GroupBox(){
                             NavigationLink(destination: SellbackSharesView(stock_business_name: stock_business_name, stock_ownership_id: stock_ownership_id, quantity_available: quantity_available)){
-                                SharesToolboxMenuItemView(icon: "transfer", name: "Sell Back Shares")
+                                SharesToolboxMenuItemView(icon: "sellback", name: "Sell Back Shares")
                             }
                             
                         }
@@ -41,17 +41,6 @@ struct SharesToolBoxView: View {
                         .clipped()
                         .shadow(color: Color.gray, radius: 10, x: 0, y: 0)
                         
-                        Divider().padding(.vertical, 15)
-                        
-                        GroupBox(){
-                            NavigationLink(destination: TransferView(stock_business_name: stock_business_name, stock_ownership_id: stock_ownership_id, quantity_available: quantity_available)){
-                                SharesToolboxMenuItemView(icon: "favopt", name: "Favorites")
-                            }
-                            
-                        }
-                        .padding()
-                        .clipped()
-                        .shadow(color: Color.gray, radius: 10, x: 0, y: 0)
                     }
                 } // SCROLLVIEW
             } // NAVIGATION

@@ -27,7 +27,7 @@ struct InvestmentsView: View {
                     }
                 } else {
                     List {
-                        Text("To transfer shares to another person, click on the investment in the list")
+                        Text("To transfer or sellback shares to another person, click on the investment in the list")
                         .font(.headline)
                         .foregroundColor(Color.black)
                         
@@ -66,7 +66,7 @@ struct InvestmentsView: View {
                     .foregroundColor(Color.red)
                 }
             }
-            
+            //.navigationBarTitle("", displayMode: .inline)
         } // NAVIGATION
     }
 }

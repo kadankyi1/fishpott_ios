@@ -29,9 +29,15 @@ struct BuySharesAmountView: View {
     var body: some View {
         
             ScrollView(.vertical, showsIndicators: false){
-                if getFinalPriceHttpAuth.authenticated  == 0 {
+                if getFinalPriceHttpAuth.authenticated  == 0  || getFinalPriceHttpAuth.authenticated  == 2 {
                     VStack(spacing: 10) {
                         BusinessBannerView(businessID: businessID, businessName: businessName, businessLogo: businessLogo, businessCountry: businessCountry, businessType: businessType)
+                        
+                        if getFinalPriceHttpAuth.authenticated  == 2 {
+                            Text(getFinalPriceHttpAuth.message)
+                            .font(.headline)
+                            .foregroundColor(.red)
+                        }
                         
                         TextField("Investment Amount ($)", text: $keyword).textFieldStyle(RoundedBorderTextFieldStyle.init())
                             .scaleEffect(x: 1, y: 1, anchor: .center)
@@ -50,8 +56,8 @@ struct BuySharesAmountView: View {
                         
                                 Button(action: {
                                     print("FishPottApp.app_version: " + FishPottApp.app_version)
-                                    if networking == false {
-                                        networking = true;
+                                    if getFinalPriceHttpAuth.showLoginButton == true {
+                                        //networking = true;
                                         risk_chosen = risks_array[lastSelectedGender ?? 0]
                                         getFinalPriceHttpAuth.sendRequest(business_id: businessID, investment_amt_in_dollars: keyword, investment_risk_protection: risk_chosen, app_version: FishPottApp.app_version);
                                         getFinalPriceHttpAuth.authenticated = 3
@@ -77,6 +83,7 @@ struct BuySharesAmountView: View {
                 } else if getFinalPriceHttpAuth.authenticated  == 4 {
                         VStack(spacing: 10) {
                             BusinessBannerView(businessID: businessID, businessName: businessName, businessLogo: businessLogo, businessCountry: businessCountry, businessType: businessType)
+                            
                             
                             PriceSummaryView(businessName: getFinalPriceHttpAuth.businessName, pricePerItem: getFinalPriceHttpAuth.pricePerItem, quantityToBuy: getFinalPriceHttpAuth.quantityToBuy, dollarToCedisRate: getFinalPriceHttpAuth.dollarToCedisRate, riskStatement: getFinalPriceHttpAuth.riskStatement, riskInsuranceFee: getFinalPriceHttpAuth.riskInsuranceFee, processingFee: getFinalPriceHttpAuth.processingFee, overallTotalUsd: getFinalPriceHttpAuth.overallTotalUsd)
                             
@@ -202,6 +209,7 @@ class GetFinalPriceHttpAuth: ObservableObject {
     request.setValue("Bearer " + getSavedString("access_token"), forHTTPHeaderField: "Authorization")
 
     URLSession.shared.dataTask(with: request) { (data2, response, error) in
+        
         print("starting 1")
         guard let data2 = data2 else { return }
         print("starting 2")
@@ -216,6 +224,7 @@ class GetFinalPriceHttpAuth: ObservableObject {
                 //print(status)
                 
                 DispatchQueue.main.async {
+                    self.showLoginButton = true;
                     if status == 1 {
                         
                         if let message = json["message"].string {
@@ -310,6 +319,7 @@ class GetFinalPriceHttpAuth: ObservableObject {
         } catch  let error as NSError {
             print((error as NSError).localizedDescription)
             DispatchQueue.main.async {
+                self.showLoginButton = true;
                 self.message = "Suggestion Retrieval Failed"
                 self.authenticated = 2
             }

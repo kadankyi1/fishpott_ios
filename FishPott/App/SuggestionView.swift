@@ -79,7 +79,8 @@ struct SuggestionView: View {
                 .background(Color.white)
             }// MARK - if manager.authenticated
         } // SCROLLVIEW
-    }
+        .navigationBarTitle("", displayMode: .inline)
+      } // NAVIGATION
         
     }
 }

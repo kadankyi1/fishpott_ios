@@ -29,6 +29,10 @@ struct ProfileView: View {
                                 .font(.system(size: 12))
                             ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_networth + " - Net Worth")
                             ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_position + " - Pott Position")
+                            Text("This is where you rank out of " + profileDataFetchHttpAuth.all_potts)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .foregroundColor(Color.gray)
+                                .font(.system(size: 12))
                         } else {
                             ProgressView()
                             .onAppear(perform: {
@@ -92,6 +96,7 @@ class ProfileDataFetchHttpAuth: ObservableObject {
     @Published var pott_networth: String = ""
     @Published var pott_intelligence: String = ""
     @Published var pott_position: String = ""
+    @Published var all_potts: String = ""
     
     func sendRequest(app_version: String) {
     showLoginButton = false
@@ -154,6 +159,12 @@ class ProfileDataFetchHttpAuth: ObservableObject {
                             //Now you got your value
                             self.pott_position = pott_position
                             print("pott_position: \(pott_position)")
+                          }
+                        
+                        if let all_potts = json["data"]["all_potts"].string {
+                            //Now you got your value
+                            self.all_potts = all_potts
+                            print("all_potts: \(all_potts)")
                           }
                     } else {
                         self.authenticated = 2
