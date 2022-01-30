@@ -11,6 +11,8 @@ import SwiftyJSON
 struct TransactionsView: View {
     // MARK: - PROPERTIES
     @ObservedObject var transactionsFetchHttpAuth = TransactionsFetchHttpAuth()
+    @State var didAppear = false
+    @State var appearCount = 0
     
     var body: some View {
         NavigationView {
@@ -39,13 +41,18 @@ struct TransactionsView: View {
                             .resizable()
                             .frame(width: 100, height: 100, alignment: .top)
                             .padding(.vertical, 50)
-                    Text("Getting Your Investments...")
+                    Text("Getting Your Transactions...")
                     .font(.headline)
                     .foregroundColor(Color.black)
                     ProgressView()
-                    .onAppear(perform: {
-                        transactionsFetchHttpAuth.sendRequest(app_version: FishPottApp.app_version)
+                        .onAppear(perform: onLoad)
+                    /*
+                     .onAppear(perform: {
+                        if transactionsFetchHttpAuth.count_received_items == 0 && transactionsFetchHttpAuth.authenticated == 3 {
+                            transactionsFetchHttpAuth.sendRequest(app_version: FishPottApp.app_version)
+                        }
                     })
+                     */
                 } //  VSTACK
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 600, idealHeight: 600, maxHeight: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .background(Color.white)
@@ -55,7 +62,7 @@ struct TransactionsView: View {
                             .resizable()
                             .frame(width: 100, height: 100, alignment: .top)
                             .padding(.vertical, 50)
-                    Text("Failed to get investments. Try again later.")
+                    Text("Failed to get transactions. Try again later.")
                     .font(.headline)
                     .foregroundColor(Color.red)
                 }
@@ -63,6 +70,17 @@ struct TransactionsView: View {
             
         } // NAVIGATION
     }
+    
+    func onLoad() {
+            if !didAppear {
+                appearCount += 1
+                //This is where I loaded my coreData information into normal arrays
+                if transactionsFetchHttpAuth.count_received_items == 0 && transactionsFetchHttpAuth.authenticated == 3 {
+                    transactionsFetchHttpAuth.sendRequest(app_version: FishPottApp.app_version)
+                }
+            }
+            didAppear = true
+        }
 }
 
 struct TransactionsView_Previews: PreviewProvider {
@@ -83,7 +101,7 @@ class TransactionsFetchHttpAuth: ObservableObject {
     
     func sendRequest(app_version: String) {
     showLoginButton = false
-        self.authenticated = 3
+    //self.authenticated = 3
     guard let url = URL(string: FishPottApp.app_domain + "/api/v1/user/get-my-transactions") else { return }
         
     let body: [String: String] =

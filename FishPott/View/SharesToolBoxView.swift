@@ -14,8 +14,6 @@ struct SharesToolBoxView: View {
     var quantity_available: String = ""
     
     var body: some View {
-        
-            NavigationView {
                 ScrollView(.vertical, showsIndicators: false){
                     VStack(spacing: 20){
                         // MARK: -- SECTION
@@ -43,7 +41,6 @@ struct SharesToolBoxView: View {
                         
                     }
                 } // SCROLLVIEW
-            } // NAVIGATION
             .padding(.horizontal, 20)
         
     } // BODY

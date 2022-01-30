@@ -27,9 +27,9 @@ struct InvestmentsView: View {
                     }
                 } else {
                     List {
-                        Text("To transfer or sellback shares to another person, click on the investment in the list")
-                        .font(.headline)
-                        .foregroundColor(Color.black)
+                        Text("To transfer or sellback your shares, click on the it in the list")
+                        .foregroundColor(Color.gray)
+                        .font(.system(size: 15))
                         
                                 ForEach(investmentFetchHttpAuth.received_investments) { item in
                                     NavigationLink(destination: SharesToolBoxView(stock_business_name: item.business_name, stock_ownership_id: item.stock_id, quantity_available: item.quantity_of_stocks)){
@@ -140,13 +140,13 @@ class InvestmentFetchHttpAuth: ObservableObject {
                                             print(cost_per_share_usd)
                                             if let value_per_share_usd = item["value_per_share_usd"].string {
                                                     print(value_per_share_usd)
-                                                    if let quantity_of_stocks = item["quantity_of_stocks"].int {
+                                                    if let quantity_of_stocks = item["quantity_of_stocks"].string {
                                                         print(quantity_of_stocks)
                                                     if let value_phrase = item["value_phrase"].string {
                                                         print(value_phrase)
                                                         if let ai_info = item["ai_info"].string {
                                                             print(ai_info)
-                                                            let number_of_stocks = String(quantity_of_stocks)
+                                                            //let number_of_stocks = String(quantity_of_stocks)
                                                             self.count_received_investments+=1
                                                             self.received_investments.append(InvestmentModel(
                                                                 stock_id: stock_id, 
@@ -154,7 +154,7 @@ class InvestmentFetchHttpAuth: ObservableObject {
                                                                 business_name: business_name,
                                                                 cost_per_share_usd: cost_per_share_usd,
                                                                 value_per_share_usd: value_per_share_usd,
-                                                                quantity_of_stocks: number_of_stocks,
+                                                                quantity_of_stocks: quantity_of_stocks,
                                                                 value_phrase: value_phrase,
                                                                 ai_info: ai_info
                                                             ))

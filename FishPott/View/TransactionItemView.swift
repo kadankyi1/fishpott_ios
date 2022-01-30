@@ -74,19 +74,34 @@ struct TransactionItemView: View {
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                             .foregroundColor(Color.black)
                             .font(.system(size: 15))
-                        Text("Total Cost")
+                        Text("Total")
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                             .foregroundColor(Color.black)
                             .font(.system(size: 13))
                             .multilineTextAlignment(.center)
                     }
+                    
+                    
+                    Spacer()
+                        Text(transaction.info_5)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 13))
+                        .multilineTextAlignment(.center)
                 }
                 
-                Text(transaction.info_5)
-                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                .foregroundColor(Color.black)
-                .font(.system(size: 13))
-                .multilineTextAlignment(.center)
+                VStack {
+                        Text(transaction.info_6)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 13))
+                        .multilineTextAlignment(.center)
+                        Text("Order ID")
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 13))
+                        .multilineTextAlignment(.center)
+                } // VSTACK
             } //  VSTACK
             .clipped()
         }

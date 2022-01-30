@@ -27,11 +27,13 @@ struct SellbackSharesView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
-            if sellBackSharesHttpAuth.authenticated  == 0 ||  sellBackSharesHttpAuth.authenticated  == 4 {
+            if sellBackSharesHttpAuth.authenticated  == 0 ||  sellBackSharesHttpAuth.authenticated  == 2 {
                 VStack(spacing: 10) {
                     
                 Text(stock_business_name)
                         .foregroundColor(.black)
+                    Text("Available : " + quantity_available)
+                            .foregroundColor(.black)
                     
                     TextField("Sell Quantity", text: $sell_quantity).textFieldStyle(RoundedBorderTextFieldStyle.init())
                         .scaleEffect(x: 1, y: 1, anchor: .center)
@@ -45,7 +47,7 @@ struct SellbackSharesView: View {
                         .padding(.bottom, 10)
                         .background(GeometryGetter(rect: $kGuardian.rects[0]))
                     
-                    TextField("Bank/Mobile Number", text: $bank_or_momo_number).textFieldStyle(RoundedBorderTextFieldStyle.init())
+                    TextField("Bank/Mobile Account Number", text: $bank_or_momo_number).textFieldStyle(RoundedBorderTextFieldStyle.init())
                         .scaleEffect(x: 1, y: 1, anchor: .center)
                         .padding(.horizontal, 50)
                         .padding(.bottom, 10)
@@ -63,28 +65,27 @@ struct SellbackSharesView: View {
                         .padding(.bottom, 10)
                         .background(GeometryGetter(rect: $kGuardian.rects[0]))
                     
-                    TextField("Password", text: $this_password).textFieldStyle(RoundedBorderTextFieldStyle.init())
+                    SecureField("Password", text: $this_password).textFieldStyle(RoundedBorderTextFieldStyle.init())
                         .scaleEffect(x: 1, y: 1, anchor: .center)
                         .padding(.horizontal, 50)
                         .padding(.bottom, 10)
                         .background(GeometryGetter(rect: $kGuardian.rects[0]))
                     
-                        if sellBackSharesHttpAuth.authenticated  == 4 {
+                        if sellBackSharesHttpAuth.authenticated  == 2 {
                             Text(sellBackSharesHttpAuth.message)
                             .font(.headline)
                             .foregroundColor(.red)
                         }
                         Button(action: {
                             print("FishPottApp.app_version: " + FishPottApp.app_version)
-                            if networking == false {
-                                networking = true;
+                            if sellBackSharesHttpAuth.authenticated  == 0 || sellBackSharesHttpAuth.authenticated  == 2 {
                                 sellBackSharesHttpAuth.sendRequest(user_password: this_password, stockownership_id: stock_ownership_id, sell_quantity: sell_quantity, quantity_available: quantity_available, account_name: account_name, bank_or_momo_number: bank_or_momo_number, bank_or_network_name: bank_or_network_name, bank_routing_number: bank_routing_number, app_version: FishPottApp.app_version)
                                 sellBackSharesHttpAuth.authenticated = 3
                                 print("here 1")
                             }
                         }) {
                             HStack (spacing: 4) {
-                                Text("Sell")
+                                Text("Sell Back")
                                     .foregroundColor(Color("ColorWhiteAccent"))
                             }
                             .padding(.horizontal, 16)
@@ -100,27 +101,19 @@ struct SellbackSharesView: View {
                 //.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                 .background(Color.white)
             } else if sellBackSharesHttpAuth.authenticated  == 4 {
-                    VStack(spacing: 10) {
-                        Image("roundlogo")
-                                .resizable()
-                                .frame(width: 100, height: 100, alignment: .top)
-                                .padding(.vertical, 50)
-                        Text(sellBackSharesHttpAuth.message)
-                        .font(.headline)
-                        .foregroundColor(.black)
-                        .onTapGesture {
-                           if networking == false {
-                               networking = true
-                               
-                               sellBackSharesHttpAuth.sendRequest(user_password: this_password, stockownership_id: stock_ownership_id, sell_quantity: sell_quantity, quantity_available: quantity_available, account_name: account_name, bank_or_momo_number: bank_or_momo_number, bank_or_network_name: bank_or_network_name, bank_routing_number: bank_routing_number, app_version: FishPottApp.app_version)
-                               sellBackSharesHttpAuth.authenticated = 3
-                               print("here new 1")
-                           }
-                        }
-                    } //  VSTACK
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 600, idealHeight: 600, maxHeight: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .background(Color.white)
-            } else if sellBackSharesHttpAuth.authenticated  == 3 {
+                VStack(spacing: 10) {
+                    Image("roundlogo")
+                            .resizable()
+                            .frame(width: 100, height: 100, alignment: .top)
+                            .padding(.vertical, 50)
+                    Text(sellBackSharesHttpAuth.message)
+                    .font(.headline)
+                    .foregroundColor(.black)
+                    .padding(.horizontal, 50)
+                } //  VSTACK
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 600, idealHeight: 600, maxHeight: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .background(Color.white)
+        } else if sellBackSharesHttpAuth.authenticated  == 3 {
                     VStack(spacing: 10) {
                         Image("roundlogo")
                                 .resizable()
@@ -218,7 +211,7 @@ class SellbackSharesHttpAuth: ObservableObject {
                         if let message = json["message"].string {
                             //Now you got your value
                             self.message = message
-                            if message == "success" {
+                            //if message == "success" {
                                 self.authenticated = 4
                                 print("b message: \(message)")
                                 
@@ -234,10 +227,13 @@ class SellbackSharesHttpAuth: ObservableObject {
                                     print("businessID: \(priceInDollars)")
                                   }
                                 
-                            } else {
+                            /*
+                             
+                             } else {
                                 self.authenticated = 0
                                 print("err message: \(message)")
                             }
+                             */
                           }
                         
                     } else {

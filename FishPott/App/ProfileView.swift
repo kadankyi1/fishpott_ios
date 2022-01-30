@@ -22,14 +22,14 @@ struct ProfileView: View {
                     
                     GroupBox(){
                         if profileDataFetchHttpAuth.authenticated == 4 {
-                            ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_intelligence + " - Pott Intelligence")
+                            ProfileRowView(icon: "ai", name: profileDataFetchHttpAuth.pott_intelligence + " - Pott Intelligence")
                             Text("This is how well your FishPott knows you")
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                                 .foregroundColor(Color.gray)
                                 .font(.system(size: 12))
-                            ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_networth + " - Net Worth")
-                            ProfileRowView(icon: "house", name: profileDataFetchHttpAuth.pott_position + " - Pott Position")
-                            Text("This is where you rank out of " + profileDataFetchHttpAuth.all_potts)
+                            ProfileRowView(icon: "nettworth", name: profileDataFetchHttpAuth.pott_networth + " - Net Worth")
+                            ProfileRowView(icon: "position", name: profileDataFetchHttpAuth.pott_position + " - Pott Position")
+                            Text("This is where you rank out of " + profileDataFetchHttpAuth.all_potts + " potts")
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                                 .foregroundColor(Color.gray)
                                 .font(.system(size: 12))
@@ -44,32 +44,19 @@ struct ProfileView: View {
                     // MARK: -- SECTION 2
                     GroupBox(){
                         NavigationLink(destination: TransactionsView()){
-                            ProfileRowView(icon: "house", name: "View Transactions")
+                            ProfileRowView(icon: "transactions", name: "View Transactions")
                         }
-                        Divider().padding(.vertical, 2)
-                        NavigationLink(destination: AboutFishPottView()){
-                            ProfileRowView(icon: "house", name: "Sellback Stocks")
-                        }
-                        Divider().padding(.vertical, 2)
-                        NavigationLink(destination: AboutFishPottView()){
-                            ProfileRowView(icon: "house", name: "Transfer Stocks")
-                        }
-                        Divider().padding(.vertical, 2)
-                        //NavigationLink(destination:ContactUsView(contact_type: "Partnership", textfield_msg: "Type your testimony here", poster_image: "partnership")){
-                            //SettingsRowView(icon: "donation", name: "Partnership")
-                        //}
-                        
                     }
                     Divider().padding(.vertical, 2)
                     GroupBox(){
                         
-                        ProfileRowView(icon: "house", name: "Pottname | @" + getSavedString("user_pott_name"))
+                        ProfileRowView(icon: "at", name: "Pottname | @" + getSavedString("user_pott_name"))
                         Divider().padding(.vertical, 2)
-                        ProfileRowView(icon: "house", name: "Phone | " + getSavedString("user_phone"))
+                        ProfileRowView(icon: "phone", name: "Phone | " + getSavedString("user_phone"))
                         Divider().padding(.vertical, 2)
-                        ProfileRowView(icon: "house", name: "Contact | info@fishPott.com")
+                        ProfileRowView(icon: "info", name: "Contact | info@fishPott.com")
                         Divider().padding(.vertical, 2)
-                        ProfileRowView(icon: "house", name: "", content: nil, linkLabel: "Privacy Policy", linkDestination: "https://fishpott.com/pp.html")
+                        ProfileRowView(icon: "privacy", name: "", content: nil, linkLabel: "Privacy Policy", linkDestination: "https://fishpott.com/pp.html")
                         
                     }
                 }
