@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 import UserNotifications
+import Paystack
 
 @main
 struct FishPottApp: App {
@@ -84,7 +85,7 @@ func getUserFirstOpenView(_ index: String) -> String {
 }
 
 
-
+//@UIApplicationMain
 class AppDelegate: NSObject, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.message_id"
 
@@ -121,6 +122,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
       print(userInfo)
 
       completionHandler(UIBackgroundFetchResult.newData)
+    }
+    
+    // PAYSTACK
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        Paystack.setDefaultPublicKey("pk_live_d93022487706c680ab03c7a8d3a285898736527c")
+        return true
     }
 }
 

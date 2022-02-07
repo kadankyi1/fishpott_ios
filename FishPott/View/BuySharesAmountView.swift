@@ -88,14 +88,7 @@ struct BuySharesAmountView: View {
                             PriceSummaryView(businessName: getFinalPriceHttpAuth.businessName, pricePerItem: getFinalPriceHttpAuth.pricePerItem, quantityToBuy: getFinalPriceHttpAuth.quantityToBuy, dollarToCedisRate: getFinalPriceHttpAuth.dollarToCedisRate, riskStatement: getFinalPriceHttpAuth.riskStatement, riskInsuranceFee: getFinalPriceHttpAuth.riskInsuranceFee, processingFee: getFinalPriceHttpAuth.processingFee, overallTotalUsd: getFinalPriceHttpAuth.overallTotalUsd)
                             
                                     Button(action: {
-                                        print("FishPottApp.app_version: " + FishPottApp.app_version)
-                                        if networking == false {
-                                            networking = true;
-                                            risk_chosen = risks_array[lastSelectedGender ?? 0]
-                                            getFinalPriceHttpAuth.sendRequest(business_id: businessID, investment_amt_in_dollars: keyword, investment_risk_protection: risk_chosen, app_version: FishPottApp.app_version);
-                                            getFinalPriceHttpAuth.authenticated = 3
-                                            print("here 1")
-                                        }
+                                        getFinalPriceHttpAuth.authenticated = 5
                                     }) {
                                         HStack (spacing: 4) {
                                             Text(" Buy ")
@@ -113,20 +106,33 @@ struct BuySharesAmountView: View {
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 600, idealHeight: 600, maxHeight: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         //.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                         .background(Color.white)
-                } else if getFinalPriceHttpAuth.authenticated  == 3 {
+                } else if getFinalPriceHttpAuth.authenticated  == 5 {
                         VStack(spacing: 10) {
                             Image("roundlogo")
                                     .resizable()
                                     .frame(width: 100, height: 100, alignment: .top)
                                     .padding(.vertical, 50)
-                            Text("Getting Final Price Summary...")
+                            Text("Accept card payments here")
                             .font(.headline)
                             .foregroundColor(Color.black)
                             ProgressView()
                         } //  VSTACK
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 600, idealHeight: 600, maxHeight: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .background(Color.white)
-                } else {
+                } else if getFinalPriceHttpAuth.authenticated  == 3 {
+                    VStack(spacing: 10) {
+                        Image("roundlogo")
+                                .resizable()
+                                .frame(width: 100, height: 100, alignment: .top)
+                                .padding(.vertical, 50)
+                        Text("Getting Final Price Summary...")
+                        .font(.headline)
+                        .foregroundColor(Color.black)
+                        ProgressView()
+                    } //  VSTACK
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 600, idealHeight: 600, maxHeight: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.white)
+            } else {
                     VStack(spacing: 10) {
                         Image("roundlogo")
                                 .resizable()

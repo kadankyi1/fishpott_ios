@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-FishPott/Pods-FishPott-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Paystack/Paystack.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework

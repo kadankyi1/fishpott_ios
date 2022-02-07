@@ -1,16 +1,22 @@
 PODS:
+  - Paystack (3.0.17):
+    - Paystack/Core (= 3.0.17)
+  - Paystack/Core (3.0.17)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
+  - Paystack
   - SwiftyJSON
 
 SPEC REPOS:
   trunk:
+    - Paystack
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Paystack: 5a7a9d5c47ddfd76e3d84550d9ff1f49bf6d284c
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 2587bb3abaf9e46ba6983cb49ad0b872e93cb9ae
+PODFILE CHECKSUM: 3d1ddc5c9447e8daa15711dbe419cb72867a46b9
 
 COCOAPODS: 1.11.2

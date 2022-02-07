@@ -6,5 +6,6 @@ target 'FishPott' do
   use_frameworks!
 
   # Pods for FishPott
-  pod “SwiftyJSON”
+  pod 'SwiftyJSON'
+  pod 'Paystack'
 end
