@@ -34,6 +34,7 @@
 		DF5F5FAE274A1AC200822C71 /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FAD274A1AC200822C71 /* KeyboardGuardian.swift */; };
 		DF5F5FB0274A1B2F00822C71 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FAF274A1B2F00822C71 /* PickerTextField.swift */; };
 		DF5F5FB2274A201A00822C71 /* SignupActionTextsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5FB1274A201A00822C71 /* SignupActionTextsViews.swift */; };
+		DF8D838E27B01B3600B9323D /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8D838D27B01B3600B9323D /* CreditCard.swift */; };
 		DFA00B6527A2ACA900A2DD8A /* BusinessBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA00B6427A2ACA900A2DD8A /* BusinessBannerView.swift */; };
 		DFA00B6727A2B34200A2DD8A /* PriceSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA00B6627A2B34200A2DD8A /* PriceSummaryView.swift */; };
 		DFA00B6927A2B6DF00A2DD8A /* PriceSummaryListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA00B6827A2B6DF00A2DD8A /* PriceSummaryListItemView.swift */; };
@@ -87,6 +88,7 @@
 		DF5F5FAD274A1AC200822C71 /* KeyboardGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGuardian.swift; sourceTree = "<group>"; };
 		DF5F5FAF274A1B2F00822C71 /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		DF5F5FB1274A201A00822C71 /* SignupActionTextsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupActionTextsViews.swift; sourceTree = "<group>"; };
+		DF8D838D27B01B3600B9323D /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		DF919A4B275C99F6009B7F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DFA00B6427A2ACA900A2DD8A /* BusinessBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessBannerView.swift; sourceTree = "<group>"; };
 		DFA00B6627A2B34200A2DD8A /* PriceSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceSummaryView.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				DF280D42278EE1F800002BF7 /* SharesToolboxMenuItemView.swift */,
 				DFA00B6627A2B34200A2DD8A /* PriceSummaryView.swift */,
 				DFA00B6827A2B6DF00A2DD8A /* PriceSummaryListItemView.swift */,
+				DF8D838D27B01B3600B9323D /* CreditCard.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				DF280D3F278EDA5500002BF7 /* SellbackSharesView.swift in Sources */,
 				DFF03D6E276B366C00C31FC4 /* TransactionModel.swift in Sources */,
 				DFCD56D52768B6C900F092C8 /* ProfileRowView.swift in Sources */,
+				DF8D838E27B01B3600B9323D /* CreditCard.swift in Sources */,
 				DF5F5F9D2748035700822C71 /* IntroCardView.swift in Sources */,
 				DF280D41278EE05400002BF7 /* SharesToolBoxView.swift in Sources */,
 				DF5F5FA9274917A400822C71 /* LoginView.swift in Sources */,

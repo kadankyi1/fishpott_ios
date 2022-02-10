@@ -42,6 +42,7 @@ struct LoginView: View {
                     .foregroundColor(.green)
                     .onAppear(perform: {
                         saveTextInStorage("user_phone", manager.user_phone)
+                        saveTextInStorage("user_email", manager.user_email)
                         saveTextInStorage("user_id", manager.user_id)
                         saveTextInStorage("access_token", manager.access_token)
                         saveTextInStorage("user_pott_name", manager.user_pott_name)
@@ -147,6 +148,7 @@ class HttpAuth: ObservableObject {
     @Published var showLoginButton = true
     @Published var message = ""
     @Published var user_phone = ""
+    @Published var user_email = ""
     @Published var user_id = ""
     @Published var access_token = ""
     @Published var user_pott_name = ""
@@ -208,6 +210,11 @@ class HttpAuth: ObservableObject {
                                 //Now you got your value
                                 self.user_phone = user_phone
                                 print("user_phone: \(self.user_phone)")
+                              }
+                            if let user_email = json["user_email"].string {
+                                //Now you got your value
+                                self.user_email = user_email
+                                print("user_email: \(self.user_email)")
                               }
                             if let user_id = json["user_id"].string {
                                 //Now you got your value

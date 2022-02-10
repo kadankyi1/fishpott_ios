@@ -10,6 +10,7 @@ import Firebase
 import UserNotifications
 import Paystack
 
+// PAYSTACK
 @main
 struct FishPottApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
@@ -17,7 +18,8 @@ struct FishPottApp: App {
     static let app_version : String = "7"
     static let app_domain : String = "https://app.fishpott.com"
     
-    @State var currentStage = getUserFirstOpenView("user_accesstoken")
+    @State var currentStage = getUserFirstOpenView("user_accesstoken");
+    
     
     var body: some Scene {
         WindowGroup {
@@ -49,6 +51,7 @@ func getSavedString(_ index: String) -> String {
 func getUserFirstOpenView(_ index: String) -> String {
     var str = UserDefaults.standard.string(forKey: index) ?? ""
     var user_phone = UserDefaults.standard.string(forKey: "user_phone") ?? ""
+    var user_email = UserDefaults.standard.string(forKey: "user_email") ?? ""
     var user_id = UserDefaults.standard.string(forKey: "user_id") ?? ""
     var access_token = UserDefaults.standard.string(forKey: "access_token") ?? ""
     var user_pott_name = UserDefaults.standard.string(forKey: "user_pott_name") ?? ""
@@ -85,14 +88,25 @@ func getUserFirstOpenView(_ index: String) -> String {
 }
 
 
+/*
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        Paystack.setDefaultPublicKey("pk_live_d93022487706c680ab03c7a8d3a285898736527c")
+        return true
+    }
+}
+*/
+
 //@UIApplicationMain
 class AppDelegate: NSObject, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.message_id"
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
 
         Messaging.messaging().delegate = self
+        Paystack.setDefaultPublicKey("pk_live_d93022487706c680ab03c7a8d3a285898736527c")
 
         if #available(iOS 10.0, *) {
           // For iOS 10 display notification (sent via APNS)
@@ -124,12 +138,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
       completionHandler(UIBackgroundFetchResult.newData)
     }
     
-    // PAYSTACK
-    
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        Paystack.setDefaultPublicKey("pk_live_d93022487706c680ab03c7a8d3a285898736527c")
-        return true
-    }
 }
 
 extension AppDelegate: MessagingDelegate {
