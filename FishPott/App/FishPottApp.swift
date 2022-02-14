@@ -13,6 +13,7 @@ import Paystack
 //new class to store notification text and to tell the NavigationView to go to a new page
 class NotificationManager : ObservableObject {
     @Published var currentNotificationText : String?
+    @Published var deviceToken : String?
     
     var navigationBindingActive : Binding<Bool> {
         .init { () -> Bool in
@@ -37,6 +38,7 @@ struct FishPottApp: App {
     static let app_version : String = "7"
     static let app_domain : String = "https://app.fishpott.com"
     @State var currentStage = getUserFirstOpenView("user_accesstoken");
+    @State var thisDeviceToken = getSavedString("devicetoken");
     @State var isFromNotif: Bool = false
     
     
@@ -51,7 +53,10 @@ struct FishPottApp: App {
             } else if(self.currentStage == "SignupView"){
                 SignupView(currentStage: $currentStage)
             } else {
-                MainView(currentStage: $currentStage, notificationManager: appDelegate.notificationManager)
+                MainView(currentStage: $currentStage, notificationManager: appDelegate.notificationManager, deviceToken: thisDeviceToken)
+                    .onAppear(perform: {
+                        print("4SNMDT thisDeviceToken: \(thisDeviceToken)")
+                    })
             }
             
         } // MARK: - WINDOW GROUP
@@ -72,6 +77,7 @@ func getUserFirstOpenView(_ index: String) -> String {
     var user_phone = UserDefaults.standard.string(forKey: "user_phone") ?? ""
     var user_email = UserDefaults.standard.string(forKey: "user_email") ?? ""
     var user_id = UserDefaults.standard.string(forKey: "user_id") ?? ""
+    var device_fcm_token = UserDefaults.standard.string(forKey: "devicetoken") ?? ""
     var access_token = UserDefaults.standard.string(forKey: "access_token") ?? ""
     var user_pott_name = UserDefaults.standard.string(forKey: "user_pott_name") ?? ""
     var user_full_name = UserDefaults.standard.string(forKey: "user_full_name") ?? ""
@@ -237,6 +243,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     ) {
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let token = tokenParts.joined()
+        setDeviceToken(token: token)
         print("device token : \(token)")
     }//handles sucessful register for notifications
     
@@ -314,7 +321,20 @@ extension AppDelegate {
         guard let alert = aps["alert"] as? String else { //get the "alert" field
             return false
         }
+        guard let alert = aps["alert"] as? String else { //get the "alert" field
+            return false
+        }
         self.notificationManager.currentNotificationText = alert
+        return true
+    }
+}
+
+extension AppDelegate {
+    @discardableResult func setDeviceToken(token: String) -> Bool {
+        self.notificationManager.deviceToken = token
+        
+        saveTextInStorage("devicetoken", self.notificationManager.deviceToken ?? "")
+        print("SNMDT self.notificationManager.deviceToken: \(self.notificationManager.deviceToken)")
         return true
     }
 }

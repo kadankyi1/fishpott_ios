@@ -12,12 +12,16 @@ import SwiftyJSON
 struct MainView: View {
     @Binding var currentStage: String
     @ObservedObject var notificationManager : NotificationManager
+    var thisDeviceToken : String?
+    @ObservedObject var setDeviceTokenFetchHttpAuth = SetDeviceTokenFetchHttpAuth()
     
-    init(currentStage: Binding<String>, notificationManager: NotificationManager) {
+    init(currentStage: Binding<String>, notificationManager: NotificationManager, deviceToken: String) {
         self._currentStage = .constant("MainView")
         UITabBar.appearance().barTintColor = .systemBackground
         UINavigationBar.appearance().barTintColor = .systemBackground
         self.notificationManager = notificationManager
+        self.thisDeviceToken = deviceToken
+        print("3SNMDT thisDeviceToken: \(thisDeviceToken)")
         /*
          for family in UIFont.familyNames {
              print(family)
@@ -66,6 +70,13 @@ struct MainView: View {
                 case 0:
                     if (notificationManager.currentNotificationText == nil || notificationManager.currentNotificationText == "") {
                         SuggestionView()
+                            .onAppear(perform: {
+                                print("2SNMDT thisDeviceToken: \(thisDeviceToken)")
+                                //if (notificationManager.currentNotificationText != nil && notificationManager.currentNotificationText != "") {
+                                setDeviceTokenFetchHttpAuth.sendRequest(app_version: FishPottApp.app_version, device_token: thisDeviceToken ?? "")
+                                //}
+                            })
+
                     } else {
                         VStack{
                             VStack{
@@ -85,7 +96,8 @@ struct MainView: View {
                                 .foregroundColor(Color.gray)
                                 .font(.system(size: 15))
                             }
-                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 500, idealHeight: 500, maxHeight: 500, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            //.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             
                             VStack{
                                 Button(action: {
@@ -193,3 +205,107 @@ struct MainView_Previews: PreviewProvider {
     }
 }
 */
+
+
+class SetDeviceTokenFetchHttpAuth: ObservableObject {
+
+    @Published var authenticated = 3
+    @Published var showLoginButton = true
+    @Published var message = ""
+    
+    @Published var pott_networth: String = ""
+    @Published var pott_intelligence: String = ""
+    @Published var pott_position: String = ""
+    @Published var all_potts: String = ""
+    
+    func sendRequest(app_version: String, device_token: String) {
+    showLoginButton = false
+        self.authenticated = 3
+    guard let url = URL(string: FishPottApp.app_domain + "/api/v1/user/get-user-info") else { return }
+        
+    let body: [String: String] =
+        [
+            "user_phone_number": getSavedString("user_phone"),
+            "user_pottname": getSavedString("user_pott_name"),
+            "investor_id": getSavedString("user_id"),
+            "app_type": "ios",
+            "app_version_code": app_version,
+            "user_language": "en",
+            "fcm_token": device_token
+        ]
+    let finalBody = try! JSONSerialization.data(withJSONObject: body)
+    print(body)
+    print(finalBody)
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.httpBody = finalBody
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.setValue("application/json", forHTTPHeaderField: "Accept")
+    request.setValue("Bearer " + getSavedString("access_token"), forHTTPHeaderField: "Authorization")
+
+    URLSession.shared.dataTask(with: request) { (data2, response, error) in
+        print("starting 1")
+        guard let data2 = data2 else { return }
+        print("starting 2")
+        print(data2)
+        
+        do {
+            let json = try JSON(data: data2)
+            print("json")
+            print(json)
+            if let status = json["status"].int {
+              //Now you got your value
+                //print(status)
+                
+                DispatchQueue.main.async {
+                    if status == 1 {
+                            self.authenticated = 4
+                        print("b message: \(self.message)")
+                        
+                            if let pott_networth = json["data"]["pott_networth"].string {
+                              //Now you got your value
+                              self.pott_networth = pott_networth
+                              print("pott_networth: \(pott_networth)")
+                            }
+                            
+                            if let pott_intelligence = json["data"]["pott_intelligence"].string {
+                                //Now you got your value
+                                
+                                self.pott_intelligence = String(pott_intelligence)
+                                print("pott_intelligence: \(pott_intelligence)")
+                              }
+                        
+                        if let pott_position = json["data"]["pott_position"].string {
+                            //Now you got your value
+                            self.pott_position = pott_position
+                            print("pott_position: \(pott_position)")
+                          }
+                        
+                        if let all_potts = json["data"]["all_potts"].string {
+                            //Now you got your value
+                            self.all_potts = all_potts
+                            print("all_potts: \(all_potts)")
+                          }
+                    } else {
+                        self.authenticated = 2
+                        if let message = json["message"].string {
+                            //Now you got your value
+                              print(message)
+                              self.message = message
+                          }
+                    }
+                }
+            } // END if let status = json["status"].in
+        } catch  let error as NSError {
+            print((error as NSError).localizedDescription)
+            DispatchQueue.main.async {
+                self.message = "Suggestion Retrieval Failed"
+                self.authenticated = 2
+            }
+        }
+        
+    }.resume()
+}
+}
+
