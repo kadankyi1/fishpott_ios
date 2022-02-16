@@ -12,7 +12,7 @@ struct SuggestionView: View {
     // MARK: - PROPERTIES
     @State private var shouldRefresh = false
     @ObservedObject var getSuggestionHttpAuth = GetSuggestionHttpAuth()
-    @State private var networking: Bool = false
+    //@State private var networking: Bool = false
     
     
     var body: some View {
@@ -29,8 +29,7 @@ struct SuggestionView: View {
                     .font(.headline)
                     .foregroundColor(Color.black)
                     .onTapGesture {
-                       if networking == false {
-                           networking = true;
+                        if getSuggestionHttpAuth.authenticated == 0 || getSuggestionHttpAuth.authenticated == 2 {
                            getSuggestionHttpAuth.sendRequest(app_version: FishPottApp.app_version);
                            getSuggestionHttpAuth.authenticated = 3
                            print("here 1")
@@ -67,8 +66,7 @@ struct SuggestionView: View {
                     .font(.headline)
                     .foregroundColor(Color.black)
                     .onTapGesture {
-                       if networking == false {
-                           networking = true;
+                        if getSuggestionHttpAuth.authenticated == 0 || getSuggestionHttpAuth.authenticated == 2 {
                            getSuggestionHttpAuth.sendRequest(app_version: FishPottApp.app_version);
                            getSuggestionHttpAuth.authenticated = 3
                            print("here new 1")
