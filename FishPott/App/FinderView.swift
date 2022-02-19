@@ -90,6 +90,7 @@ struct FinderView: View {
             }// MARK - if manager.authenticated
         } // SCROLLVIEW
       }
+      .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

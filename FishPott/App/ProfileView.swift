@@ -63,6 +63,7 @@ struct ProfileView: View {
             } // SCROLLVIEW
             .padding(.horizontal, 20)
         } // NAVIGATION
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

@@ -68,6 +68,7 @@ struct InvestmentsView: View {
             }
             //.navigationBarTitle("", displayMode: .inline)
         } // NAVIGATION
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

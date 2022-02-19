@@ -15,7 +15,6 @@ struct TransactionsView: View {
     @State var appearCount = 0
     
     var body: some View {
-        NavigationView {
             if transactionsFetchHttpAuth.authenticated == 4 {
                 if transactionsFetchHttpAuth.count_received_items == 0 {
                     VStack(spacing: 10) {
@@ -67,8 +66,6 @@ struct TransactionsView: View {
                     .foregroundColor(Color.red)
                 }
             }
-            
-        } // NAVIGATION
     }
     
     func onLoad() {

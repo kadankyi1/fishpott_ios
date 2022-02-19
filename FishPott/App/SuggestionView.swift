@@ -79,6 +79,7 @@ struct SuggestionView: View {
         } // SCROLLVIEW
         .navigationBarTitle("", displayMode: .inline)
       } // NAVIGATION
+      .navigationViewStyle(StackNavigationViewStyle())
         
     }
 }
