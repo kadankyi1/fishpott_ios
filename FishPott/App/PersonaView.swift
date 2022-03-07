@@ -30,7 +30,7 @@ struct PersonaView: View {
                             GroupBox(){
                                 ProfileRowView(icon: "ai", name: personaDataFetchHttpAuth.o + " - Openness")
                                 HStack {
-                                    Link("How well you allow new experiences", destination: URL(string: "https://en.wikipedia.org/wiki/Openness_to_experience")!)
+                                    Link("Likeness of new ideas and experiences", destination: URL(string: "https://en.wikipedia.org/wiki/Openness_to_experience")!)
                                         .frame(maxWidth: .infinity, alignment: .trailing)
                                         .foregroundColor(Color.gray)
                                         .font(.system(size: 12))
@@ -42,7 +42,7 @@ struct PersonaView: View {
                             GroupBox(){
                                 ProfileRowView(icon: "ai", name: personaDataFetchHttpAuth.c + " - Conscientiousness")
                                 HStack {
-                                    Link("The trait of being careful, or diligent", destination: URL(string: "https://en.wikipedia.org/wiki/Conscientiousness")!)
+                                    Link("Being goal-directed, persistent, and organized", destination: URL(string: "https://en.wikipedia.org/wiki/Conscientiousness")!)
                                         .frame(maxWidth: .infinity, alignment: .trailing)
                                         .foregroundColor(Color.gray)
                                         .font(.system(size: 12))
@@ -54,7 +54,7 @@ struct PersonaView: View {
                             GroupBox(){
                                 ProfileRowView(icon: "ai", name: personaDataFetchHttpAuth.e + " - Extraversion")
                                 HStack {
-                                    Link("A measure of your outgoing energetic behavior", destination: URL(string: "https://en.wikipedia.org/wiki/Extraversion_and_introversion")!)
+                                    Link("Being energized by the outside world", destination: URL(string: "https://en.wikipedia.org/wiki/Extraversion_and_introversion")!)
                                         .frame(maxWidth: .infinity, alignment: .trailing)
                                         .foregroundColor(Color.gray)
                                         .font(.system(size: 12))
@@ -78,7 +78,7 @@ struct PersonaView: View {
                             GroupBox(){
                                 ProfileRowView(icon: "ai", name: personaDataFetchHttpAuth.n + " - Neuroticism")
                                 HStack {
-                                    Link("Measure of arousal of feelings", destination: URL(string: "https://en.wikipedia.org/wiki/Neuroticism")!)
+                                    Link("Sensitivity to stressy emotional triggers", destination: URL(string: "https://en.wikipedia.org/wiki/Neuroticism")!)
                                         .frame(maxWidth: .infinity, alignment: .trailing)
                                         .foregroundColor(Color.gray)
                                         .font(.system(size: 12))
