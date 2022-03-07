@@ -19,6 +19,7 @@
 		DF280D49278EFB5A00002BF7 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DF280D48278EFB5A00002BF7 /* FirebaseAnalytics */; };
 		DF280D4B278EFBAF00002BF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF280D4A278EFBAF00002BF7 /* GoogleService-Info.plist */; };
 		DF4D5D3E27661A7D00CE199D /* BuySharesAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4D5D3D27661A7D00CE199D /* BuySharesAmountView.swift */; };
+		DF4FAF7727D619260065C10B /* PersonaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4FAF7627D619260065C10B /* PersonaView.swift */; };
 		DF513162275B4D950029ED4B /* splashfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF513161275B4D950029ED4B /* splashfont.ttf */; };
 		DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */; };
 		DF5F5F8F2747AF3A00822C71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5F8E2747AF3A00822C71 /* ContentView.swift */; };
@@ -72,6 +73,7 @@
 		DF280D44278EF24A00002BF7 /* FishPott.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FishPott.entitlements; sourceTree = "<group>"; };
 		DF280D4A278EFBAF00002BF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF4D5D3D27661A7D00CE199D /* BuySharesAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySharesAmountView.swift; sourceTree = "<group>"; };
+		DF4FAF7627D619260065C10B /* PersonaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonaView.swift; sourceTree = "<group>"; };
 		DF513161275B4D950029ED4B /* splashfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = splashfont.ttf; sourceTree = "<group>"; };
 		DF5F5F892747AF3A00822C71 /* FishPott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishPott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5F5F8C2747AF3A00822C71 /* FishPottApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishPottApp.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				DFC74E9C2758DE3F00F64CA5 /* FinderView.swift */,
 				DFC74E9E2758DE7600F64CA5 /* InvestmentsView.swift */,
 				DFC74EA02758DE8500F64CA5 /* ProfileView.swift */,
+				DF4FAF7627D619260065C10B /* PersonaView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				DFDCFBDD275E26D700BB0B90 /* DrillQuestionView.swift in Sources */,
 				DF5F5F8D2747AF3A00822C71 /* FishPottApp.swift in Sources */,
 				DFC74E9F2758DE7600F64CA5 /* InvestmentsView.swift in Sources */,
+				DF4FAF7727D619260065C10B /* PersonaView.swift in Sources */,
 				DFCD56CF276891F900F092C8 /* InvestmentModel.swift in Sources */,
 				DFB0F5682756363700968F2B /* AdaptsToKeyboard.swift in Sources */,
 				DFA00B6927A2B6DF00A2DD8A /* PriceSummaryListItemView.swift in Sources */,
@@ -575,7 +579,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FishPott/FishPott.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"FishPott/Preview Content\"";
 				DEVELOPMENT_TEAM = AD23W3PT6L;
 				ENABLE_PREVIEWS = YES;
@@ -592,7 +596,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fishpott.FishPott;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -609,7 +613,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FishPott/FishPott.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"FishPott/Preview Content\"";
 				DEVELOPMENT_TEAM = AD23W3PT6L;
 				ENABLE_PREVIEWS = YES;
@@ -626,7 +630,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fishpott.FishPott;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

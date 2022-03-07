@@ -38,8 +38,8 @@ struct MainView: View {
     @State var shouldShowModal = false
     @State var now = Date()
     
-    let tabBarImageNames = ["suggestions", "finder", "investments", "profile", ]
-    let tabBarMenuNames = ["Suggestions", "Finder", "Investments", "Profile"]
+    let tabBarImageNames = ["suggestions", "finder", "investments", "persona", "profile" ]
+    let tabBarMenuNames = ["Suggestions", "Finder", "Investments", "Persona", "Profile"]
     
     var body: some View {
         
@@ -133,6 +133,8 @@ struct MainView: View {
                 case 2:
                     InvestmentsView()
                 case 3:
+                    PersonaView()
+                case 4:
                     ProfileView()
                     
                 default:
@@ -151,7 +153,7 @@ struct MainView: View {
                 .background(Color.white)
             
             HStack {
-                ForEach(0..<4) { num in
+                ForEach(0..<5) { num in
                     Button(action: {
                         
                         /*
