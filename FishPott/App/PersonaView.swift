@@ -28,7 +28,7 @@ struct PersonaView: View {
                                 .font(.system(size: 12))
                             
                             GroupBox(){
-                                ProfileRowView(icon: "ai", name: personaDataFetchHttpAuth.o + " - Openness")
+                                ProfileRowView(icon: "openness", name: personaDataFetchHttpAuth.o + " - Openness")
                                 HStack {
                                     Link("Likeness of new ideas and experiences", destination: URL(string: "https://en.wikipedia.org/wiki/Openness_to_experience")!)
                                         .frame(maxWidth: .infinity, alignment: .trailing)
@@ -40,7 +40,7 @@ struct PersonaView: View {
                              }
                             Divider().padding(.vertical, 2)
                             GroupBox(){
-                                ProfileRowView(icon: "ai", name: personaDataFetchHttpAuth.c + " - Conscientiousness")
+                                ProfileRowView(icon: "conscientiousness", name: personaDataFetchHttpAuth.c + " - Conscientiousness")
                                 HStack {
                                     Link("Being goal-directed, persistent, and organized", destination: URL(string: "https://en.wikipedia.org/wiki/Conscientiousness")!)
                                         .frame(maxWidth: .infinity, alignment: .trailing)
@@ -52,7 +52,7 @@ struct PersonaView: View {
                              }
                             Divider().padding(.vertical, 2)
                             GroupBox(){
-                                ProfileRowView(icon: "ai", name: personaDataFetchHttpAuth.e + " - Extraversion")
+                                ProfileRowView(icon: "extraversion", name: personaDataFetchHttpAuth.e + " - Extraversion")
                                 HStack {
                                     Link("Being energized by the outside world", destination: URL(string: "https://en.wikipedia.org/wiki/Extraversion_and_introversion")!)
                                         .frame(maxWidth: .infinity, alignment: .trailing)
@@ -64,7 +64,7 @@ struct PersonaView: View {
                              }
                             Divider().padding(.vertical, 2)
                             GroupBox(){
-                                ProfileRowView(icon: "ai", name: personaDataFetchHttpAuth.a + " - Agreeableness")
+                                ProfileRowView(icon: "agreeableness", name: personaDataFetchHttpAuth.a + " - Agreeableness")
                                 HStack {
                                     Link("Measure of cooperation with authority", destination: URL(string: "https://en.wikipedia.org/wiki/Agreeableness")!)
                                         .frame(maxWidth: .infinity, alignment: .trailing)
@@ -76,7 +76,7 @@ struct PersonaView: View {
                              }
                             Divider().padding(.vertical, 2)
                             GroupBox(){
-                                ProfileRowView(icon: "ai", name: personaDataFetchHttpAuth.n + " - Neuroticism")
+                                ProfileRowView(icon: "neuroticism", name: personaDataFetchHttpAuth.n + " - Neuroticism")
                                 HStack {
                                     Link("Sensitivity to stressy emotional triggers", destination: URL(string: "https://en.wikipedia.org/wiki/Neuroticism")!)
                                         .frame(maxWidth: .infinity, alignment: .trailing)
@@ -112,16 +112,16 @@ struct PersonaView_Previews: PreviewProvider {
 
 class PersonaDataFetchHttpAuth: ObservableObject {
 
-    @Published var authenticated = 3
+    @Published var authenticated = 4//3
     @Published var showLoginButton = true
     @Published var message = ""
     
     @Published var ai_info: String = "This is your personality based on your drill answers. People who are in tune with wealth generation have a personality of at least 70% openness, 70% conscientiousness, 70% Extraversion, 70% Agreeableness, 70% Neuroticism."
-    @Published var o: String = "10%"
-    @Published var c: String = "35%"
-    @Published var e: String = "90%"
-    @Published var a: String = "43%"
-    @Published var n: String = "5%"
+    @Published var o: String = "[Unavailable]"
+    @Published var c: String = "[Unavailable]"
+    @Published var e: String = "[Unavailable]"
+    @Published var a: String = "[Unavailable]"
+    @Published var n: String = "[Unavailable]"
     
     func sendRequest(app_version: String) {
     showLoginButton = false
