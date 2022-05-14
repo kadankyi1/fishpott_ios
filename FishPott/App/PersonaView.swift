@@ -86,6 +86,7 @@ struct PersonaView: View {
                                     Image(systemName: "arrow.up.right.square").foregroundColor(.pink)
                                 }
                              }
+                            .padding(.bottom, 20)
                         } else {
                           GroupBox(){
                             ProgressView()
@@ -116,7 +117,7 @@ class PersonaDataFetchHttpAuth: ObservableObject {
     @Published var showLoginButton = true
     @Published var message = ""
     
-    @Published var ai_info: String = "This is your personality based on your drill answers. People who are in tune with wealth generation have a personality of at least 70% openness, 70% conscientiousness, 70% Extraversion, 70% Agreeableness, 70% Neuroticism."
+    @Published var ai_info: String = ""
     @Published var o: String = "[Unavailable]"
     @Published var c: String = "[Unavailable]"
     @Published var e: String = "[Unavailable]"
@@ -166,6 +167,13 @@ class PersonaDataFetchHttpAuth: ObservableObject {
                     if status == 1 {
                             self.authenticated = 4
                         print("b message: \(self.message)")
+                        
+                        
+                            if let ai_info = json["data"]["ai_info"].string {
+                              //Now you got your value
+                              self.ai_info = ai_info
+                              print("ai_info: \(ai_info)")
+                            }
                         
                             if let o = json["data"]["o"].string {
                               //Now you got your value

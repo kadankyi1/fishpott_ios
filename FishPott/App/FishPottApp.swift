@@ -36,7 +36,12 @@ struct FishPottApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     //@AppStorage("isOnboardning") var isOnboarding: Bool = true
     static let app_version : String = "7"
+    
+    // LIVE OR TEST ENVIRONMENT
     static let app_domain : String = "https://app.fishpott.com"
+    //static let app_domain : String = "https://test.fishpott.com"
+    
+    
     @State var currentStage = getUserFirstOpenView("user_accesstoken");
     @State var thisDeviceToken = getSavedString("devicetoken");
     @State var isFromNotif: Bool = false
