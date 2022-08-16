@@ -24,7 +24,7 @@ struct SignupActionTextsViews: View {
                 self.currentStage = "LoginView"
             }
         
-        Link(destination: URL(string: "https://fishpott.com/pp.html")!, label: {
+        Link(destination: URL(string: "https://app.fishpott.com/terms")!, label: {
             Text("Privacy Policy | Terms & Conditions")
                 .foregroundColor(Color("ColorGray"))
                 .padding(.bottom, 10)

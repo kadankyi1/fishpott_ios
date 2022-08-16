@@ -21,12 +21,10 @@ struct PersonaView: View {
                     // MARK: -- SECTION 1
                     
                         if personaDataFetchHttpAuth.authenticated == 4 {
-                            
                             Text(personaDataFetchHttpAuth.ai_info)
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                                 .foregroundColor(Color.gray)
                                 .font(.system(size: 12))
-                            
                             GroupBox(){
                                 ProfileRowView(icon: "openness", name: personaDataFetchHttpAuth.o + " - Openness")
                                 HStack {
@@ -85,8 +83,7 @@ struct PersonaView: View {
                                         .foregroundColor(Color.gray)
                                     Image(systemName: "arrow.up.right.square").foregroundColor(.pink)
                                 }
-                             }
-                            .padding(.bottom, 20)
+                             }.padding(.bottom, 20)
                         } else {
                           GroupBox(){
                             ProgressView()
@@ -113,7 +110,7 @@ struct PersonaView_Previews: PreviewProvider {
 
 class PersonaDataFetchHttpAuth: ObservableObject {
 
-    @Published var authenticated = 4//3
+    @Published var authenticated = 3//4
     @Published var showLoginButton = true
     @Published var message = ""
     

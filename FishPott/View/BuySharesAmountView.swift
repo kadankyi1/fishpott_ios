@@ -27,7 +27,11 @@ struct BuySharesAmountView: View {
     @State private var networking: Bool = false
     @State private var lastSelectedIndex: Int?
     @State private var lastSelectedGender: Int?
-    @State var risks_array = ["1","2", "3"] //Here Add Your data
+    @State var risks_array = [
+        //"1",
+        //"2",
+        "3"
+    ] //Here Add Your data
     // CC
     @State private var degrees: Double = 0
     @State private var flipped: Bool = false
@@ -55,13 +59,25 @@ struct BuySharesAmountView: View {
                             .padding(.top, 20)
                             .background(GeometryGetter(rect: $kGuardian.rects[0]))
                             
-                        PickerTextField(data: ["100% Risk Protection", "50% Risk Protection", "No Risk Protection"],placeholder: "Choose Risk Protection",lastSelectedIndex: self.$lastSelectedGender)
+                        PickerTextField(data: [
+                            //"100% Risk Protection",
+                            //"50% Risk Protection",
+                            "No Risk Protection"
+                        ],placeholder: "Choose Risk Protection",lastSelectedIndex: self.$lastSelectedGender)
                             .frame(height: 10, alignment: .bottom)
                             .scaleEffect(x: 1, y: 1, anchor: .center)
                             .padding(.horizontal, 50)
                             .padding(.bottom, 20)
                             .padding(.top, 15)
                             .background(GeometryGetter(rect: $kGuardian.rects[0]))
+                        
+                        Text("Risk insurance is currently not available but we are working with partner insurance companies to provide you with this service")
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .padding(.horizontal, 50)
+                            .padding(.bottom, 20)
+                            .padding(.top, 15)
+                            .foregroundColor(Color.gray)
+                            .font(.system(size: 12))
                         
                                 Button(action: {
                                     print("FishPottApp.app_version: " + FishPottApp.app_version)
@@ -110,7 +126,7 @@ struct BuySharesAmountView: View {
                                     .accentColor(Color("ColorBlackPrimary"))
                                     .background(Color("ColorBlackPrimary"))
                                     .cornerRadius(5)
-                                    .padding(.bottom, 120)
+                                    .padding(.bottom, 20)
                         } //  VSTACK
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 600, idealHeight: 600, maxHeight: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         //.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
@@ -119,12 +135,10 @@ struct BuySharesAmountView: View {
                         
                     VStack {
                         
-                        PriceSummaryListItemView(icon: "", name: "Number: " + getFinalPriceHttpAuth.mobileMoneyNumber).padding(.horizontal, 50)
-                        
-                        PriceSummaryListItemView(icon: "", name: "Name: " + getFinalPriceHttpAuth.mobileMoneyName).padding(.horizontal, 50)
+                        PaymentBankTransferView(bankName: <#String#>, bankAddress: <#String#>, bankSwiftIban: <#String#>, bankBranch: <#String#>, accountName: <#String#>, accountNumber: <#String#>, referenceCode: <#String#>)
                         
                         
-                        Text("Send full payment to the mobile money number above and type in the transaction ID you receive from the network operator after you send")
+                        Text("Send " + getFinalPriceHttpAuth.overallTotalUsd + " to the account above and fill the form below")
                             .frame(maxWidth: .infinity, alignment: .trailing)
                             .padding(.horizontal, 50)
                             .foregroundColor(Color.gray)
@@ -159,7 +173,7 @@ struct BuySharesAmountView: View {
                             Button(action: {
                                 
                                 if(getFinalPriceHttpAuth.processingPayment == 0 || getFinalPriceHttpAuth.processingPayment == 2){
-                                    getFinalPriceHttpAuth.sendPaymentRequest(stockpurchase_id: getFinalPriceHttpAuth.orderID, momo_transaction_with_date: "Momo ID: " + transaction_id + " - Date: " + payment_date, app_version: FishPottApp.app_version);
+                                    getFinalPriceHttpAuth.sendPaymentRequest(stockpurchase_id: getFinalPriceHttpAuth.orderID, momo_transaction_with_date: "Bank Account Name : " + transaction_id + " - Date: " + payment_date, app_version: FishPottApp.app_version);
                                     //getFinalPriceHttpAuth.authenticated = 3
                                 }
                                 
@@ -259,6 +273,13 @@ class GetFinalPriceHttpAuth: ObservableObject {
     @Published var mobileMoneyNumber: String = ""
     @Published var mobileMoneyName: String = ""
     @Published var transactionOrderID: String = ""
+    @Published var bankName: String = ""
+    @Published var bankAddress: String = ""
+    @Published var bankSwiftIban: String = ""
+    @Published var bankBranch: String = ""
+    @Published var accountName: String = ""
+    @Published var accountNumber: String = ""
+    @Published var referenceCode: String = ""
     
     func sendRequest(business_id: String, investment_amt_in_dollars: String, investment_risk_protection: String, app_version: String) {
     showLoginButton = false

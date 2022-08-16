@@ -302,6 +302,8 @@ class SignupHttpAuth: ObservableObject {
                 guard let data = data else { return }
                 print("data")
                 print(data)
+                print("response")
+                print(response)
             
             do {
                 let json = try JSON(data: data)
