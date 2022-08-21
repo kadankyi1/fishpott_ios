@@ -19,27 +19,26 @@ struct PaymentBankTransferView: View {
     var referenceCode: String
     
     var body: some View {
-        HStack {
+        VStack(){
+            PaymentBankInfoListView(icon: "", name: "Bank: " + bankName)
             
-            PriceSummaryListItemView(icon: "", name: "Bank: " + bankName).padding(.horizontal, 50)
+            PaymentBankInfoListView(icon: "", name: "Bank Address: " + bankAddress)
             
-            PriceSummaryListItemView(icon: "", name: "Bank Address: " + bankAddress).padding(.horizontal, 50)
+            PaymentBankInfoListView(icon: "", name: "SWIFT/IBAN: " + bankSwiftIban)
             
-            PriceSummaryListItemView(icon: "", name: "SWIFT/IBAN: " + bankSwiftIban).padding(.horizontal, 50)
+            PaymentBankInfoListView(icon: "", name: "Branch: " + bankBranch)
             
-            PriceSummaryListItemView(icon: "", name: "Branch: " + bankBranch).padding(.horizontal, 50)
+            PaymentBankInfoListView(icon: "", name: "Account Name: " + accountName)
             
-            PriceSummaryListItemView(icon: "", name: "Account Name: " + accountName).padding(.horizontal, 50)
+            PaymentBankInfoListView(icon: "", name: "Account No.: " + accountNumber)
             
-            PriceSummaryListItemView(icon: "", name: "Account No.: " + accountNumber).padding(.horizontal, 50)
-            
-            PriceSummaryListItemView(icon: "", name: "Ref. Code: " + referenceCode).padding(.horizontal, 50)
+            PaymentBankInfoListView(icon: "", name: "Ref. Code: " + referenceCode)
         }
     }
 }
 
 struct PaymentBankTransferView_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentBankTransferView(bankName: "Access Bank", bankAddress: "91 Starlets Rd, Osu, Greater Accra", bankSwiftIban: "ACC3973", bankBranch: "Madina", accountName: "FishPot Company Limited", accountNumber: "97319373", referenceCode: "ACDDHO208284")
+        PaymentBankTransferView(bankName: "Access Bank", bankAddress: "91 Starlets Rd, Osu, Greater Accra, Ghana, West Africa", bankSwiftIban: "ACC3973", bankBranch: "Madina", accountName: "FishPot Company Limited", accountNumber: "97319373", referenceCode: "ACDDHO208284")
     }
 }

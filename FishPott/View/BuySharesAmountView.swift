@@ -135,24 +135,29 @@ struct BuySharesAmountView: View {
                         
                     VStack {
                         
-                        PaymentBankTransferView(bankName: <#String#>, bankAddress: <#String#>, bankSwiftIban: <#String#>, bankBranch: <#String#>, accountName: <#String#>, accountNumber: <#String#>, referenceCode: <#String#>)
+                        BusinessBannerView(businessID: businessID, businessName: businessName, businessLogo: businessLogo, businessCountry: businessCountry, businessType: businessType)
                         
-                        
-                        Text("Send " + getFinalPriceHttpAuth.overallTotalUsd + " to the account above and fill the form below")
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                            .padding(.horizontal, 50)
-                            .foregroundColor(Color.gray)
-                            .font(.system(size: 12))
-                        
-                        TextField("Transaction ID", text: $transaction_id)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding(.horizontal, 50)
-                            .padding([.top,.leading,.trailing])
-                        
-                        TextField("Payment Date", text: $payment_date)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding(.horizontal, 50)
-                            .padding([.top,.leading,.trailing])
+                        if getFinalPriceHttpAuth.processingPayment != 4 {
+                            PaymentBankTransferView(bankName: getFinalPriceHttpAuth.bankName, bankAddress: getFinalPriceHttpAuth.bankAddress, bankSwiftIban: getFinalPriceHttpAuth.bankSwiftIban, bankBranch: getFinalPriceHttpAuth.bankBranch, accountName: getFinalPriceHttpAuth.accountName, accountNumber: getFinalPriceHttpAuth.accountNumber, referenceCode: getFinalPriceHttpAuth.orderID)
+                            
+                            
+                            Text("Send " + getFinalPriceHttpAuth.overallTotalUsd + " to the account above and fill the form below when the payment is sent")
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .padding(.horizontal, 50)
+                                .foregroundColor(Color.gray)
+                                .font(.system(size: 12))
+                            
+                            
+                            TextField("Bank Account Name", text: $transaction_id)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding(.horizontal, 50)
+                                .padding([.top,.leading,.trailing])
+                            
+                            TextField("Payment Date", text: $payment_date)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding(.horizontal, 50)
+                                .padding([.top,.leading,.trailing])
+                        }
                         
                         if getFinalPriceHttpAuth.processingPayment == 0 || getFinalPriceHttpAuth.processingPayment == 4 || getFinalPriceHttpAuth.processingPayment == 2 {
                             
@@ -170,26 +175,29 @@ struct BuySharesAmountView: View {
                                     .foregroundColor(Color.red)
                                     .font(.system(size: 12))
                             }
-                            Button(action: {
-                                
-                                if(getFinalPriceHttpAuth.processingPayment == 0 || getFinalPriceHttpAuth.processingPayment == 2){
-                                    getFinalPriceHttpAuth.sendPaymentRequest(stockpurchase_id: getFinalPriceHttpAuth.orderID, momo_transaction_with_date: "Bank Account Name : " + transaction_id + " - Date: " + payment_date, app_version: FishPottApp.app_version);
-                                    //getFinalPriceHttpAuth.authenticated = 3
-                                }
-                                
-                            }) {
-                                HStack (spacing: 4) {
-                                    Text(" Send ")
-                                        .foregroundColor(Color("ColorWhiteAccent"))
-                                }
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 5)
-                                .foregroundColor(Color("ColorWhiteAccent"))
-                            } //: BUTTON
-                            .accentColor(Color("ColorBlackPrimary"))
-                            .background(Color("ColorBlackPrimary"))
-                            .cornerRadius(5)
-                            .padding(.bottom, 120)
+                            
+                            if getFinalPriceHttpAuth.processingPayment != 4 {
+                                Button(action: {
+                                    
+                                    if(getFinalPriceHttpAuth.processingPayment == 0 || getFinalPriceHttpAuth.processingPayment == 2){
+                                        getFinalPriceHttpAuth.sendPaymentRequest(stockpurchase_id: getFinalPriceHttpAuth.orderID, momo_transaction_with_date: "Bank Account Name : " + transaction_id + " - Date: " + payment_date, app_version: FishPottApp.app_version);
+                                        //getFinalPriceHttpAuth.authenticated = 3
+                                    }
+                                    
+                                }) {
+                                    HStack (spacing: 4) {
+                                        Text(" Send ")
+                                            .foregroundColor(Color("ColorWhiteAccent"))
+                                    }
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 5)
+                                    .foregroundColor(Color("ColorWhiteAccent"))
+                                } //: BUTTON
+                                .accentColor(Color("ColorBlackPrimary"))
+                                .background(Color("ColorBlackPrimary"))
+                                .cornerRadius(5)
+                                .padding(.bottom, 0)
+                            }
                         } else if getFinalPriceHttpAuth.processingPayment == 3 {
                                 ProgressView()
                         } else if getFinalPriceHttpAuth.processingPayment == 0 {
@@ -279,7 +287,6 @@ class GetFinalPriceHttpAuth: ObservableObject {
     @Published var bankBranch: String = ""
     @Published var accountName: String = ""
     @Published var accountNumber: String = ""
-    @Published var referenceCode: String = ""
     
     func sendRequest(business_id: String, investment_amt_in_dollars: String, investment_risk_protection: String, app_version: String) {
     showLoginButton = false
@@ -430,17 +437,40 @@ class GetFinalPriceHttpAuth: ObservableObject {
                                 print("paymentGatewayCurrency: \(paymentGatewayCurrency)")
                             }
                             
-                            if let mobileMoneyNumber = json["data"]["mobile_money_number"].string {
+                            if let bankName = json["data"]["payment_details"]["bankname"].string {
                                 //Now you got your value
-                                self.mobileMoneyNumber = mobileMoneyNumber
-                                print("mobileMoneyNumber: \(mobileMoneyNumber)")
+                                self.bankName = bankName
+                                print("bankName: \(bankName)")
+                            }
+                            if let bankAddress = json["data"]["payment_details"]["bankaddress"].string {
+                                //Now you got your value
+                                self.bankAddress = bankAddress
+                                print("bankAddress: \(bankAddress)")
                             }
                             
-                            if let mobileMoneyName = json["data"]["mobile_money_name"].string {
+                            if let bankSwiftIban = json["data"]["payment_details"]["bankswiftiban"].string {
                                 //Now you got your value
-                                self.mobileMoneyName = mobileMoneyName
-                                print("mobileMoneyName: \(mobileMoneyName)")
+                                self.bankSwiftIban = bankSwiftIban
+                                print("bankSwiftIban: \(bankSwiftIban)")
                             }
+                            if let bankBranch = json["data"]["payment_details"]["bankbranch"].string {
+                                //Now you got your value
+                                self.bankBranch = bankBranch
+                                print("bankBranch: \(bankBranch)")
+                            }
+                            if let accountName = json["data"]["payment_details"]["bankaccountname"].string {
+                                //Now you got your value
+                                self.accountName = accountName
+                                print("accountName: \(accountName)")
+                            }
+                            if let accountNumber = json["data"]["payment_details"]["bankaccountnumber"].string {
+                                //Now you got your value
+                                self.accountNumber = accountNumber
+                                print("accountNumber: \(accountNumber)")
+                            }
+                            
+                            
+                            
                           }
                         
                     } else {

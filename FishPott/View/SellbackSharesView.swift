@@ -14,6 +14,7 @@ struct SellbackSharesView: View {
     var stock_business_name: String = ""
     var stock_ownership_id: String = ""
     var quantity_available: String = ""
+    var buyback_usd: String = ""
     
     
     @State private var sell_quantity: String = ""
@@ -30,10 +31,7 @@ struct SellbackSharesView: View {
             if sellBackSharesHttpAuth.authenticated  == 0 ||  sellBackSharesHttpAuth.authenticated  == 2 {
                 VStack(spacing: 10) {
                     
-                Text(stock_business_name)
-                        .foregroundColor(.black)
-                    Text("Available : " + quantity_available)
-                            .foregroundColor(.black)
+                    SellBackFormHeadingView(stock_business_name: stock_business_name, quantity_available: quantity_available, price_in_dollars: "$" + buyback_usd)
                     
                     TextField("Sell Quantity", text: $sell_quantity).textFieldStyle(RoundedBorderTextFieldStyle.init())
                         .scaleEffect(x: 1, y: 1, anchor: .center)
@@ -59,7 +57,7 @@ struct SellbackSharesView: View {
                         .padding(.bottom, 10)
                         .background(GeometryGetter(rect: $kGuardian.rects[0]))
                     
-                    TextField("Routing Number(Banks Only)", text: $bank_routing_number).textFieldStyle(RoundedBorderTextFieldStyle.init())
+                    TextField("Routing Number/SWIFT(Banks Only)", text: $bank_routing_number).textFieldStyle(RoundedBorderTextFieldStyle.init())
                         .scaleEffect(x: 1, y: 1, anchor: .center)
                         .padding(.horizontal, 50)
                         .padding(.bottom, 10)
@@ -215,17 +213,6 @@ class SellbackSharesHttpAuth: ObservableObject {
                                 self.authenticated = 4
                                 print("b message: \(message)")
                                 
-                                if let priceInCedis = json["data"]["business_sys_id"].string {
-                                  //Now you got your value
-                                  self.priceInCedis = priceInCedis
-                                  print("priceInCedis: \(priceInCedis)")
-                                }
-                                
-                                if let priceInDollars = json["data"]["business_sys_id"].string {
-                                    //Now you got your value
-                                    self.priceInDollars = priceInDollars
-                                    print("businessID: \(priceInDollars)")
-                                  }
                                 
                             /*
                              

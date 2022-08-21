@@ -12,6 +12,7 @@ struct SharesToolBoxView: View {
     var stock_business_name: String = ""
     var stock_ownership_id: String = ""
     var quantity_available: String = ""
+    var buybackprice_usd: String = ""
     
     var body: some View {
                 ScrollView(.vertical, showsIndicators: false){
@@ -30,7 +31,7 @@ struct SharesToolBoxView: View {
                         Divider().padding(.vertical, 15)
                         
                         GroupBox(){
-                            NavigationLink(destination: SellbackSharesView(stock_business_name: stock_business_name, stock_ownership_id: stock_ownership_id, quantity_available: quantity_available)){
+                            NavigationLink(destination: SellbackSharesView(stock_business_name: stock_business_name, stock_ownership_id: stock_ownership_id, quantity_available: quantity_available, buyback_usd: buybackprice_usd)){
                                 SharesToolboxMenuItemView(icon: "sellback", name: "Sell Back Shares")
                             }
                             

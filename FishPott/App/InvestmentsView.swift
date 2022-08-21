@@ -32,7 +32,7 @@ struct InvestmentsView: View {
                         .font(.system(size: 15))
                         
                                 ForEach(investmentFetchHttpAuth.received_investments) { item in
-                                    NavigationLink(destination: SharesToolBoxView(stock_business_name: item.business_name, stock_ownership_id: item.stock_id, quantity_available: item.quantity_of_stocks)){
+                                    NavigationLink(destination: SharesToolBoxView(stock_business_name: item.business_name, stock_ownership_id: item.stock_id, quantity_available: item.quantity_of_stocks, buybackprice_usd: item.buyback_usd)){
                                     InvestmentItemView(investment: item)
                                 }
                             }
@@ -133,6 +133,10 @@ class InvestmentFetchHttpAuth: ObservableObject {
                             for item in items {
                                 if let stock_id = item["stock_id"].string {
                                     print(stock_id)
+                                    
+                                    if let buybackprice_usd = item["buyback_usd"].string {
+                                        //Now you got your value
+                                        print("buybackprice_usd: \(buybackprice_usd)")
                                     if let business_id = item["business_id"].string {
                                         print(business_id)
                                     if let business_name = item["business_name"].string {
@@ -153,13 +157,14 @@ class InvestmentFetchHttpAuth: ObservableObject {
                                                                 stock_id: stock_id, 
                                                                 business_id: business_id,
                                                                 business_name: business_name,
-                                                                cost_per_share_usd: cost_per_share_usd,
+                                                                cost_per_share_usd: cost_per_share_usd, buyback_usd: buybackprice_usd,
                                                                 value_per_share_usd: value_per_share_usd,
                                                                 quantity_of_stocks: quantity_of_stocks,
                                                                 value_phrase: value_phrase,
                                                                 ai_info: ai_info
                                                             ))
                                                         }
+                                                      }
                                                     }
                                                 }
                                             }

@@ -27,8 +27,13 @@ struct PriceSummaryListItemView: View {
                 .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 3, x: 2, y: 2)
                 .cornerRadius(8)
+            
             Text(name)
                 .foregroundColor(Color.gray)
+                .font(.subheadline)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 16)
+            
             Spacer()
             
             if(content != nil){
