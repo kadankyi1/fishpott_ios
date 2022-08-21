@@ -86,26 +86,29 @@ struct TransferView: View {
                 
             VStack {
                 
-                PriceSummaryListItemView(icon: "", name: "Number: " + transferSharesHttpAuth.mobileMoneyNumber).padding(.horizontal, 50)
                 
-                PriceSummaryListItemView(icon: "", name: "Name: " + transferSharesHttpAuth.mobileMoneyName).padding(.horizontal, 50)
+                if transferSharesHttpAuth.processingPayment != 4 {
+                    PaymentBankTransferView(bankName: transferSharesHttpAuth.bankName, bankAddress: transferSharesHttpAuth.bankAddress, bankSwiftIban: transferSharesHttpAuth.bankSwiftIban, bankBranch: transferSharesHttpAuth.bankBranch, accountName: transferSharesHttpAuth.accountName, accountNumber: transferSharesHttpAuth.accountNumber, referenceCode: transferSharesHttpAuth.orderID)
+                    
+                    
+                    Text("Send " + transferSharesHttpAuth.priceInDollars + " to the account above and fill the form below when the payment is sent")
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.horizontal, 50)
+                        .foregroundColor(Color.gray)
+                        .font(.system(size: 12))
+                    
+                    
+                    TextField("Bank Account Name", text: $transaction_id)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal, 50)
+                        .padding([.top,.leading,.trailing])
+                    
+                    TextField("Payment Date", text: $payment_date)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal, 50)
+                        .padding([.top,.leading,.trailing])
+                }
                 
-                
-                Text("Send full payment to the mobile money number above and type in the transaction ID you receive from the network operator after you send")
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                    .padding(.horizontal, 50)
-                    .foregroundColor(Color.gray)
-                    .font(.system(size: 12))
-                
-                TextField("Transaction ID", text: $transaction_id)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 50)
-                    .padding([.top,.leading,.trailing])
-                
-                TextField("Payment Date", text: $payment_date)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 50)
-                    .padding([.top,.leading,.trailing])
                 
                 if transferSharesHttpAuth.processingPayment == 0 || transferSharesHttpAuth.processingPayment == 4 || transferSharesHttpAuth.processingPayment == 2 {
                     
@@ -122,10 +125,11 @@ struct TransferView: View {
                             .foregroundColor(Color.red)
                             .font(.system(size: 12))
                     }
+                    if transferSharesHttpAuth.processingPayment != 4 {
                     Button(action: {
                         
                         if(transferSharesHttpAuth.processingPayment == 0 || transferSharesHttpAuth.processingPayment == 2){
-                            transferSharesHttpAuth.sendPaymentRequest(stockpurchase_id: transferSharesHttpAuth.orderID, momo_transaction_with_date: "Momo ID: " + transaction_id + " - Date: " + payment_date, app_version: FishPottApp.app_version);
+                            transferSharesHttpAuth.sendPaymentRequest(stockpurchase_id: transferSharesHttpAuth.orderID, momo_transaction_with_date: "Bank Account Name: " + transaction_id + " - Date: " + payment_date, app_version: FishPottApp.app_version);
                             //getFinalPriceHttpAuth.authenticated = 3
                         }
                         
@@ -142,6 +146,7 @@ struct TransferView: View {
                     .background(Color("ColorBlackPrimary"))
                     .cornerRadius(5)
                     .padding(.bottom, 120)
+                    }
                 } else if transferSharesHttpAuth.processingPayment == 3 {
                         ProgressView()
                 } else if transferSharesHttpAuth.processingPayment == 0 {
@@ -212,6 +217,12 @@ class TransferSharesHttpAuth: ObservableObject {
     @Published var mobileMoneyNumber: String = ""
     @Published var mobileMoneyName: String = ""
     @Published var transactionOrderID: String = ""
+    @Published var bankName: String = ""
+    @Published var bankAddress: String = ""
+    @Published var bankSwiftIban: String = ""
+    @Published var bankBranch: String = ""
+    @Published var accountName: String = ""
+    @Published var accountNumber: String = ""
     
     func sendRequest(user_password: String, stockownership_id: String, transfer_quantity: String, quantity_available: String, receiver_pottname: String, app_version: String) {
     showLoginButton = false
@@ -303,16 +314,37 @@ class TransferSharesHttpAuth: ObservableObject {
                                     print("paymentGatewayCurrency: \(paymentGatewayCurrency)")
                                 }
                                 
-                                if let mobileMoneyNumber = json["data"]["mobile_money_number"].string {
+                                
+                                if let bankName = json["data"]["payment_details"]["bankname"].string {
                                     //Now you got your value
-                                    self.mobileMoneyNumber = mobileMoneyNumber
-                                    print("mobileMoneyNumber: \(mobileMoneyNumber)")
+                                    self.bankName = bankName
+                                    print("bankName: \(bankName)")
+                                }
+                                if let bankAddress = json["data"]["payment_details"]["bankaddress"].string {
+                                    //Now you got your value
+                                    self.bankAddress = bankAddress
+                                    print("bankAddress: \(bankAddress)")
                                 }
                                 
-                                if let mobileMoneyName = json["data"]["mobile_money_name"].string {
+                                if let bankSwiftIban = json["data"]["payment_details"]["bankswiftiban"].string {
                                     //Now you got your value
-                                    self.mobileMoneyName = mobileMoneyName
-                                    print("mobileMoneyName: \(mobileMoneyName)")
+                                    self.bankSwiftIban = bankSwiftIban
+                                    print("bankSwiftIban: \(bankSwiftIban)")
+                                }
+                                if let bankBranch = json["data"]["payment_details"]["bankbranch"].string {
+                                    //Now you got your value
+                                    self.bankBranch = bankBranch
+                                    print("bankBranch: \(bankBranch)")
+                                }
+                                if let accountName = json["data"]["payment_details"]["bankaccountname"].string {
+                                    //Now you got your value
+                                    self.accountName = accountName
+                                    print("accountName: \(accountName)")
+                                }
+                                if let accountNumber = json["data"]["payment_details"]["bankaccountnumber"].string {
+                                    //Now you got your value
+                                    self.accountNumber = accountNumber
+                                    print("accountNumber: \(accountNumber)")
                                 }
                                 
                             } else {
