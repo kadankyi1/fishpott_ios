@@ -5,6 +5,8 @@
 //  Created by Dankyi Anno Kwaku on 11/19/21.
 //
 
+// I, DANKYI ANNO KWAKU is putting this project on hold.
+
 import SwiftUI
 import Firebase
 import UserNotifications
