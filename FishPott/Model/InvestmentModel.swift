@@ -16,6 +16,7 @@ struct InvestmentModel: Identifiable {
     var business_name: String
     var cost_per_share_usd: String
     var buyback_usd: String
+    var total_value: String
     var value_per_share_usd: String
     var quantity_of_stocks: String
     var value_phrase: String

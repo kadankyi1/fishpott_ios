@@ -20,6 +20,7 @@ struct PaymentBankInfoListView: View {
     // MARK: -- BODY
     var body: some View {
             Text(name)
+            .fixedSize(horizontal: false, vertical: true)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 50)
             .foregroundColor(Color.gray)

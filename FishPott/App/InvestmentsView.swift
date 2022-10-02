@@ -151,18 +151,21 @@ class InvestmentFetchHttpAuth: ObservableObject {
                                                         print(value_phrase)
                                                         if let ai_info = item["ai_info"].string {
                                                             print(ai_info)
+                                                            if let total_val = item["total_value_usd"].string {
+                                                                print(total_val)
                                                             //let number_of_stocks = String(quantity_of_stocks)
                                                             self.count_received_investments+=1
                                                             self.received_investments.append(InvestmentModel(
                                                                 stock_id: stock_id, 
                                                                 business_id: business_id,
                                                                 business_name: business_name,
-                                                                cost_per_share_usd: cost_per_share_usd, buyback_usd: buybackprice_usd,
+                                                                cost_per_share_usd: cost_per_share_usd, buyback_usd: buybackprice_usd, total_value: total_val,
                                                                 value_per_share_usd: value_per_share_usd,
                                                                 quantity_of_stocks: quantity_of_stocks,
                                                                 value_phrase: value_phrase,
                                                                 ai_info: ai_info
                                                             ))
+                                                            }
                                                         }
                                                       }
                                                     }

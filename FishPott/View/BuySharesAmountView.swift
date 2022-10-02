@@ -107,7 +107,7 @@ struct BuySharesAmountView: View {
                     .background(Color.white)
                 } else if getFinalPriceHttpAuth.authenticated  == 4 {
                         VStack(spacing: 10) {
-                            BusinessBannerView(businessID: businessID, businessName: businessName, businessLogo: businessLogo, businessCountry: businessCountry, businessType: businessType)
+                            //BusinessBannerView(businessID: businessID, businessName: businessName, businessLogo: businessLogo, businessCountry: businessCountry, businessType: businessType)
                             
                             
                             PriceSummaryView(businessName: getFinalPriceHttpAuth.businessName, pricePerItem: getFinalPriceHttpAuth.pricePerItem, quantityToBuy: getFinalPriceHttpAuth.quantityToBuy, dollarToCedisRate: getFinalPriceHttpAuth.dollarToCedisRate, riskStatement: getFinalPriceHttpAuth.riskStatement, riskInsuranceFee: getFinalPriceHttpAuth.riskInsuranceFee, processingFee: getFinalPriceHttpAuth.processingFee, overallTotalUsd: getFinalPriceHttpAuth.overallTotalUsd)
@@ -141,7 +141,7 @@ struct BuySharesAmountView: View {
                             PaymentBankTransferView(bankName: getFinalPriceHttpAuth.bankName, bankAddress: getFinalPriceHttpAuth.bankAddress, bankSwiftIban: getFinalPriceHttpAuth.bankSwiftIban, bankBranch: getFinalPriceHttpAuth.bankBranch, accountName: getFinalPriceHttpAuth.accountName, accountNumber: getFinalPriceHttpAuth.accountNumber, referenceCode: getFinalPriceHttpAuth.orderID)
                             
                             
-                            Text("Send " + getFinalPriceHttpAuth.overallTotalUsd + " to the account above and fill the form below when the payment is sent")
+                            Text("Send " + getFinalPriceHttpAuth.overallTotalUsd + " or " + getFinalPriceHttpAuth.overallTotalLocalCurrency + " to the account above and fill the form below when the payment is sent")
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                                 .padding(.horizontal, 50)
                                 .foregroundColor(Color.gray)
@@ -151,12 +151,10 @@ struct BuySharesAmountView: View {
                             TextField("Bank Account Name", text: $transaction_id)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .padding(.horizontal, 50)
-                                .padding([.top,.leading,.trailing])
                             
                             TextField("Payment Date", text: $payment_date)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .padding(.horizontal, 50)
-                                .padding([.top,.leading,.trailing])
                         }
                         
                         if getFinalPriceHttpAuth.processingPayment == 0 || getFinalPriceHttpAuth.processingPayment == 4 || getFinalPriceHttpAuth.processingPayment == 2 {

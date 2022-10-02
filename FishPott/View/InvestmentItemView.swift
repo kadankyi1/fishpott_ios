@@ -18,6 +18,29 @@ struct InvestmentItemView: View {
                 
                 HStack(){
                     VStack(spacing: 5) {
+                        
+                        if investment.value_phrase == "Value Profit" {
+                            Text("  " + investment.value_phrase + "  (" + investment.total_value + ")   ")
+                            .font(.footnote)
+                            .bold()
+                            .foregroundColor(Color.white)
+                            .background(Color.green)
+                            .cornerRadius(2)
+                        } else if investment.value_phrase == "Value Loss" {
+                            Text("  " + investment.value_phrase + "  (" + investment.total_value + ")   ")
+                            .font(.footnote)
+                            .bold()
+                            .foregroundColor(Color.white)
+                            .background(Color.red)
+                            .cornerRadius(2)
+                        } else {
+                            Text("  " + investment.value_phrase + "  (" + investment.total_value + ")   ")
+                            .font(.footnote)
+                            .bold()
+                            .foregroundColor(Color.white)
+                            .background(Color.gray)
+                            .cornerRadius(2)
+                        }
                         Text(investment.business_name)
                             .font(.headline)
                             .fontWeight(.bold)
@@ -29,28 +52,6 @@ struct InvestmentItemView: View {
                             .multilineTextAlignment(.center)
                     }
                     
-                    if investment.value_phrase == "Value Profit" {
-                        Text("  " + investment.value_phrase + "  ")
-                        .font(.footnote)
-                        .bold()
-                        .foregroundColor(Color.white)
-                        .background(Color.green)
-                        .cornerRadius(2)
-                    } else if investment.value_phrase == "Value Loss" {
-                        Text("  " + investment.value_phrase + "  ")
-                        .font(.footnote)
-                        .bold()
-                        .foregroundColor(Color.white)
-                        .background(Color.red)
-                        .cornerRadius(2)
-                    } else {
-                        Text("  " + investment.value_phrase + "  ")
-                        .font(.footnote)
-                        .bold()
-                        .foregroundColor(Color.white)
-                        .background(Color.gray)
-                        .cornerRadius(2)
-                    }
                 }
             
                 HStack(){

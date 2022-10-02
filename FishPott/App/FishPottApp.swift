@@ -38,8 +38,8 @@ struct FishPottApp: App {
     static let app_version : String = "7"
     
     // LIVE OR TEST ENVIRONMENT
-    //static let app_domain : String = "https://app.fishpott.com"
-    static let app_domain : String = "https://test.fishpott.com"
+    static let app_domain : String = "https://app.fishpott.com"
+    //static let app_domain : String = "https://test.fishpott.com"
     
     
     @State var currentStage = getUserFirstOpenView("user_accesstoken");

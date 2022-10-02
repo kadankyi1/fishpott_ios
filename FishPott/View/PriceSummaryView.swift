@@ -20,16 +20,16 @@ struct PriceSummaryView: View {
     
     var body: some View {
         GroupBox(){
-            PriceSummaryListItemView(icon: "", name: "Item: " + businessName).padding(.horizontal, 50)
-            PriceSummaryListItemView(icon: "", name: "Stocks Quantity: " + String(quantityToBuy)).padding(.horizontal, 50)
-            PriceSummaryListItemView(icon: "", name: "Price Per Stock: " + pricePerItem).padding(.horizontal, 50)
+            PaymentBankInfoListView(icon: "", name: "Item: " + businessName)
+            PaymentBankInfoListView(icon: "", name: "Stocks Quantity: " + String(quantityToBuy))
+            PaymentBankInfoListView(icon: "", name: "Price Per Stock: " + pricePerItem)
             Divider().padding(.vertical, 2).padding(.horizontal, 50)
-            PriceSummaryListItemView(icon: "", name: "Exchange Rate: " + dollarToCedisRate).padding(.horizontal, 50)
-            PriceSummaryListItemView(icon: "", name: "Risk: " + riskStatement).padding(.horizontal, 50)
-            PriceSummaryListItemView(icon: "", name: "Risk Fee: " + riskInsuranceFee).padding(.horizontal, 50)
-            PriceSummaryListItemView(icon: "", name: "Processing Fee: " + processingFee).padding(.horizontal, 50)
+            PaymentBankInfoListView(icon: "", name: "Exchange Rate: " + dollarToCedisRate)
+            PaymentBankInfoListView(icon: "", name: "Risk: " + riskStatement)
+            PaymentBankInfoListView(icon: "", name: "Risk Fee: " + riskInsuranceFee)
+            PaymentBankInfoListView(icon: "", name: "Processing Fee: " + processingFee)
             Divider().padding(.vertical, 2).padding(.horizontal, 50)
-            PriceSummaryListItemView(icon: "", name: "Final Total Fee: " + overallTotalUsd).padding(.horizontal, 50)
+            PaymentBankInfoListView(icon: "", name: "Final Total Fee: " + overallTotalUsd)
         }
     }
 }
